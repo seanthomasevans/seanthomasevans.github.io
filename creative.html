@@ -6,18 +6,18 @@
 <title>Sean Thomas Evans · Creative + Media</title>
 <style>
   :root {
-    --bg: #FFFFFF;
-    --text: #111111;
-    --muted: #6E6E6E;
-    --line: #E3E3E0;
-    --accent: #E30613;
+    --bg: #101010;
+    --text: #ececea;
+    --muted: #9a9a96;
+    --line: #2a2a28;
+    --accent: #ff4438;
     --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--text);
-    font-family: var(--sans); font-size: 17px; line-height: 1.55; font-weight: 400;
+    font-family: var(--sans); font-size: 15.5px; line-height: 1.55; font-weight: 400;
     letter-spacing: -0.01em;
     font-feature-settings: "tnum";
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
@@ -39,17 +39,17 @@
   nav .links a.here:hover { text-decoration-color: var(--accent); }
 
   /* hero */
-  header { padding: 88px 0 72px; border-bottom: 2px solid var(--text); }
+  header { padding: 88px 0 72px; border-bottom: 1px solid var(--line); }
   .kicker { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 32px; }
-  h1 { font-weight: 700; font-size: clamp(56px, 7vw, 110px); letter-spacing: -0.03em; line-height: 0.95; text-wrap: balance; }
-  .standfirst { margin-top: 32px; max-width: 64ch; font-size: 22px; line-height: 1.4; letter-spacing: -0.01em; }
+  h1 { font-weight: 700; font-size: clamp(38px, 4.6vw, 68px); letter-spacing: -0.03em; line-height: 0.95; text-wrap: balance; }
+  .standfirst { margin-top: 32px; max-width: 64ch; font-size: 18px; line-height: 1.4; letter-spacing: -0.01em; }
   .standfirst strong { font-weight: 700; }
 
   /* section grid */
-  .sec { border-top: 2px solid var(--text); margin-top: 128px; padding-top: 32px; display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start; }
+  .sec { border-top: 1px solid var(--text); margin-top: 88px; padding-top: 32px; display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start; }
   .sec-num { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: 0.02em; font-feature-settings: "tnum"; }
   .sec-range { margin-top: 8px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  h2 { font-weight: 700; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance; }
+  h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance; }
   .lede { margin-top: 24px; max-width: 62ch; font-size: 19px; line-height: 1.45; color: var(--muted); }
 
   /* items */
@@ -62,9 +62,9 @@
   .cap { font-size: 12.5px; color: var(--muted); }
   .cap .idx { color: var(--accent); font-weight: 700; margin-right: 8px; font-feature-settings: "tnum"; }
   .item h3 { font-weight: 700; font-size: clamp(21px, 2.4vw, 28px); letter-spacing: -0.015em; line-height: 1.08; margin: 24px 0 16px; text-wrap: balance; }
-  .item.big h3 { font-size: clamp(26px, 3.4vw, 40px); margin-top: 8px; }
+  .item.big h3 { font-size: clamp(20px, 2.4vw, 28px); margin-top: 8px; }
   .item .body { max-width: 68ch; }
-  .item .body p { font-size: 17px; line-height: 1.55; }
+  .item .body p { font-size: 15.5px; line-height: 1.55; }
   .item .body p + p { margin-top: 16px; }
   .lead-line { max-width: 30ch; font-size: clamp(20px, 2.4vw, 27px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; text-wrap: balance; margin: 8px 0 20px; }
   .link { display: inline-block; margin-top: 24px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: underline; text-decoration-color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -75,7 +75,7 @@
   .also .lbl { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text); margin-bottom: 12px; }
 
   /* credits rows */
-  .rows { margin-top: 40px; border-top: 2px solid var(--text); }
+  .rows { margin-top: 40px; border-top: 1px solid var(--text); }
   .row { display: grid; grid-template-columns: 1fr auto; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
   .row .r-t { font-weight: 700; font-size: 18px; letter-spacing: -0.015em; }
   .row .r-s { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
@@ -94,9 +94,9 @@
   .contact a.row2:hover { text-decoration: none; }
   .contact a.row2:hover .v { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
   .contact .k { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); min-width: 120px; }
-  .contact .v { font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: -0.02em; }
+  .contact .v { font-size: clamp(18px, 2vw, 24px); font-weight: 700; letter-spacing: -0.02em; }
 
-  footer { margin-top: 128px; border-top: 1px solid var(--line); padding: 32px 0 80px; font-size: 12.5px; color: var(--muted); }
+  footer { margin-top: 88px; border-top: 1px solid var(--line); padding: 32px 0 80px; font-size: 12.5px; color: var(--muted); }
 
   @media (min-resolution: 2dppx) {
     .figure, .item + .item, .row, .contact a.row2 { border-width: 0.5px; }
@@ -155,7 +155,7 @@
             <div class="body">
               <p>Animation Director on the Amazon Prime four-part documentary. An AI photo-to-4K animation pipeline,
               built before the tools had names, turned thousands of archival photographs into living motion. TIFF
-              2024 World Premiere. Seven Canadian Screen Award nominations. IMDb 9.3.</p>
+              2024 World Premiere. Seven Canadian Screen Award nominations. IMDb 9.3. The pipeline became the basis of subsequent generative-post work for Bell Media, Crave, and Warner Music.</p>
             </div>
             <a class="link" href="https://www.imdb.com/title/tt33312360/" target="_blank" rel="noopener">The series on IMDb</a>
           </article>
@@ -170,7 +170,7 @@
               colour pass.</p>
               <p>Creative technologist on Lanois’ visual work: the Belladonna Nocturne visual album, and The Crossing,
               a custom analysis engine over his 3,352-file session archive spanning four decades with U2, Bob Dylan,
-              Brian Eno, Peter Gabriel, and Neil Young. Ninety-five sessions transcribed. 221,000 chord events mapped.
+              Brian Eno, Peter Gabriel, Neil Young, Willie Nelson, and Emmylou Harris. Ninety-five sessions transcribed. 221,000 chord events mapped.
               Live tour visuals with Lanois since October 2025.</p>
             </div>
             <a class="link" href="https://youtu.be/Y6e0l9Ro6Dk" target="_blank" rel="noopener">Watch Steel Mill</a>
@@ -183,7 +183,7 @@
             <div class="body">
               <p>A forty-year archive deployed as a 230-foot real-time generative film. Athena is the conversational
               generation system driving the Design Exchange trading floor in Toronto: 6,500 square feet at 270 degrees,
-              with model routing, anamorphic rendering, and Resolume control feeding the live surface.</p>
+              with model routing, anamorphic rendering, and Resolume control feeding the live surface. Model routing across Flux, Sora 2, Kling, Veo, Wan, Hunyuan3D, and Trellis; anamorphic rendering on CAVE projection geometry; roughly $0.08 per generated 3D object.</p>
             </div>
           </article>
 

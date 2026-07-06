@@ -114,6 +114,14 @@
     .row .r-m { text-align: left; }
     .contact .k { min-width: 0; }
   }
+
+  .figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 6px; }
+  .figrow figure { border: 1px solid var(--line); padding: 3px; background: var(--bg); margin: 0; }
+  .figrow img { display: block; width: 100%; }
+  .sec { margin-top: 56px !important; padding-top: 24px !important; }
+  header { padding: 48px 0 40px !important; }
+  .items > .item, .items > article { margin-top: 28px !important; }
+  section, .sec-main { padding-top: 0 !important; }
 </style>
 </head>
 <body>
@@ -161,8 +169,11 @@
           </article>
 
           <article class="item">
-            <figure class="figure"><img src="assets/belladonna-title.jpg" alt="Belladonna Nocturne title rendered in illuminated keyboard keycaps" width="2400" height="1350"></figure>
-            <div class="cap"><span class="idx">01</span>Belladonna Nocturne title system · 4K</div>
+            <div class="figrow">
+            <figure><img src="assets/belladonna-title.jpg" alt="Belladonna Nocturne title in typewriter keycaps"></figure>
+            <figure><img src="assets/typewriter-mosaic.jpg" alt="Keycap mosaic render from the title system"></figure>
+          </div>
+          <div class="cap"><span class="idx">01</span>Belladonna Nocturne title system · typewriter-key alphabet renders</div>
             <h3>Daniel Lanois · Belladonna Nocturne</h3>
             <div class="body">
               <p>Visual companions for Belladonna Nocturne, Lanois&rsquo;s June 2026 album on Warner&rsquo;s Arts
@@ -171,6 +182,11 @@
               pipeline generated, retimed, and matted the footage, set titles from a photographic typewriter-key
               alphabet, and delivered every piece as a ProRes 422 HQ master at 24fps with vertical cuts and
               Spotify canvases from the same master.</p>
+              <div class="figrow">
+                <figure><img src="assets/print-red-wall.jpg" alt="Red Wall Kingston, fine-art print master"></figure>
+                <figure><img src="assets/print-rainbow.jpg" alt="Rainbow Umbrella, fine-art print master"></figure>
+              </div>
+              <div class="cap"><span class="idx">02</span>Fine-art print masters from the same footage · Beckett Fine Art</div>
               <p>Underneath it, The Maker: an archive engine over Lanois&rsquo;s personal film and audio
               collection. Thousands of files indexed, 95 sessions transcribed into 18,992 segments, 221,000 chord
               events mapped with beat-synced harmony analysis, stems separated, and curated thematic cuts
@@ -180,7 +196,10 @@
           </article>
 
           <article class="item">
-            <figure class="figure"><img src="assets/athena-ocean.jpg" alt="Bioluminescent deep-ocean scene, generative projection content" width="2400" height="369"></figure>
+            <div class="figrow">
+            <figure><img src="assets/athena-ocean.jpg" alt="Bioluminescent ocean, anamorphic projection content"></figure>
+            <figure><img src="assets/athena-silk.jpg" alt="Flowing silk, anamorphic projection content"></figure>
+          </div>
             <div class="cap"><span class="idx">02</span>270° generative projection · Design Exchange, Toronto</div>
             <h3>Athena · Design Exchange</h3>
             <div class="body">
@@ -245,7 +264,8 @@
           </article>
 
           <article class="item">
-            <h3>Spots of Light</h3>
+            <figure class="figrow" style="grid-template-columns:1fr;"><figure><img src="assets/legacy-05.jpg" alt="Spots of Light poster"></figure></figure>
+          <h3>Spots of Light</h3>
             <div class="body">
               <p>Producer and VR Director. Photographs becoming spatial memory: a volumetric documentary, an Israel
               and Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian
@@ -266,6 +286,10 @@
 
         <div class="also">
           <span class="lbl">Also</span>
+          <div class="figrow" style="margin-top:12px;">
+            <figure><img src="assets/legacy-02.jpg" alt="WeedVR virtual dispensary interface"></figure>
+            <figure><img src="assets/legacy-01.jpg" alt="Spots of Light title card"></figure>
+          </div>
           Sharkwater VR (TIFF 2018), Cut-Off for VICE and the NFB (Canadian Screen Award nominee), Body / Mind / Change
           with David Cronenberg, Kuso VR with Flying Lotus for AMC, and Living With Jaguars for VICE.
         </div>

@@ -126,6 +126,14 @@
     .tech > div:nth-child(even) { padding-left: 0; }
     .contact .k { min-width: 0; }
   }
+
+  .figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 6px; }
+  .figrow figure { border: 1px solid var(--line); padding: 3px; background: var(--bg); margin: 0; }
+  .figrow img { display: block; width: 100%; }
+  .sec { margin-top: 56px !important; padding-top: 24px !important; }
+  header { padding: 48px 0 40px !important; }
+  .items > .item, .items > article { margin-top: 28px !important; }
+  section, .sec-main { padding-top: 0 !important; }
 </style>
 </head>
 <body>
@@ -213,7 +221,7 @@
     <div class="sec">
       <div class="sec-aside">
         <div class="sec-num">02</div>
-        <div class="sec-range">One move, four industries</div>
+        <div class="sec-range">One move, five industries</div>
       </div>
       <div class="sec-main">
         <h2>Applied across industries</h2>
@@ -241,6 +249,15 @@
             package for a fraction of traditional production cost.</p></div>
           </article>
           <article class="item">
+            <p class="ptag">Research · AI Alpha</p>
+            <div class="body"><p>An agentic equity-research engine: filings, transcripts, news, and macro data
+            extracted into per-issuer and per-sector signals, feeding a mean-CVaR portfolio optimizer with human
+            PM sign-off. The pitch decks and an interactive PM console are live.</p></div>
+            <div class="figrow" style="grid-template-columns:1fr;"><figure><img src="assets/aialpha-deck.jpg" alt="AI Alpha investor deck, live"></figure></div>
+            <div class="cap"><span class="idx">04</span>AI Alpha deck · live on GitHub Pages</div>
+          </article>
+
+          <article class="item">
             <p class="ptag">Regulated finance · TRIYO</p>
             <div class="body"><p>An AML platform built with Triyo, the RegTech vendor, for its Libro Credit Union engagement. The standout piece is a
             crowd-simulation-inspired synthetic-data engine: agent-based actors carry legitimate spending rules,
@@ -249,6 +266,8 @@
             scores fifteen behavioral detectors, measured at 0.958 precision on the scored set. Around it: eight
             compliance agents, FINTRAC Gen 2 schemas parsed across 884 properties and 256 required fields, a
             hash-chained WORM audit ledger, and a deployed, password-gated AI-ops console on Azure.</p></div>
+            <div class="figrow" style="grid-template-columns:1fr;"><figure><img src="assets/sentra-demo.jpg" alt="Detection console, public demo build"></figure></div>
+            <div class="cap"><span class="idx">03</span>Detection console · public demo build</div>
           </article>
         </div>
       </div>
@@ -267,8 +286,16 @@
         <h2>Conformer</h2>
         <div class="items">
           <article class="item big">
-            <figure class="figure"><img src="assets/typewriter-mosaic.jpg" alt="Keycap mosaic forming a skull" width="1600" height="900"></figure>
-            <div class="cap"><span class="idx">01</span>Conformer · screenplay to validated takes</div>
+            <div class="figrow">
+              <figure><img src="assets/conformer-narrative-projects.jpg" alt="Conformer console, narrative projects"></figure>
+              <figure><img src="assets/conformer-generate-image.jpg" alt="Conformer console, generation view"></figure>
+            </div>
+            <div class="cap"><span class="idx">01</span>Conformer console · projects and generation</div>
+            <div class="figrow">
+              <figure><img src="assets/storyboard-1.jpg" alt="Previs frame, 1812 development"></figure>
+              <figure><img src="assets/storyboard-2.jpg" alt="Previs frame, 1812 development"></figure>
+            </div>
+            <div class="cap"><span class="idx">02</span>Previs frames from 1812 development · 774 shots, 2,558 takes</div>
             <div class="body">
               <p>The four rules as one codebase. A custom Fountain and Final Draft parser turns a script into
               scene, beat, and shot DNA; coverage formulas are implemented as code; prompts compile across Flux,

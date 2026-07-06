@@ -77,11 +77,6 @@
   .also { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 16px; color: var(--muted); max-width: 82ch; }
   .also .lbl { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text); margin-bottom: 12px; }
 
-  /* stats */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; border-top: 1px solid var(--text); padding-top: 24px; margin-top: 48px; }
-  .stats .n { font-size: clamp(22px, 2.8vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1; font-feature-settings: "tnum"; }
-  .stats .l { margin-top: 12px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3; }
-
   /* minor cards */
   .cards { display: grid; grid-template-columns: 1fr 1fr; margin-top: 40px; }
   .cards > div { padding: 32px 0; border-top: 1px solid var(--line); }
@@ -123,8 +118,7 @@
     .sec { grid-template-columns: 1fr; gap: 16px; margin-top: 88px; }
     .sec-aside { display: flex; gap: 16px; align-items: baseline; }
     .sec-range { margin-top: 0; }
-    .stats { grid-template-columns: 1fr 1fr; gap: 24px; }
-    .cards { grid-template-columns: 1fr; }
+        .cards { grid-template-columns: 1fr; }
     .cards > div:nth-child(odd) { padding-right: 0; }
     .cards > div:nth-child(even) { padding-left: 0; border-left: none; }
     .tech { grid-template-columns: 1fr; }
@@ -152,37 +146,135 @@
 <header id="top">
   <div class="wrap">
     <p class="kicker">Sean Thomas Evans</p>
-    <h1>AI<br>Engineering</h1>
-    <p class="standfirst">Agentic production systems, screenplay-to-shots pipelines, and regulated-industry
-    compliance platforms. <strong>Ten years deploying machine learning and generative systems into broadcast,
-    festival, and live-venue production.</strong></p>
+    <h1>Intent →<br>Artifact</h1>
+    <p class="standfirst">I build systems that shorten the distance between an idea and a finished, accountable
+    artifact. Twenty-eight years of production pipelines; the last ten deploying machine learning into broadcast,
+    festival, and live-venue work. <strong>The pipeline thinking is the same. The crew is now agents.</strong></p>
   </div>
 </header>
 
-<section id="production">
+<section id="method">
   <div class="wrap">
     <div class="sec">
       <div class="sec-aside">
         <div class="sec-num">01</div>
-        <div class="sec-range">Production systems</div>
+        <div class="sec-range">The method</div>
       </div>
       <div class="sec-main">
-        <h2>Production AI</h2>
+        <h2>Four rules, every system</h2>
+        <div class="items">
+          <article class="item">
+            <p class="ptag">Rule one</p>
+            <h3>Build the harness, not the one-off</h3>
+            <div class="body">
+              <p>When Premiere was too slow for ultra-slow-motion work on Daniel Lanois&rsquo; footage, the answer
+              was not a faster edit. It was a PRD for what the system actually needed, an agent survey of every
+              slow-motion method, a harness where clips land and render in several profiles unattended, and an
+              eval loop that learns taste from the keep and kill calls. A hundred clips in, come back in two
+              hours. The harness outlives the job.</p>
+            </div>
+          </article>
+          <article class="item">
+            <p class="ptag">Rule two</p>
+            <h3>Validate objectively, gate with humans</h3>
+            <div class="body">
+              <p>Generation is cheap; trust is the product. Every take gets face-identity validation and a
+              four-tier classification before a human ever sees it, and nothing ships on the system&rsquo;s own
+              opinion of its work. The taste call stays human, on an audit trail.</p>
+            </div>
+          </article>
+          <article class="item">
+            <p class="ptag">Rule three</p>
+            <h3>When the tool fails beautifully, follow the failure</h3>
+            <div class="body">
+              <p>Slow the interpolation far enough and it runs out of information. It fails, but it fails in
+              painterly ways. That glitch became the look of a release. Model limits are creative material,
+              not just bugs to file.</p>
+            </div>
+          </article>
+          <article class="item">
+            <p class="ptag">Rule four</p>
+            <h3>Make it defensible</h3>
+            <div class="body">
+              <p>Provenance ledgers on every generation. A seven-tier likeness-and-synthesis ladder with a
+              per-model indemnity map for VFX work. Hash-chained audit logs for regulated casework. The
+              deliverables are real: a Warner release, an Amazon series, a bank&rsquo;s case files. The system
+              carries the paperwork.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="wrap">
+    <div class="sec">
+      <div class="sec-aside">
+        <div class="sec-num">02</div>
+        <div class="sec-range">One move, five industries</div>
+      </div>
+      <div class="sec-main">
+        <h2>Where it has shipped</h2>
+        <div class="items">
+          <article class="item">
+            <p class="ptag">Music · Daniel Lanois, Warner Records era</p>
+            <div class="body"><p>A forty-year, 3,352-file session archive made searchable and performable:
+            ninety-five sessions transcribed, 221,000 chord events mapped, stems separated for real-time use.
+            Singles delivered on release deadlines, live tour visuals, and the same archive deployed as a
+            230-foot generative film at Design Exchange Toronto.</p></div>
+          </article>
+          <article class="item">
+            <p class="ptag">Television · Amazon, Bell Media, Crave</p>
+            <div class="body"><p>The No Dress Rehearsal pipeline turned thousands of archival stills into 4K
+            motion for a TIFF-premiered Prime series, then became a coined industry role: Generative Post
+            Supervisor, governing model selection and consistency inside a broadcaster&rsquo;s post chain.</p></div>
+          </article>
+          <article class="item">
+            <p class="ptag">Regulated finance · TRIYO</p>
+            <div class="body"><p>An eight-agent orchestration layer for anti-money-laundering case review on
+            Azure: transaction monitoring, sanctions and PEP screening, due diligence, network analysis. FINTRAC
+            Gen 2 schemas parsed across 884 properties and 256 required fields; a hash-chained WORM audit ledger;
+            thousands of cases in the validation window; a Libro companion demo at 573 passing tests.</p></div>
+          </article>
+          <article class="item">
+            <p class="ptag">Sport and brand · Shout Interactive, FIFA World Cup 2026</p>
+            <div class="body"><p>AI-assisted storyboard and content generation across forty-eight teams and 104
+            matches. A $127,000 traditional estimate delivered at $26,000, at parity output.</p></div>
+          </article>
+          <article class="item">
+            <p class="ptag">Feature development</p>
+            <div class="body"><p>Screenplay-to-shotlist previs on Conformer, hardened on a feature at 774 shots,
+            plus AI Alpha, an agentic equity-research engine, and Materiality, a creative harness on its own
+            Conformer deployment.</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conformer">
+  <div class="wrap">
+    <div class="sec">
+      <div class="sec-aside">
+        <div class="sec-num">03</div>
+        <div class="sec-range">Reference architecture</div>
+      </div>
+      <div class="sec-main">
+        <h2>Conformer</h2>
         <div class="items">
           <article class="item big">
             <figure class="figure"><img src="assets/typewriter-mosaic.jpg" alt="Keycap mosaic forming a skull" width="1600" height="900"></figure>
             <div class="cap"><span class="idx">01</span>Conformer · screenplay to validated takes</div>
-            <p class="ptag">Screenplay → shotlist → takes</p>
-            <h3>Conformer</h3>
             <div class="body">
-              <p>Architect and developer. A production CLI and library that compiles screenplay material into coverage
-              shotlists and routes them to image-to-video models. A custom Fountain and Final Draft parser turns a
-              script into scene, beat, and shot DNA. Standard coverage formulas, wide, mediums, an over-the-shoulder
-              pair, and the emotional close-up, are implemented as code.</p>
-              <p>Prompt compilation across Flux, Hunyuan, Kling, World Labs 3D, Veo, and Wan. Camera-motion mapping
-              over seventeen motions and five models. Budget-gated dispatch. Four-tier take classification with
-              face-identity validation on every take. A JSONL provenance ledger. FCPXML and EDL assembly into DaVinci
-              Resolve. 185 tests green, deployed multi-tenant on RTX PRO 6000 hardware over a private mesh. Hardened on Bruce McDonald’s War of 1812.</p>
+              <p>The four rules as one codebase. A custom Fountain and Final Draft parser turns a script into
+              scene, beat, and shot DNA; coverage formulas are implemented as code; prompts compile across Flux,
+              Hunyuan, Kling, World Labs 3D, Veo, and Wan with camera-motion mapping over seventeen motions and
+              five models. Budget-gated dispatch, face-identity validation on every take, a JSONL provenance
+              ledger, and FCPXML assembly straight into DaVinci Resolve. 185 tests green, deployed multi-tenant
+              on RTX PRO 6000 hardware over a private mesh.</p>
               <div class="pipeline">
                 parse <span class="arw">→</span> scene / beat / shot DNA <span class="arw">→</span> prompt compile
                 <span class="arw">→</span> budget gate <span class="arw">→</span> dispatch <span class="arw">→</span>
@@ -191,126 +283,6 @@
               </div>
             </div>
           </article>
-
-          <article class="item">
-            <p class="ptag">Case study · agentic method</p>
-            <h3>The Lanois Time Machine</h3>
-            <div class="body">
-              <p>Premiere was too slow. So: a PRD for what the system actually needed; an agent survey of every
-              ultra-slow-motion method; a harness where clips land and render in several flavours unattended; an eval
-              loop where I say what worked and the system learns my taste. A hundred clips in, come back in two hours.</p>
-            </div>
-            <p class="principle">When the tool fails beautifully, follow the failure.</p>
-            <p class="principle-note">The interpolation glitch became the look.</p>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Likeness &amp; synthesis compliance</p>
-            <h3>Generative-VFX pipeline</h3>
-            <div class="body">
-              <p>Pipeline architect for a documentary studio’s AI division. Screenplay to beats to shots to
-              consistent-character generation, governed by a seven-tier likeness-and-synthesis ladder from L0 to L7
-              and a per-model indemnity matrix mapping exposure across fal.ai, Runway, Kling, AWS Nova, Adobe, and
-              Google.</p>
-              <p>A provenance ledger for copyright defensibility. Shipped as a Vite, React, and TypeScript demo with a
-              cost-ledger toggle between local and remote inference.</p>
-            </div>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Applied proof</p>
-            <h3>No Dress Rehearsal pipeline</h3>
-            <div class="body">
-              <p>An AI photo-to-4K animation pipeline, built before the tools had names. Thousands of archival stills
-              turned into living 4K motion by training and chaining models for face restoration, depth synthesis, and
-              temporal interpolation. The same pipeline became the basis for later generative-post work at Bell Media,
-              Crave, and Warner Music.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="also">
-          <span class="lbl">Also</span>
-          Previs for feature development.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="enterprise">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">02</div>
-        <div class="sec-range">Regulated industry</div>
-      </div>
-      <div class="sec-main">
-        <h2>Enterprise + Compliance</h2>
-        <div class="items">
-          <article class="item big">
-            <p class="ptag">Eight-agent AML orchestration · Azure</p>
-            <h3>TRIYO platform</h3>
-            <div class="body">
-              <p>Lead architect on an eight-agent orchestration layer for anti-money-laundering case review at a major
-              Canadian bank. Agents cover orchestration, transaction monitoring, sanctions and PEP screening,
-              suspicious transaction reporting, customer due diligence, risk assessment, network analysis, and
-              enhanced due diligence.</p>
-              <p>FINTRAC Gen 2 schemas fully parsed across 884 properties and 256 required fields, with a conditional
-              routing engine over fifty scenarios. PostgreSQL, Redis, and a hash-chained WORM audit ledger. Thousands
-              of cases processed in the validation window. A companion Libro demo in Vite, React, and TypeScript with
-              573 passing tests and a PII-protected AI panel.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="stats">
-          <div><div class="n">8</div><div class="l">orchestrated agents</div></div>
-          <div><div class="n">884</div><div class="l">FINTRAC properties parsed</div></div>
-          <div><div class="n">256</div><div class="l">required fields</div></div>
-          <div><div class="n">573</div><div class="l">passing tests, Libro demo</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="systems">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">03</div>
-        <div class="sec-range">Shipped work</div>
-      </div>
-      <div class="sec-main">
-        <h2>Systems + Impact</h2>
-        <div class="cards">
-          <div>
-            <div class="c-tag">FIFA World Cup 2026</div>
-            <h3>Shout × FIFA</h3>
-            <p>Pipeline lead. Forty-eight teams, 104 matches, AI-assisted storyboard and content generation across the
-            tournament. A traditional production estimate of $127,000 delivered for $26,000: a 79% cost reduction at
-            parity output.</p>
-          </div>
-          <div>
-            <div class="c-tag">Equity research · creative harness</div>
-            <h3>AI Alpha · Materiality</h3>
-            <p>AI Alpha, an agentic equity-research engine and investor-deck pipeline. Materiality, a creative AI
-            harness running its own Conformer deployment with a custom voice and direction system.</p>
-          </div>
-          <div>
-            <div class="c-tag">Agent harness engineering</div>
-            <h3>Self-improving harness</h3>
-            <p>Evals, gates, and provenance. The harness mined 1.3 GB of its own session transcripts, then shipped
-            mechanical gates and a 65-case regression bench that runs green: voice enforcement, destructive-command
-            guards, render checks, and automatic memory provenance at session end.</p>
-          </div>
-          <div>
-            <div class="c-tag">Cohort 3 · Livepeer</div>
-            <h3>Daydream AI Video</h3>
-            <p>Selected for Livepeer’s interactive AI video developer program, working directly with Daydream Scope
-            product leadership on real-time generative video.</p>
-          </div>
         </div>
       </div>
     </div>

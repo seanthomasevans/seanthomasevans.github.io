@@ -220,9 +220,11 @@
         <div class="items">
           <article class="item">
             <p class="ptag">Music · Daniel Lanois, Warner Records era</p>
-            <div class="body"><p>A forty-year, 3,352-file session archive made searchable and performable:
-            ninety-five sessions transcribed, 221,000 chord events mapped, stems separated for real-time use.
-            Singles delivered on release deadlines and live tour visuals with Lanois since October 2025.</p></div>
+            <div class="body"><p>The Maker, an archive engine over Lanois&rsquo;s personal collection: thousands
+            of files indexed, 95 sessions transcribed into 18,992 segments, 221,000 chord events mapped with
+            beat-synced harmony analysis, stems separated, thematic cuts assembled directly into DaVinci
+            Resolve. On top of it, Belladonna Nocturne: four visual companions shipped for the June 2026 Warner
+            release, two of them the album&rsquo;s lead singles.</p></div>
           </article>
           <article class="item">
             <p class="ptag">Television · Amazon, Bell Media, Crave</p>
@@ -232,17 +234,21 @@
           </article>
           <article class="item">
             <p class="ptag">Exhibition · Design Exchange, Toronto</p>
-            <div class="body"><p>Athena, the conversational generation system driving the former Toronto Stock
-            Exchange trading floor: 6,500 square feet at 270 degrees, model routing and anamorphic rendering
-            feeding the live surface, with the Lanois archive deployed as a 230-foot real-time generative
-            film.</p></div>
+            <div class="body"><p>Athena: chat-driven generation of image, video, and 3D at the exact pixel
+            dimensions of roughly thirty-one named projection surfaces, DXV encoding, Resolume REST playback
+            control, a PlayCanvas venue twin, and anamorphic perspective rendering. Built, demoed on the
+            trading floor, delivered as a Phase 1 alpha. Documented unit economics: a full event content
+            package for a fraction of traditional production cost.</p></div>
           </article>
           <article class="item">
             <p class="ptag">Regulated finance · TRIYO</p>
-            <div class="body"><p>An eight-agent orchestration layer for anti-money-laundering case review on
-            Azure: transaction monitoring, sanctions and PEP screening, due diligence, network analysis. FINTRAC
-            Gen 2 schemas parsed across 884 properties and 256 required fields; a hash-chained WORM audit ledger;
-            thousands of cases in the validation window; a Libro companion demo at 573 passing tests.</p></div>
+            <div class="body"><p>An AML platform built for a Canadian credit union. The standout piece is a
+            crowd-simulation-inspired synthetic-data engine: agent-based actors carry legitimate spending rules,
+            criminal actors carry a few extra, and fifteen laundering typologies emerge naturally inside a
+            1.2-million-transaction stream with automatic ground-truth labels. That labeled stream trains and
+            scores fifteen behavioral detectors, measured at 0.958 precision on the scored set. Around it: eight
+            compliance agents, FINTRAC Gen 2 schemas parsed across 884 properties and 256 required fields, a
+            hash-chained WORM audit ledger, and a deployed, password-gated AI-ops console on Azure.</p></div>
           </article>
         </div>
       </div>
@@ -255,7 +261,7 @@
     <div class="sec">
       <div class="sec-aside">
         <div class="sec-num">03</div>
-        <div class="sec-range">Reference architecture</div>
+        <div class="sec-range">Infrastructure</div>
       </div>
       <div class="sec-main">
         <h2>Conformer</h2>
@@ -276,6 +282,30 @@
                 face-identity validate <span class="arw">→</span> classify take <span class="arw">→</span> provenance
                 ledger <span class="arw">→</span> assemble to Resolve
               </div>
+            </div>
+          </article>
+
+          <article class="item">
+            <p class="ptag">Evaluation harnesses</p>
+            <h3>The system never judges its own work</h3>
+            <div class="body">
+              <p>A multi-model judge scores copy, code, art, and audio across two frontier models in parallel.
+              Ground-truth harnesses catch monotone voice clones by pitch variance against the real voice, and
+              frozen or melted generated video by optical flow. The AML benchmark gates detector precision and
+              recall against fixed thresholds in CI. Written methodology underneath all of it: falsifiable
+              success first, objective validation, human gate last.</p>
+            </div>
+          </article>
+
+          <article class="item">
+            <p class="ptag">Local video pipeline</p>
+            <h3>Fully local, HDR-finished</h3>
+            <div class="body">
+              <p>A self-contained video-generation pipeline pairing high-quality keyframes with open-weight
+              motion models on a 96GB GPU, finishing to true HDR ProRes masters through a 32-bit EXR chain.
+              Every clip is graded by an automated evaluation harness before a human pass, and the pipeline
+              benchmarks its own fidelity gap against closed providers. Deploys the same stack to cloud GPUs
+              on demand.</p>
             </div>
           </article>
         </div>

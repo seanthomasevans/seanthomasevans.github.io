@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D captures · Sean Thomas Evans</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>
+  :root { --bg:#0e0e0e; --text:#ededeb; --muted:#8f8f8a; --faint:#5c5c58; --line:#262624; --accent:#d8452f;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  a { color:var(--text); text-decoration:none; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 40px; }
+  nav { border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(14,14,14,0.94); backdrop-filter:blur(8px); z-index:10; }
+  nav .bar { display:flex; align-items:center; height:60px; }
+  nav .brand { font-weight:700; font-size:15px; }
+  nav .links { margin-left:auto; display:flex; gap:28px; font-size:13px; }
+  nav .links a { color:var(--muted); } nav .links a:hover { color:var(--text); }
+  header { padding:64px 0 32px; }
+  h1 { font-weight:700; font-size:clamp(30px,4vw,48px); letter-spacing:-0.03em; }
+  .intro { margin-top:18px; max-width:62ch; font-size:17px; color:var(--muted); }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:32px 0 80px; }
+  .item { border:1px solid var(--line); }
+  model-viewer { width:100%; height:460px; background:#141414; --poster-color:#141414; }
+  .cap { padding:16px 20px 20px; }
+  .cap h2 { font-size:19px; font-weight:700; }
+  .cap p { margin-top:6px; font-size:13.5px; color:var(--muted); }
+  .hint { font-size:12px; color:var(--faint); margin-top:8px; }
+  @media (max-width:760px){ .grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a href="index.html">Index</a><a href="creative.html">Creative</a><a href="ai.html">Dev</a><a href="mailto:sean@seanthomasevans.com">Contact</a></span>
+</div></div></nav>
+
+<header><div class="wrap">
+  <h1>3D captures</h1>
+  <p class="intro">Photogrammetric and scanned captures of objects from a private Toronto collection, cleaned and
+  retopologized for real-time use. Drag to orbit, scroll to zoom.</p>
+</div></header>
+
+<div class="wrap"><div class="grid">
+  <div class="item">
+    <model-viewer src="assets/samurai-web.glb" alt="Captured samurai armour, real-time model"
+      camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.6"
+      environment-image="neutral" exposure="1.1" camera-orbit="25deg 78deg auto" poster="assets/spatial-samurai.jpg"></model-viewer>
+    <div class="cap"><h2>Samurai armour</h2><p>200k-triangle cleaned capture with diffuse and normal maps, real-time ready.</p>
+    <p class="hint">Drag to orbit · scroll to zoom</p></div>
+  </div>
+  <div class="item">
+    <model-viewer src="assets/skull-web.glb" alt="Captured horned skull, real-time model"
+      camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.6"
+      environment-image="neutral" exposure="1.1" camera-orbit="0deg 80deg auto" poster="assets/spatial-skull.jpg"></model-viewer>
+    <div class="cap"><h2>Horned skull</h2><p>High-resolution scan with PBR textures, decimated for the browser.</p>
+    <p class="hint">Drag to orbit · scroll to zoom</p></div>
+  </div>
+</div></div>
+</body>
+</html>

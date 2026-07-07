@@ -64,7 +64,8 @@
   .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
   .door { display: block; color: var(--text); }
   .door .d-fig { display: block; border: 1px solid var(--line); padding: 4px; }
-  .door .d-fig img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .door .d-fig .frame { display: block; position: relative; width: 100%; padding-top: 62%; overflow: hidden; background: #000; }
+  .door .d-fig .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .door .d-idx { display: block; margin-top: 16px; color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; font-feature-settings: "tnum"; }
   .door .d-title { display: block; font-weight: 700; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.02em; line-height: 1.02; margin: 8px 0 12px; text-wrap: balance; }
   .door .d-desc { display: block; color: var(--muted); font-size: 16px; line-height: 1.45; max-width: 44ch; }
@@ -131,7 +132,6 @@
     <h1>Sean Thomas<br>Evans</h1>
     <p class="standfirst">Twenty-eight years across animation, VFX, and post-production pipelines, transformed into
     agentic workflows. <strong>I build systems that let small teams do studio-scale work.</strong></p>
-    <p class="thesis">Shortening the distance between the idea and the creative output.</p>
   </div>
 </header>
 
@@ -143,25 +143,27 @@
         <div class="sec-range">Approach</div>
       </div>
       <div class="sec-main">
-        <h2>The one move</h2>
-        <p class="statement">Speed of iteration beats quality of first attempt. Everything here is that one move,
-        over and over.</p>
+        <h2>Background</h2>
+        <p class="statement" style="font-weight:400; font-size:clamp(17px,1.9vw,20px); max-width:62ch; line-height:1.5;">Sean
+        Thomas Evans is a creative technologist and producer. He started as a VFX supervisor and animation
+        director in broadcast and film, spent a decade producing immersive and VR work, and now designs and
+        builds AI production systems for music, film, exhibition, and regulated enterprise.</p>
         <div class="timeline">
           <div class="tl">
-            <div class="tl-year">1999</div>
-            <div class="tl-desc">Film and broadcast: VICE, the NFB, Amazon, Discovery.</div>
+            <div class="tl-year">1997</div>
+            <div class="tl-desc">VFX supervision and animation direction. Cream Productions, Nelvana, NFB, Discovery.</div>
           </div>
           <div class="tl">
-            <div class="tl-year">2014</div>
-            <div class="tl-desc">VR and immersive: digital twins, volumetric capture, David Cronenberg.</div>
+            <div class="tl-year">2015</div>
+            <div class="tl-desc">Immersive and VR. Co-founder, Occupied VR. Venice, Cannes, TIFF.</div>
           </div>
           <div class="tl">
             <div class="tl-year">2023</div>
-            <div class="tl-desc">AI pipelines: the tools finally caught up to the impulse.</div>
+            <div class="tl-desc">Agentic AI systems. Multi-agent orchestration, validation harnesses, production pipelines.</div>
           </div>
           <div class="tl">
             <div class="tl-year">Now</div>
-            <div class="tl-desc">Working daily with Daniel Lanois on the Belladonna Nocturne visual world.</div>
+            <div class="tl-desc">Daniel Lanois (music), Cream Productions (VFX), Design Exchange (exhibition).</div>
           </div>
         </div>
       </div>
@@ -177,20 +179,20 @@
         <div class="sec-range">Portfolio</div>
       </div>
       <div class="sec-main">
-        <h2>Select a view</h2>
+        <h2>Two bodies of work</h2>
         <div class="doors">
           <a class="door" href="creative.html">
-            <span class="d-fig"><img src="assets/athena-gallery.jpg" alt="Design Exchange gallery walls running generated content" width="2400" height="369"></span>
+            <span class="d-fig"><span class="frame"><img src="assets/lanois-trains.jpg" alt="Still from a Daniel Lanois visual companion" width="1600" height="900"></span></span>
             <span class="d-idx">01</span>
-            <span class="d-title">Creative + Media</span>
-            <span class="d-desc">Animation direction, VFX supervision, music video, immersive, and generative film.</span>
+            <span class="d-title">Creative &amp; Media</span>
+            <span class="d-desc">Animation direction, VFX, music video, immersive, and generative film across 28 years.</span>
             <span class="d-cta">Enter</span>
           </a>
           <a class="door" href="ai.html">
-            <span class="d-fig"><img src="assets/conformer-narrative-projects.jpg" alt="Keycap mosaic forming a skull" width="1600" height="900"></span>
+            <span class="d-fig"><span class="frame"><img src="assets/conformer-narrative-projects.jpg" alt="Conformer production console" width="1600" height="900"></span></span>
             <span class="d-idx">02</span>
-            <span class="d-title">AI Engineering</span>
-            <span class="d-desc">Agentic pipelines, screenplay-to-shots production systems, and compliance platforms.</span>
+            <span class="d-title">AI &amp; Agentic Systems</span>
+            <span class="d-desc">Production pipelines, multi-agent orchestration, and validation harnesses since 2023.</span>
             <span class="d-cta">Enter</span>
           </a>
         </div>
@@ -205,9 +207,9 @@
       <div><div class="sec-num">03</div><div class="sec-range">Selected index</div></div>
       <div>
         <p style="font-size:15px; line-height:2.1; color:var(--muted);">
-        No Dress Rehearsal 2022–24 · The Crossing / Belladonna Nocturne 2024– · Athena, Design Exchange 2024– ·
+        No Dress Rehearsal 2022–24 · The Maker &amp; Belladonna Nocturne 2024– · Athena, Design Exchange 2024– ·
         Conformer 2024– · TRIYO AML platform 2024–26 · AI Alpha · Materiality 2025–26 ·
-        Generative Post Supervision, Bell/Crave 2025 · Spots of Light 2023 · The Holy City 2016–20 ·
+        Spots of Light 2023 · The Holy City 2016–20 ·
         MYRIAD 2021 · Sharkwater VR 2018 · Cut-Off 2016 · Body / Mind / Change 2013–14 ·
         Aftermath: Population Zero 2008 · Return to Kandahar (Gemini Award)</p>
       </div>

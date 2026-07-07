@@ -3,436 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sean Thomas Evans · AI Engineering</title>
+<title>AI &amp; agentic systems · Sean Thomas Evans</title>
 <style>
   :root {
-    --bg: #101010;
-    --text: #ececea;
-    --muted: #9a9a96;
-    --line: #2a2a28;
-    --accent: #ff4438;
+    --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
+    --line: #262624; --accent: #d8452f;
     --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: var(--sans); font-size: 15.5px; line-height: 1.55; font-weight: 400;
-    letter-spacing: -0.01em;
-    font-feature-settings: "tnum";
-    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
-  a { color: var(--text); text-decoration: none; transition: text-decoration-color 120ms ease; }
-  a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--text); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
-  /* nav */
-  nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
-  nav .bar { max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(14,14,14,0.94); backdrop-filter: blur(8px); z-index: 10; }
+  nav .bar { display: flex; align-items: center; height: 60px; }
   nav .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
-  nav .spacer { flex: 1 1 auto; }
-  nav .links { display: flex; gap: 28px; }
-  nav .links a { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; }
-  nav .links a.here { text-decoration: underline; text-decoration-color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  nav .links a.here:hover { text-decoration-color: var(--accent); }
+  nav .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover, nav .links a.here { color: var(--text); }
 
-  /* hero */
-  header { padding: 88px 0 72px; border-bottom: 1px solid var(--line); }
-  .kicker { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 32px; }
-  h1 { font-weight: 700; font-size: clamp(38px, 4.6vw, 68px); letter-spacing: -0.03em; line-height: 0.95; text-wrap: balance; }
-  .standfirst { margin-top: 32px; max-width: 66ch; font-size: 18px; line-height: 1.4; letter-spacing: -0.01em; }
-  .standfirst strong { font-weight: 700; }
+  header { padding: 80px 0 40px; }
+  h1 { font-weight: 700; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.03em; line-height: 1.02; }
+  .intro { margin-top: 22px; max-width: 62ch; font-size: 18px; line-height: 1.5; color: var(--muted); }
 
-  /* section grid */
-  .sec { border-top: 1px solid var(--text); margin-top: 88px; padding-top: 32px; display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start; }
-  .sec-num { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: 0.02em; font-feature-settings: "tnum"; }
-  .sec-range { margin-top: 8px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance; }
+  .catsec { border-top: 1px solid var(--line); padding: 56px 0 8px; }
+  .catsec .sec-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
 
-  /* items */
-  .items { margin-top: 40px; }
-  .item { padding: 48px 0; }
-  .item + .item { border-top: 1px solid var(--line); }
-  .item:first-child { padding-top: 8px; }
-  .figure { margin: 0 0 16px; border: 1px solid var(--line); padding: 4px; }
-  .figure img { width: 100%; height: auto; display: block; }
-  .cap { font-size: 12.5px; color: var(--muted); }
-  .cap .idx { color: var(--accent); font-weight: 700; margin-right: 8px; font-feature-settings: "tnum"; }
-  .ptag { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  .item h3 { font-weight: 700; font-size: clamp(21px, 2.4vw, 28px); letter-spacing: -0.015em; line-height: 1.08; margin: 12px 0 16px; text-wrap: balance; }
-  .item.big h3 { font-size: clamp(20px, 2.4vw, 28px); }
-  .item .body { max-width: 68ch; }
-  .item .body p { font-size: 15.5px; line-height: 1.55; }
-  .item .body p + p { margin-top: 16px; }
-  .principle { max-width: 30ch; margin-top: 24px; font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance; }
-  .principle-note { margin-top: 12px; font-size: 14.5px; color: var(--muted); }
+  .entry { display: grid; grid-template-columns: 190px 1fr; gap: 40px; padding: 40px 0; border-top: 1px solid var(--line); }
+  .entry.first { border-top: none; }
+  .meta { font-size: 13px; line-height: 1.85; color: var(--muted); }
+  .meta dt { color: var(--faint); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; }
+  .meta dt.top { margin-top: 0; }
+  .meta dd { color: var(--text); }
+  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; }
+  .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 64ch; }
+  .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+  .body .figs.one { grid-template-columns: 1fr; max-width: 760px; }
+  .body figure { border: 1px solid var(--line); }
+  .body figure img { width: 100%; height: auto; }
+  .body .cap { margin-top: 8px; font-size: 12px; color: var(--faint); }
+  .stack { margin-top: 8px; font-size: 13px; color: var(--faint); line-height: 1.7; }
+  .stack b { color: var(--muted); font-weight: 400; }
 
-  /* pipeline flow */
-  .pipeline { margin-top: 24px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text); line-height: 2.1; max-width: 78ch; }
-  .pipeline .arw { color: var(--muted); margin: 0 7px; }
+  footer { border-top: 1px solid var(--line); padding: 48px 0 72px; font-size: 12.5px; color: var(--faint); }
+  footer a { color: var(--muted); }
 
-  /* also strip */
-  .also { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 16px; color: var(--muted); max-width: 82ch; }
-  .also .lbl { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text); margin-bottom: 12px; }
-
-  /* minor cards */
-  .cards { display: grid; grid-template-columns: 1fr 1fr; margin-top: 40px; }
-  .cards > div { padding: 32px 0; border-top: 1px solid var(--line); }
-  .cards > div:nth-child(odd) { padding-right: 48px; }
-  .cards > div:nth-child(even) { padding-left: 48px; border-left: 1px solid var(--line); }
-  .cards .c-tag { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  .cards h3 { font-weight: 700; font-size: 18px; letter-spacing: -0.015em; margin: 12px 0 12px; }
-  .cards p { font-size: 15.5px; color: var(--text); line-height: 1.5; max-width: 48ch; }
-
-  /* tech grid */
-  .tech { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; margin-top: 40px; border-top: 1px solid var(--text); }
-  .tech > div { padding: 24px 0; border-bottom: 1px solid var(--line); }
-  .tech > div:nth-child(odd) { padding-right: 48px; border-right: 1px solid var(--line); }
-  .tech > div:nth-child(even) { padding-left: 48px; }
-  .tech h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
-  .tech p { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
-
-  /* contact */
-  .contact { margin-top: 32px; }
-  .contact a.row2 { display: flex; align-items: baseline; gap: 28px; flex-wrap: wrap; padding: 24px 0; border-bottom: 1px solid var(--line); }
-  .contact a.row2:first-child { border-top: 1px solid var(--line); }
-  .contact a.row2:hover { text-decoration: none; }
-  .contact a.row2:hover .v { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  .contact .k { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); min-width: 120px; }
-  .contact .v { font-size: clamp(18px, 2vw, 24px); font-weight: 700; letter-spacing: -0.02em; }
-
-  footer { margin-top: 88px; border-top: 1px solid var(--line); padding: 32px 0 80px; font-size: 12.5px; color: var(--muted); }
-
-  @media (min-resolution: 2dppx) {
-    .figure, .item + .item, .cards > div, .tech > div,
-    .cards > div:nth-child(even), .tech > div:nth-child(odd), .contact a.row2 { border-width: 0.5px; }
-  }
-
-  @media (max-width: 820px) {
-    .wrap { padding: 0 22px; }
-    nav .bar { padding: 16px 22px; }
-    nav .links { gap: 18px; }
-    header { padding: 56px 0 48px; }
-    .sec { grid-template-columns: 1fr; gap: 16px; margin-top: 88px; }
-    .sec-aside { display: flex; gap: 16px; align-items: baseline; }
-    .sec-range { margin-top: 0; }
-        .cards { grid-template-columns: 1fr; }
-    .cards > div:nth-child(odd) { padding-right: 0; }
-    .cards > div:nth-child(even) { padding-left: 0; border-left: none; }
-    .tech { grid-template-columns: 1fr; }
-    .tech > div:nth-child(odd) { padding-right: 0; border-right: none; }
-    .tech > div:nth-child(even) { padding-left: 0; }
-    .contact .k { min-width: 0; }
-  }
-
-  .figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 6px; }
-  .figrow figure { border: 1px solid var(--line); padding: 3px; background: var(--bg); margin: 0; }
-  .figrow img { display: block; width: 100%; }
-  .sec { margin-top: 56px !important; padding-top: 24px !important; }
-  header { padding: 48px 0 40px !important; }
-  .items > .item, .items > article { margin-top: 28px !important; }
-  section, .sec-main { padding-top: 0 !important; }
+  @media (max-width: 760px) { .entry { grid-template-columns: 1fr; gap: 18px; } .body .figs { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="bar">
-    <a class="brand" href="index.html">Sean Thomas Evans</a>
-    <span class="spacer"></span>
-    <span class="links">
-      <a href="index.html">Home</a>
-      <a href="creative.html">Creative</a>
-      <a href="ai.html" class="here">AI</a>
-      <a href="#contact">Contact</a>
-    </span>
-  </div>
-</nav>
+<nav><div class="wrap"><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a href="index.html">Index</a><a href="creative.html">Creative</a><a class="here" href="ai.html">AI</a><a href="mailto:sean@seanthomasevans.com">Contact</a></span>
+</div></div></nav>
 
-<header id="top">
-  <div class="wrap">
-    <p class="kicker">Sean Thomas Evans</p>
-    <h1>Agentic<br>Systems</h1>
-    <p class="standfirst">Twenty-eight years of production pipelines; ten deploying machine learning into
-    broadcast, festival, and live-venue work. <strong>The last two and a half years centered on agentic
-    systems: multi-agent orchestration, validation harnesses, and production infrastructure that ships
-    accountable work.</strong></p>
-  </div>
-</header>
+<header><div class="wrap">
+  <h1>AI &amp; agentic systems</h1>
+  <p class="intro">Since 2023 I have designed and built agentic production systems: multi-agent pipelines,
+  validation harnesses, and infrastructure for film, music, exhibition, and regulated finance. The projects
+  below are the working systems, not concepts.</p>
+</div></header>
 
-<section id="method">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">01</div>
-        <div class="sec-range">Agentic work · 2023 to present</div>
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Production pipelines</div>
+
+  <div class="entry first">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2024–present</dd>
+      <dt>Type</dt><dd>Production CLI &amp; service</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Used on</dt><dd>Bruce McDonald&rsquo;s 1812; feature previs</dd>
+    </dl>
+    <div class="body">
+      <h2>Conformer</h2>
+      <p>A production pipeline that compiles a screenplay into coverage shotlists and routes them to
+      image-to-video models. A custom Fountain and Final Draft parser turns a script into scene, beat, and shot
+      structure; coverage formulas are implemented as code; prompts compile across Flux, Hunyuan, Kling, World
+      Labs, Veo, and Wan with camera-motion mapping over seventeen motions and five models. Budget-gated
+      dispatch, face-identity validation on every take, a JSONL provenance ledger, and assembly straight into
+      DaVinci Resolve. Hardened on a feature at 774 shots and 2,558 takes; deployed on RTX PRO 6000 hardware.</p>
+      <div class="figs">
+        <figure><img src="assets/conformer-narrative-projects.jpg" alt="Conformer console, projects view"></figure>
+        <figure><img src="assets/conformer-generate-image.jpg" alt="Conformer console, generation view"></figure>
       </div>
-      <div class="sec-main">
-        <h2>Two and a half years of agents</h2>
-        <div class="items">
-          <article class="item">
-            <p class="ptag">Late 2023 · the first build</p>
-            <h3>WordPress corpus to conversational RAG</h3>
-            <div class="body">
-              <p>The first agent-solved-and-validated build: extraction of a fifteen-year WordPress site into a
-              functional RAG system with an ElevenLabs voice and a conversational interface. Agents handled the
-              extraction and structuring; validation confirmed the corpus survived the migration intact.</p>
-            </div>
-          </article>
-          <article class="item">
-            <p class="ptag">Harness pattern</p>
-            <h3>Harnesses instead of one-offs</h3>
-            <div class="body">
-              <p>Recurring production problems get a harness: a PRD for what the system needs, an agent survey of
-              the method space, unattended batch execution, and an eval loop trained on keep and kill decisions.
-              The Lanois Time Machine is the canonical example: a hundred clips in, multiple slowdown profiles
-              out, review in two hours instead of days.</p>
-            </div>
-          </article>
-          <article class="item">
-            <p class="ptag">Validation</p>
-            <h3>Objective checks, human gates</h3>
-            <div class="body">
-              <p>Every generated take passes face-identity validation and a four-tier classification before
-              review. Ground-truth harnesses catch monotone voice clones by pitch variance and broken video by
-              optical flow. Approval stays human, recorded on an audit trail; the producing system is never the
-              judge of its own output.</p>
-            </div>
-          </article>
-          <article class="item">
-            <p class="ptag">Provenance</p>
-            <h3>Defensible by construction</h3>
-            <div class="body">
-              <p>JSONL provenance ledgers on every generation, a five-level likeness-and-synthesis ladder with
-              per-model indemnity mapping for VFX work, and hash-chained audit logs for regulated casework.
-              Built for deliverables that get audited: a Warner release, an Amazon series, compliance casework.</p>
-            </div>
-          </article>
-        </div>
-</div>
+      <div class="cap">Conformer console · projects and generation</div>
     </div>
   </div>
-</section>
 
-<section id="industries">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">02</div>
-        <div class="sec-range">One move, five industries</div>
-      </div>
-      <div class="sec-main">
-        <h2>Applied across industries</h2>
-        <div class="items">
-          <article class="item">
-            <p class="ptag">Music · Daniel Lanois, Warner Records era</p>
-            <div class="body"><p>The Maker, an archive engine over Lanois&rsquo;s personal collection: thousands
-            of files indexed, 95 sessions transcribed into 18,992 segments, 221,000 chord events mapped with
-            beat-synced harmony analysis, stems separated, thematic cuts assembled directly into DaVinci
-            Resolve. The same project carries the typewriter-key title system, gear mapping and audio-plugin
-            development cloning the PT93, a freeze performance setup for guitar and pedal steel, a NAM, RAVE,
-            and impulse-capture pipeline, voice cloning, and a dialogue-to-animation pipeline. On top of it,
-            Belladonna Nocturne: four visual companions shipped for the June 2026 Warner
-            release, two of them the album&rsquo;s lead singles.</p></div>
-          </article>
-          <article class="item">
-            <p class="ptag">Television · Amazon Prime</p>
-            <div class="body"><p>The No Dress Rehearsal pipeline turned thousands of archival stills into 4K
-            motion for a TIFF-premiered Prime series: chained models for face restoration, depth synthesis,
-            and temporal interpolation, run at series scale.</p></div>
-          </article>
-          <article class="item">
-            <p class="ptag">Exhibition · Design Exchange, Toronto</p>
-            <div class="body"><p>Athena: chat-driven generation of image, video, and 3D at the exact pixel
-            dimensions of roughly thirty-one named projection surfaces, DXV encoding, Resolume REST playback
-            control, a PlayCanvas venue twin, and anamorphic perspective rendering. Built, demoed on the
-            trading floor, delivered as a Phase 1 alpha. Documented unit economics: a full event content
-            package for a fraction of traditional production cost.</p></div>
-          </article>
-          <article class="item">
-            <p class="ptag">Research · AI Alpha</p>
-            <div class="body"><p>An agentic equity-research engine: filings, transcripts, news, and macro data
-            extracted into per-issuer and per-sector signals, feeding a mean-CVaR portfolio optimizer with human
-            PM sign-off. The pitch decks and an interactive PM console are live.</p></div>
-            <div class="figrow" style="grid-template-columns:1fr;"><figure><img src="assets/aialpha-deck.jpg" alt="AI Alpha investor deck, live"></figure></div>
-            <div class="cap"><span class="idx">04</span>AI Alpha deck · live on GitHub Pages</div>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Regulated finance · TRIYO</p>
-            <div class="body"><p>An AML platform built with Triyo, the RegTech vendor, for its Libro Credit Union engagement. The standout piece is a
-            crowd-simulation-inspired synthetic-data engine: agent-based actors carry legitimate spending rules,
-            criminal actors carry a few extra, and fifteen laundering typologies emerge naturally inside a
-            1.2-million-transaction stream with automatic ground-truth labels. That labeled stream trains and
-            scores fifteen behavioral detectors, measured at 0.958 precision on the scored set. Around it: eight
-            compliance agents, FINTRAC Gen 2 schemas parsed across 884 properties and 256 required fields, a
-            hash-chained WORM audit ledger, and a deployed, password-gated AI-ops console on Azure.</p></div>
-            <div class="figrow" style="grid-template-columns:1fr;"><figure><img src="assets/sentra-demo.jpg" alt="Detection console, public demo build"></figure></div>
-            <div class="cap"><span class="idx">03</span>Detection console · public demo build</div>
-          </article>
-        </div>
-      </div>
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2026</dd>
+      <dt>Type</dt><dd>Local generation pipeline</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Hardware</dt><dd>96 GB GPU; Modal cloud</dd>
+    </dl>
+    <div class="body">
+      <h2>Local video pipeline</h2>
+      <p>A fully local video-generation pipeline pairing high-quality keyframes with open-weight motion models
+      (LTX, Wan, HunyuanVideo), finishing to true HDR ProRes masters through a 32-bit EXR chain. An automated
+      evaluation harness grades every clip, catching frozen and melted output by optical flow before a human
+      pass, and benchmarks its own fidelity gap against closed providers. The same stack deploys to cloud GPUs
+      on demand.</p>
     </div>
   </div>
-</section>
 
-<section id="conformer">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">03</div>
-        <div class="sec-range">Infrastructure</div>
-      </div>
-      <div class="sec-main">
-        <h2>Conformer</h2>
-        <div class="items">
-          <article class="item big">
-            <div class="figrow">
-              <figure><img src="assets/conformer-narrative-projects.jpg" alt="Conformer console, narrative projects"></figure>
-              <figure><img src="assets/conformer-generate-image.jpg" alt="Conformer console, generation view"></figure>
-            </div>
-            <div class="cap"><span class="idx">01</span>Conformer console · projects and generation</div>
-            <div class="figrow">
-              <figure><img src="assets/storyboard-1.jpg" alt="Previs frame, 1812 development"></figure>
-              <figure><img src="assets/storyboard-2.jpg" alt="Previs frame, 1812 development"></figure>
-            </div>
-            <div class="cap"><span class="idx">02</span>Previs frames from 1812 development · 774 shots, 2,558 takes</div>
-            <div class="body">
-              <p>The four rules as one codebase. A custom Fountain and Final Draft parser turns a script into
-              scene, beat, and shot DNA; coverage formulas are implemented as code; prompts compile across Flux,
-              Hunyuan, Kling, World Labs 3D, Veo, and Wan with camera-motion mapping over seventeen motions and
-              five models. Budget-gated dispatch, face-identity validation on every take, a JSONL provenance
-              ledger, and FCPXML assembly straight into DaVinci Resolve. 185 tests green, deployed multi-tenant
-              on RTX PRO 6000 hardware over a private mesh.</p>
-              <div class="pipeline">
-                parse <span class="arw">→</span> scene / beat / shot DNA <span class="arw">→</span> prompt compile
-                <span class="arw">→</span> budget gate <span class="arw">→</span> dispatch <span class="arw">→</span>
-                face-identity validate <span class="arw">→</span> classify take <span class="arw">→</span> provenance
-                ledger <span class="arw">→</span> assemble to Resolve
-              </div>
-            </div>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Evaluation harnesses</p>
-            <h3>The system never judges its own work</h3>
-            <div class="body">
-              <p>A multi-model judge scores copy, code, art, and audio across two frontier models in parallel.
-              Ground-truth harnesses catch monotone voice clones by pitch variance against the real voice, and
-              frozen or melted generated video by optical flow. The AML benchmark gates detector precision and
-              recall against fixed thresholds in CI. Written methodology underneath all of it: falsifiable
-              success first, objective validation, human gate last.</p>
-            </div>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Local video pipeline</p>
-            <h3>Fully local, HDR-finished</h3>
-            <div class="body">
-              <p>A self-contained video-generation pipeline pairing high-quality keyframes with open-weight
-              motion models on a 96GB GPU, finishing to true HDR ProRes masters through a 32-bit EXR chain.
-              Every clip is graded by an automated evaluation harness before a human pass, and the pipeline
-              benchmarks its own fidelity gap against closed providers. Deploys the same stack to cloud GPUs
-              on demand.</p>
-            </div>
-          </article>
-
-          <article class="item">
-            <p class="ptag">Spatial + world models</p>
-            <h3>Spaces as data</h3>
-            <div class="body">
-              <p>A through-line from photogrammetry to world models: a photogrammetric digital twin of
-              Jerusalem&rsquo;s old city, volumetric capture for documentary, NeRF and Gaussian-splatting
-              reconstruction, and generative 3D through World Labs, Hunyuan3D, and Trellis inside the same
-              dispatch layer as the video models. Athena&rsquo;s PlayCanvas venue twin drives content placement
-              against the real room&rsquo;s geometry; Giant Steps, a spatial art piece, went to Venice
-              Immersive as a submission.</p>
-            </div>
-          </article>
-        </div>
-      </div>
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>Late 2023</dd>
+      <dt>Type</dt><dd>RAG system, voice interface</dd>
+      <dt>Role</dt><dd>Builder</dd>
+    </dl>
+    <div class="body">
+      <h2>WordPress corpus to conversational RAG</h2>
+      <p>The first agent-built-and-validated system: fifteen years of a WordPress site extracted into a working
+      retrieval-augmented database with an ElevenLabs voice and a conversational interface. Agents handled the
+      extraction and structuring; a validation pass confirmed the corpus survived the migration intact. The
+      starting point of the agentic work.</p>
     </div>
   </div>
-</section>
+</div></div>
 
-<section id="foundations">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">04</div>
-        <div class="sec-range">Stack</div>
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Regulated systems</div>
+
+  <div class="entry first">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2024–2026</dd>
+      <dt>Type</dt><dd>AML platform, synthetic data</dd>
+      <dt>Role</dt><dd>Lead architect</dd>
+      <dt>Client</dt><dd>Triyo (for Libro Credit Union)</dd>
+    </dl>
+    <div class="body">
+      <h2>TRIYO AML platform</h2>
+      <p>An anti-money-laundering platform built with Triyo for its Libro Credit Union engagement: eight
+      compliance agents for transaction monitoring, sanctions and PEP screening, due diligence, and network
+      analysis, on Azure with FINTRAC Gen 2 schemas parsed across 884 properties and a hash-chained audit
+      ledger. The standout piece is a crowd-simulation-inspired synthetic-data engine, where ordinary members
+      carry legitimate spending rules and criminals carry a few more, so fifteen laundering typologies emerge
+      naturally inside a 1.2-million-transaction stream with automatic ground-truth labels. That labeled data
+      scores fifteen behavioral detectors at 0.958 precision.</p>
+      <div class="figs one">
+        <figure><img src="assets/sentra-demo.jpg" alt="AML detection console, public demo build"></figure>
       </div>
-      <div class="sec-main">
-        <h2>Technical Foundations</h2>
-        <div class="tech">
-          <div>
-            <h4>Generative and machine learning</h4>
-            <p>Diffusion (Flux Pro and Ultra, Stable Diffusion), image-to-video (Kling, Veo, Sora 2, Wan, Hunyuan,
-            Pika), 3D generation (Hunyuan3D, Trellis, World Labs), audio (Whisper, demucs, custom harmonic analysers),
-            persona pipelines (FaceFusion, LoRA training, voice cloning), NeRF and Gaussian Splatting, world models, photogrammetric digital twins, and volumetric capture.</p>
-          </div>
-          <div>
-            <h4>Agentic systems</h4>
-            <p>Anthropic Claude with Model Context Protocol servers and skills, multi-agent orchestration with explicit
-            role and tool boundaries, provenance ledgers, and indemnity-aware model routing.</p>
-          </div>
-          <div>
-            <h4>Real-time and immersive</h4>
-            <p>TouchDesigner, Resolume with REST control, GLSL shaders, PLY point clouds, MIDI integration, Kooima CAVE
-            projection, anamorphic geometry, and projection mapping at 230-foot scale.</p>
-          </div>
-          <div>
-            <h4>Application stack</h4>
-            <p>Python 3.12+, Typer, Pydantic, FastAPI, SQLAlchemy 2.0, Hono, Vite, React, TypeScript, Tailwind,
-            PostgreSQL, Redis. Azure deployment with hash-chained audit logging for regulated workloads.</p>
-          </div>
-          <div>
-            <h4>Art and craft</h4>
-            <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte
-            painting, photoreal CGI, typography and title design, fine-art print production (16-bit workflows,
-            calibrated grain), projection design and staging, and audio craft: stem separation, harmonic
-            analysis, impulse capture.</p>
-          </div>
-          <div>
-            <h4>Compliance and risk</h4>
-            <p>Likeness and Synthesis ladder for generative VFX, FINTRAC Gen 2 schema implementation for AML,
-            hash-chained provenance ledgers, PII-protected AI surfaces, and SR&amp;ED documentation.</p>
-          </div>
-        </div>
-      </div>
+      <div class="cap">Detection console · public demo build</div>
     </div>
   </div>
-</section>
 
-<section id="contact">
-  <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">05</div>
-        <div class="sec-range">Get in touch</div>
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2025–2026</dd>
+      <dt>Type</dt><dd>Research engine, PM console</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Built with</dt><dd>Materiality</dd>
+    </dl>
+    <div class="body">
+      <h2>AI Alpha</h2>
+      <p>An agentic equity-research engine: filings, transcripts, news, and macro data extracted into per-issuer
+      and per-sector signals, feeding a mean-CVaR portfolio optimizer that proposes rebalances for a human
+      portfolio manager. The pitch decks and an interactive PM console are live; the Python engine is a working,
+      tested prototype.</p>
+      <div class="figs one">
+        <figure><img src="assets/aialpha-deck.jpg" alt="AI Alpha deck front page, live"></figure>
       </div>
-      <div class="sec-main">
-        <h2>Contact</h2>
-        <div class="contact">
-          <a class="row2" href="mailto:sean@seanthomasevans.com">
-            <span class="k">Email</span>
-            <span class="v">sean@seanthomasevans.com</span>
-          </a>
-          <a class="row2" href="https://www.linkedin.com/in/seanthomasevans/" target="_blank" rel="noopener">
-            <span class="k">LinkedIn</span>
-            <span class="v">linkedin.com/in/seanthomasevans</span>
-          </a>
-        </div>
-      </div>
+      <div class="cap">AI Alpha · deck front page, live</div>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="wrap">© Sean Thomas Evans 2026</div>
-</footer>
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2026</dd>
+      <dt>Type</dt><dd>Generative-VFX pipeline</dd>
+      <dt>Role</dt><dd>Pipeline architect</dd>
+      <dt>Client</dt><dd>Documentary studio, AI division</dd>
+    </dl>
+    <div class="body">
+      <h2>Generative-VFX pipeline</h2>
+      <p>Screenplay-to-consistent-character generation for a documentary studio&rsquo;s AI division, governed by
+      a five-level likeness-and-synthesis ladder and a per-model indemnity map across fal.ai, Runway, Kling, AWS
+      Nova, Adobe, and Google, with a provenance ledger for copyright defensibility. Shipped as a Vite, React,
+      and TypeScript demo with a cost toggle between local and remote inference.</p>
+    </div>
+  </div>
+</div></div>
 
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Spatial &amp; validation</div>
+
+  <div class="entry first">
+    <dl class="meta">
+      <dt class="top">Span</dt><dd>2016–present</dd>
+      <dt>Type</dt><dd>Photogrammetry, world models</dd>
+      <dt>Role</dt><dd>Producer, developer</dd>
+    </dl>
+    <div class="body">
+      <h2>Spatial and world models</h2>
+      <p>A line from photogrammetry to world models: a photogrammetric digital twin of Jerusalem&rsquo;s old
+      city, volumetric capture for documentary, NeRF and Gaussian-splatting reconstruction, and generative 3D
+      through World Labs, Hunyuan3D, and Trellis inside the same dispatch layer as the video models.
+      Athena&rsquo;s PlayCanvas venue twin places content against real room geometry.</p>
+      <div class="figs one">
+        <figure><img src="assets/storyboard-1.jpg" alt="Previs frame from 1812, Conformer output"></figure>
+      </div>
+      <div class="cap">Previs frame from 1812, generated in Conformer</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Span</dt><dd>2025–present</dd>
+      <dt>Type</dt><dd>Evaluation harnesses</dd>
+      <dt>Role</dt><dd>Designer, developer</dd>
+    </dl>
+    <div class="body">
+      <h2>Evaluation harnesses</h2>
+      <p>Objective checks across the pipelines, on the principle that the system producing the work is never its
+      own judge. A multi-model judge scores copy, code, art, and audio across two frontier models in parallel;
+      ground-truth harnesses catch monotone voice clones by pitch variance and broken video by optical flow;
+      the AML benchmark gates detector precision and recall against fixed thresholds in continuous integration.</p>
+    </div>
+  </div>
+</div></div>
+
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Foundations</div>
+  <div class="entry first" style="grid-template-columns:1fr;">
+    <div class="body" style="max-width:none;">
+      <p class="stack"><b>Generative &amp; ML:</b> diffusion (Flux, Stable Diffusion), image-to-video (Kling, Veo, Sora, Wan, Hunyuan, LTX), 3D generation (Hunyuan3D, Trellis, World Labs), audio (Whisper, Demucs, custom harmonic analysers), persona pipelines (FaceFusion, LoRA training, voice cloning), NeRF and Gaussian splatting, world models, photogrammetric twins, volumetric capture.</p>
+      <p class="stack"><b>Agentic systems:</b> Claude with Model Context Protocol servers and skills, multi-agent orchestration with explicit role and tool boundaries, agent-based synthetic-data simulation, provenance ledgers, indemnity-aware model routing, evaluation harnesses with ground-truth gating.</p>
+      <p class="stack"><b>Real-time &amp; immersive:</b> TouchDesigner, Resolume (REST control), GLSL, PLY point clouds, MIDI, Kooima CAVE projection, anamorphic geometry, projection mapping at venue scale.</p>
+      <p class="stack"><b>Stack:</b> Python, FastAPI, SQLAlchemy, Pydantic, Hono, Vite, React, TypeScript, PostgreSQL, Redis, Azure with hash-chained audit logging for regulated workloads.</p>
+      <p class="stack"><b>Art &amp; craft:</b> animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, photoreal CGI, typography and title design, fine-art print production, projection design, and audio craft.</p>
+    </div>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  Sean Thomas Evans, Toronto · <a href="mailto:sean@seanthomasevans.com">sean@seanthomasevans.com</a> ·
+  <a href="https://www.linkedin.com/in/seanthomasevans/">LinkedIn</a>
+</div></footer>
 </body>
 </html>

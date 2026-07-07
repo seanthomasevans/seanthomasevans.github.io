@@ -6,244 +6,145 @@
 <title>Sean Thomas Evans</title>
 <style>
   :root {
-    --bg: #101010;
-    --text: #ececea;
-    --muted: #9a9a96;
-    --line: #2a2a28;
-    --accent: #ff4438;
+    --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
+    --line: #262624; --accent: #d8452f;
     --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: var(--sans); font-size: 15.5px; line-height: 1.55; font-weight: 400;
-    letter-spacing: -0.01em;
-    font-feature-settings: "tnum";
-    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
   img { display: block; max-width: 100%; }
-  a { color: var(--text); text-decoration: none; transition: text-decoration-color 120ms ease; }
-  a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  a:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  a { color: var(--text); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
-  /* nav */
-  nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
-  nav .bar { max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(14,14,14,0.94); backdrop-filter: blur(8px); z-index: 10; }
+  nav .bar { display: flex; align-items: center; height: 60px; }
   nav .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
-  nav .spacer { flex: 1 1 auto; }
-  nav .links { display: flex; gap: 28px; }
-  nav .links a { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; }
-  nav .links a.here { text-decoration: underline; text-decoration-color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  nav .links a.here:hover { text-decoration-color: var(--accent); }
+  nav .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.02em; }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover, nav .links a.here { color: var(--text); }
 
-  /* hero */
-  header { padding: 64px 0 56px; border-bottom: 1px solid var(--line); }
-  .kicker { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 32px; }
-  h1 { font-weight: 700; font-size: clamp(38px, 4.6vw, 68px); letter-spacing: -0.03em; line-height: 0.95; text-wrap: balance; }
-  .standfirst { margin-top: 32px; max-width: 62ch; font-size: 18px; line-height: 1.4; letter-spacing: -0.01em; }
-  .standfirst strong { font-weight: 700; }
-  .thesis { margin-top: 48px; max-width: 24ch; font-size: clamp(20px, 2.4vw, 28px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance; }
+  header { padding: 96px 0 72px; border-bottom: 1px solid var(--line); }
+  h1 { font-weight: 700; font-size: clamp(40px, 5.5vw, 74px); letter-spacing: -0.03em; line-height: 1.0; }
+  .lede { margin-top: 28px; max-width: 54ch; font-size: clamp(18px, 2vw, 22px); line-height: 1.45; color: var(--text); }
 
-  /* section grid */
-  .sec { border-top: 1px solid var(--text); margin-top: 88px; padding-top: 32px; display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start; }
-  .sec-num { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: 0.02em; font-feature-settings: "tnum"; }
-  .sec-range { margin-top: 8px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  h2 { font-weight: 700; font-size: clamp(22px, 2.8vw, 32px); letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  .sec-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 32px; }
 
-  /* approach */
-  .statement { margin-top: 24px; max-width: 36ch; font-size: clamp(17px, 1.9vw, 21px); font-weight: 500; letter-spacing: -0.015em; line-height: 1.32; text-wrap: balance; }
-  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--text); margin-top: 56px; }
-  .timeline .tl { padding: 24px 24px 8px 0; border-right: 1px solid var(--line); }
-  .timeline .tl:last-child { border-right: none; padding-right: 0; }
-  .timeline .tl-year { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; font-feature-settings: "tnum"; }
-  .timeline .tl-desc { margin-top: 12px; font-size: 14.5px; color: var(--muted); line-height: 1.45; max-width: 30ch; }
+  .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .card { display: block; border: 1px solid var(--line); }
+  .card .frame { position: relative; width: 100%; padding-top: 60%; overflow: hidden; background: #000; }
+  .card .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .card .cb { padding: 22px 24px 26px; }
+  .card .ct, .card .cd, .card .cg { display: block; }
+  .card .ct { font-weight: 700; font-size: 21px; letter-spacing: -0.01em; }
+  .card .cd { margin-top: 8px; color: var(--muted); font-size: 14.5px; }
+  .card .cg { margin-top: 16px; font-size: 13px; color: var(--accent); }
+  .card:hover .cg { text-decoration: underline; text-underline-offset: 3px; }
 
-  /* doors */
-  .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px; }
-  .door { display: block; color: var(--text); }
-  .door .d-fig { display: block; border: 1px solid var(--line); padding: 4px; }
-  .door .d-fig .frame { display: block; position: relative; width: 100%; padding-top: 62%; overflow: hidden; background: #000; }
-  .door .d-fig .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .door .d-idx { display: block; margin-top: 16px; color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; font-feature-settings: "tnum"; }
-  .door .d-title { display: block; font-weight: 700; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.02em; line-height: 1.02; margin: 8px 0 12px; text-wrap: balance; }
-  .door .d-desc { display: block; color: var(--muted); font-size: 16px; line-height: 1.45; max-width: 44ch; }
-  .door .d-cta { display: inline-block; margin-top: 18px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: underline; text-decoration-color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  .door:hover { text-decoration: none; }
-  .door:hover .d-title, .door:hover .d-cta { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+  .cat { margin-bottom: 30px; }
+  .cat h3 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .cat ul { list-style: none; column-count: 2; column-gap: 40px; }
+  .cat li { font-size: 15px; line-height: 1.9; break-inside: avoid; }
+  .cat li .yr { color: var(--faint); }
 
-  /* contact */
-  .contact { margin-top: 32px; }
-  .contact a.row2 { display: flex; align-items: baseline; gap: 28px; flex-wrap: wrap; padding: 24px 0; border-bottom: 1px solid var(--line); }
-  .contact a.row2:first-child { border-top: 1px solid var(--line); }
-  .contact a.row2:hover { text-decoration: none; }
-  .contact a.row2:hover .v { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-  .contact .k { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); min-width: 120px; }
-  .contact .v { font-size: clamp(18px, 2vw, 24px); font-weight: 700; letter-spacing: -0.02em; }
+  .contact a.row { display: flex; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); font-size: 17px; align-items: baseline; }
+  .contact a.row:first-child { border-top: none; }
+  .contact .k { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); min-width: 90px; }
+  .contact a.row:hover .v { text-decoration: underline; text-underline-offset: 3px; }
+  footer { padding: 48px 0 72px; font-size: 12.5px; color: var(--faint); }
 
-  footer { margin-top: 88px; border-top: 1px solid var(--line); padding: 32px 0 80px; font-size: 12.5px; color: var(--muted); }
-
-  @media (min-resolution: 2dppx) {
-    .door .d-fig, .contact a.row2, .timeline .tl { border-width: 0.5px; }
-  }
-
-  @media (max-width: 820px) {
-    .wrap { padding: 0 22px; }
-    nav .bar { padding: 16px 22px; }
-    nav .links { gap: 18px; }
-    header { padding: 64px 0 56px; }
-    .sec { grid-template-columns: 1fr; gap: 16px; margin-top: 88px; }
-    .sec-aside { display: flex; gap: 16px; align-items: baseline; }
-    .sec-range { margin-top: 0; }
-    .timeline { grid-template-columns: 1fr 1fr; }
-    .timeline .tl:nth-child(2) { border-right: none; }
-    .doors { grid-template-columns: 1fr; gap: 40px; }
-    .contact .k { min-width: 0; }
-  }
-
-  .figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 6px; }
-  .figrow figure { border: 1px solid var(--line); padding: 3px; background: var(--bg); margin: 0; }
-  .figrow img { display: block; width: 100%; }
-  .sec { margin-top: 56px !important; padding-top: 24px !important; }
-  header { padding: 48px 0 40px !important; }
-  .items > .item, .items > article { margin-top: 28px !important; }
-  section, .sec-main { padding-top: 0 !important; }
+  @media (max-width: 760px) { .entries { grid-template-columns: 1fr; } .cat ul { column-count: 1; } }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="bar">
-    <a class="brand" href="index.html">Sean Thomas Evans</a>
-    <span class="spacer"></span>
-    <span class="links">
-      <a href="index.html" class="here">Home</a>
-      <a href="creative.html">Creative</a>
-      <a href="ai.html">AI</a>
-      <a href="#contact">Contact</a>
-    </span>
-  </div>
-</nav>
+<nav><div class="wrap"><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a class="here" href="index.html">Index</a><a href="creative.html">Creative</a><a href="ai.html">AI</a><a href="#contact">Contact</a></span>
+</div></div></nav>
 
-<header id="top">
+<header>
   <div class="wrap">
-    <p class="kicker">Creative technologist · Producer</p>
-    <h1>Sean Thomas<br>Evans</h1>
-    <p class="standfirst">Twenty-eight years across animation, VFX, and post-production pipelines, transformed into
-    agentic workflows. <strong>I build systems that let small teams do studio-scale work.</strong></p>
+    <h1>Sean Thomas Evans</h1>
+    <p class="lede">Creative technologist and producer. I build AI production systems for music, film, and
+    exhibition, after a career directing visual effects and producing immersive work.</p>
   </div>
 </header>
 
-<section id="approach">
+<section>
   <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">01</div>
-        <div class="sec-range">Approach</div>
-      </div>
-      <div class="sec-main">
-        <h2>Background</h2>
-        <p class="statement" style="font-weight:400; font-size:clamp(17px,1.9vw,20px); max-width:62ch; line-height:1.5;">Sean
-        Thomas Evans is a creative technologist and producer. He started as a VFX supervisor and animation
-        director in broadcast and film, spent a decade producing immersive and VR work, and now designs and
-        builds AI production systems for music, film, exhibition, and regulated enterprise.</p>
-        <div class="timeline">
-          <div class="tl">
-            <div class="tl-year">1997</div>
-            <div class="tl-desc">VFX supervision and animation direction. Cream Productions, Nelvana, NFB, Discovery.</div>
-          </div>
-          <div class="tl">
-            <div class="tl-year">2015</div>
-            <div class="tl-desc">Immersive and VR. Co-founder, Occupied VR. Venice, Cannes, TIFF.</div>
-          </div>
-          <div class="tl">
-            <div class="tl-year">2023</div>
-            <div class="tl-desc">Agentic AI systems. Multi-agent orchestration, validation harnesses, production pipelines.</div>
-          </div>
-          <div class="tl">
-            <div class="tl-year">Now</div>
-            <div class="tl-desc">Daniel Lanois (music), Cream Productions (VFX), Design Exchange (exhibition).</div>
-          </div>
-        </div>
-      </div>
+    <div class="sec-label">Two bodies of work</div>
+    <div class="entries">
+      <a class="card" href="creative.html">
+        <span class="frame"><img src="assets/lanois-trains.jpg" alt="Frame from a Daniel Lanois visual companion"></span>
+        <span class="cb">
+          <span class="ct">Creative &amp; media</span>
+          <span class="cd">Film, music video, VFX, immersive, and generative work. 1997 to now.</span>
+          <span class="cg">View →</span>
+        </span>
+      </a>
+      <a class="card" href="ai.html">
+        <span class="frame"><img src="assets/conformer-narrative-projects.jpg" alt="Conformer production console"></span>
+        <span class="cb">
+          <span class="ct">AI &amp; agentic systems</span>
+          <span class="cd">Production pipelines, multi-agent orchestration, and validation. 2023 to now.</span>
+          <span class="cg">View →</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
 
-<section id="views">
+<section>
   <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">02</div>
-        <div class="sec-range">Portfolio</div>
-      </div>
-      <div class="sec-main">
-        <h2>Two bodies of work</h2>
-        <div class="doors">
-          <a class="door" href="creative.html">
-            <span class="d-fig"><span class="frame"><img src="assets/lanois-trains.jpg" alt="Still from a Daniel Lanois visual companion" width="1600" height="900"></span></span>
-            <span class="d-idx">01</span>
-            <span class="d-title">Creative &amp; Media</span>
-            <span class="d-desc">Animation direction, VFX, music video, immersive, and generative film across 28 years.</span>
-            <span class="d-cta">Enter</span>
-          </a>
-          <a class="door" href="ai.html">
-            <span class="d-fig"><span class="frame"><img src="assets/conformer-narrative-projects.jpg" alt="Conformer production console" width="1600" height="900"></span></span>
-            <span class="d-idx">02</span>
-            <span class="d-title">AI &amp; Agentic Systems</span>
-            <span class="d-desc">Production pipelines, multi-agent orchestration, and validation harnesses since 2023.</span>
-            <span class="d-cta">Enter</span>
-          </a>
-        </div>
-      </div>
+    <div class="sec-label">Selected work</div>
+    <div class="cat">
+      <h3>AI production systems</h3>
+      <ul>
+        <li>Conformer <span class="yr">2024–</span></li>
+        <li>TRIYO AML platform <span class="yr">2024–26</span></li>
+        <li>The Maker, Lanois archive engine <span class="yr">2024–</span></li>
+        <li>AI Alpha <span class="yr">2025–26</span></li>
+        <li>Local video pipeline <span class="yr">2026</span></li>
+        <li>BirdNET field tool <span class="yr">2026</span></li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<section id="index-list">
-  <div class="wrap">
-    <div class="sec">
-      <div><div class="sec-num">03</div><div class="sec-range">Selected index</div></div>
-      <div>
-        <p style="font-size:15px; line-height:2.1; color:var(--muted);">
-        No Dress Rehearsal 2022–24 · The Maker &amp; Belladonna Nocturne 2024– · Athena, Design Exchange 2024– ·
-        Conformer 2024– · TRIYO AML platform 2024–26 · AI Alpha · Materiality 2025–26 ·
-        Spots of Light 2023 · The Holy City 2016–20 ·
-        MYRIAD 2021 · Sharkwater VR 2018 · Cut-Off 2016 · Body / Mind / Change 2013–14 ·
-        Aftermath: Population Zero 2008 · Return to Kandahar (Gemini Award)</p>
-      </div>
+    <div class="cat">
+      <h3>Film, music &amp; VFX</h3>
+      <ul>
+        <li>The Tragically Hip: No Dress Rehearsal <span class="yr">2022–24</span></li>
+        <li>Daniel Lanois: Belladonna Nocturne <span class="yr">2024–26</span></li>
+        <li>Alannah Myles restoration <span class="yr">2024–25</span></li>
+        <li>1188 Films <span class="yr">2009–21</span></li>
+        <li>Aftermath: Population Zero <span class="yr">2008</span></li>
+        <li>Return to Kandahar <span class="yr">Gemini Award</span></li>
+      </ul>
+    </div>
+    <div class="cat">
+      <h3>Immersive &amp; exhibition</h3>
+      <ul>
+        <li>Athena, Design Exchange <span class="yr">2024–</span></li>
+        <li>Spots of Light <span class="yr">2023</span></li>
+        <li>The Holy City <span class="yr">2016–20</span></li>
+        <li>MYRIAD <span class="yr">2021</span></li>
+        <li>Sharkwater VR <span class="yr">2018</span></li>
+        <li>Body / Mind / Change <span class="yr">2013–14</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="wrap">
-    <div class="sec">
-      <div class="sec-aside">
-        <div class="sec-num">04</div>
-        <div class="sec-range">Get in touch</div>
-      </div>
-      <div class="sec-main">
-        <h2>Contact</h2>
-        <div class="contact">
-          <a class="row2" href="mailto:sean@seanthomasevans.com">
-            <span class="k">Email</span>
-            <span class="v">sean@seanthomasevans.com</span>
-          </a>
-          <a class="row2" href="https://www.linkedin.com/in/seanthomasevans/" target="_blank" rel="noopener">
-            <span class="k">LinkedIn</span>
-            <span class="v">linkedin.com/in/seanthomasevans</span>
-          </a>
-        </div>
-      </div>
+    <div class="sec-label">Contact</div>
+    <div class="contact">
+      <a class="row" href="mailto:sean@seanthomasevans.com"><span class="k">Email</span><span class="v">sean@seanthomasevans.com</span></a>
+      <a class="row" href="https://www.linkedin.com/in/seanthomasevans/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/seanthomasevans</span></a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">© Sean Thomas Evans 2026</div>
-</footer>
-
+<footer><div class="wrap">Sean Thomas Evans, Toronto</div></footer>
 </body>
 </html>

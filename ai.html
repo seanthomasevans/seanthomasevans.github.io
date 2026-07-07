@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Development · Sean Thomas Evans</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <style>
   :root {
     --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
@@ -32,6 +33,13 @@
   .catsec .sec-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
   .catsec .sec-note { font-size: 14.5px; color: var(--muted); max-width: 64ch; margin-bottom: 8px; }
 
+  .found { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+  .found .grp { background: var(--bg); padding: 26px 28px; }
+  .found .grp.wide { grid-column: 1 / -1; }
+  .found .grp h3 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .found .grp p { margin-top: 12px; font-size: 13.5px; color: var(--muted); line-height: 1.75; max-width: none; }
+  @media (max-width: 760px) { .found { grid-template-columns: 1fr; } }
+
   .entry { display: grid; grid-template-columns: 190px 1fr; gap: 40px; padding: 40px 0; border-top: 1px solid var(--line); }
   .entry.first { border-top: none; }
   .meta { font-size: 13px; line-height: 1.85; color: var(--muted); }
@@ -46,6 +54,11 @@
   .body figure { border: 1px solid var(--line); }
   .body figure img { width: 100%; height: auto; }
   .body .cap { margin-top: 8px; font-size: 12px; color: var(--faint); }
+  .body .live { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+  .body .live .obj { border: 1px solid var(--line); }
+  .body .live model-viewer { width: 100%; height: 340px; background: #141414; --poster-color: #141414; display: block; }
+  .body .live .lbl { padding: 10px 14px 12px; font-size: 12px; color: var(--faint); }
+  .body .live .lbl b { color: var(--muted); font-weight: 400; display: block; margin-bottom: 2px; }
   .stack { margin-top: 8px; font-size: 13px; color: var(--faint); line-height: 1.7; }
   .stack b { color: var(--muted); font-weight: 400; }
 
@@ -72,11 +85,10 @@
 
 <div class="catsec"><div class="wrap">
   <div class="sec-label">Production infrastructure</div>
-  <div class="sec-note">Where it started: the systems behind the shows, not the shots themselves.</div>
 
   <div class="entry first">
     <dl class="meta">
-      <dt class="top">Years</dt><dd>2003–2009</dd>
+      <dt class="top">Years</dt><dd>2003–2015</dd>
       <dt>Type</dt><dd>Production-management systems</dd>
       <dt>Role</dt><dd>VFX Supervisor, Pipeline Architect</dd>
       <dt>Scale</dt><dd>26 episodes, ~4,000 shots</dd>
@@ -88,8 +100,7 @@
       production-management platform</b> for animators, directors, and shot review, and ran roughly
       <b>4,000 visual-effects and CG shots across 26 episodes</b> through it. As renders outgrew the room, the
       pipeline moved to remote rendering with outside vendors, and then to <b>AWS as soon as cloud rendering
-      came online.</b> Twenty years before &ldquo;pipeline&rdquo; was a job title, this was the work: track
-      every shot, route it through the right hands, and keep the show shipping.</p>
+      came online.</b> Across film, visual effects, and broadcast deliverables through to the mid-2010s.</p>
     </div>
   </div>
 
@@ -112,7 +123,6 @@
 
 <div class="catsec"><div class="wrap">
   <div class="sec-label">Generative &amp; agentic</div>
-  <div class="sec-note">The AI work runs from 2016, not 2023. It grew out of the pipeline habit, not away from it.</div>
 
   <div class="entry first">
     <dl class="meta">
@@ -164,10 +174,12 @@
       dispatch, <b>face-identity validation on every take</b>, a JSONL provenance ledger, and assembly straight
       into DaVinci Resolve. Hardened on a feature at 774 shots and 2,558 takes, deployed on RTX PRO 6000
       hardware. This is the broadcast shot-management idea, thirty years on, with generation in the loop.</p>
-      <div class="figs one">
-        <figure><img src="assets/previs-1812.jpg" alt="Previs frame generated in Conformer for Bruce McDonald's 1812"></figure>
+      <div class="figs" style="grid-template-columns:1fr 1fr 1fr;">
+        <figure><img src="assets/conformer-narrative-projects.jpg" alt="Conformer project view: script, scenes, and shot canon for a narrative project"></figure>
+        <figure><img src="assets/conformer-agent-ui.jpg" alt="Conformer agent dissecting a screenplay into a shot punch list"></figure>
+        <figure><img src="assets/materiality-michael.jpg" alt="Per-character reference canon holding a face consistent across generated takes"></figure>
       </div>
-      <div class="cap">Previs frame from 1812, generated and validated in Conformer</div>
+      <div class="cap">The pipeline in use: a project carrying its script and shot canon, the agent that turns a screenplay into a shot punch list, and per-character reference canon that holds a face consistent across takes.</div>
     </div>
   </div>
 
@@ -188,14 +200,10 @@
       fidelity gap against closed providers, and deploys the same stack to cloud GPUs on demand. Character and
       likeness work, with a five-level synthesis ladder and provenance ledger, runs here too.</p>
       <div class="figs">
-        <figure><img src="assets/lvp-circus.jpg" alt="Circus render that passes the anatomy gate"></figure>
-        <figure><img src="assets/lvp-fail.jpg" alt="Broken quadruped the anatomy gate rejects"></figure>
+        <figure><img src="assets/lvp-circus.jpg" alt="Local pipeline render that passes the evaluation gate"></figure>
+        <figure><img src="assets/lvp-pbr.jpg" alt="A finished frame decomposed into PBR material passes"></figure>
       </div>
-      <div class="cap">The anatomy gate at work: a clean render passes, a broken one is caught and dropped</div>
-      <div class="figs one">
-        <figure><img src="assets/lvp-pbr.jpg" alt="Material passes: rgb, albedo, normal, roughness, metallic, irradiance"></figure>
-      </div>
-      <div class="cap">A finished frame decomposed into PBR material passes</div>
+      <div class="cap">A clean render that clears the evaluation gate, and a frame decomposed into PBR material passes</div>
     </div>
   </div>
 
@@ -204,17 +212,17 @@
       <dt class="top">Year</dt><dd>2024–2026</dd>
       <dt>Type</dt><dd>AML platform, synthetic data</dd>
       <dt>Role</dt><dd>Lead architect</dd>
-      <dt>Client</dt><dd>Triyo (for Libro Credit Union)</dd>
+      <dt>Built with</dt><dd>Triyo (RegTech)</dd>
     </dl>
     <div class="body">
-      <h2>TRIYO AML platform</h2>
-      <p>An anti-money-laundering platform built with Triyo for its Libro Credit Union engagement: eight
+      <h2>Sentra AML platform</h2>
+      <p>An anti-money-laundering platform, built with Triyo and shown publicly as Sentra: eight
       compliance agents for transaction monitoring, sanctions and PEP screening, due diligence, and network
       analysis, on Azure with FINTRAC schemas parsed across 884 properties and a hash-chained audit ledger. The
       part I am proudest of is a <b>crowd-simulation-inspired synthetic-data engine</b>: ordinary members carry
       legitimate spending rules and criminals carry a few more, so fifteen laundering patterns emerge naturally
       inside a 1.2-million-transaction stream with automatic ground-truth labels. That labeled data scores
-      fifteen behavioral detectors at 0.958 precision. The public-facing demo runs under the name Sentra.</p>
+      fifteen behavioral detectors at 0.958 precision.</p>
       <div class="figs one">
         <figure><img src="assets/sentra-console.jpg" alt="Sentra AML compliance dashboard: flagged activity, risk distribution, detection patterns"></figure>
       </div>
@@ -254,27 +262,51 @@
       old city, volumetric capture for documentary, NeRF and Gaussian-splatting reconstruction, and generative
       3D through World Labs, Hunyuan3D, and Trellis inside the same dispatch layer as the video models.
       Athena&rsquo;s venue twin places content against real room geometry. Recent object work includes
-      photogrammetric and scanned captures from a private Toronto collection, cleaned and retopologized for
-      real-time use.</p>
-      <div class="figs">
-        <figure><img src="assets/spatial-samurai.jpg" alt="Captured samurai armour, cleaned for real-time"></figure>
-        <figure><img src="assets/spatial-skull.jpg" alt="Captured horned skull with PBR textures"></figure>
+      photogrammetric and scanned captures from the collection of Toronto collector Bert Schmitz, cleaned and
+      retopologized for real-time.</p>
+      <div class="live">
+        <div class="obj">
+          <model-viewer src="assets/samurai-web.glb" alt="Captured samurai armour, real-time model"
+            camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.6"
+            environment-image="neutral" exposure="1.1" camera-orbit="25deg 78deg auto"
+            poster="assets/spatial-samurai.jpg" reveal="interaction" loading="lazy"></model-viewer>
+          <div class="lbl"><b>Samurai armour</b>200k-triangle cleaned capture, diffuse and normal maps. Drag to orbit, scroll to zoom.</div>
+        </div>
+        <div class="obj">
+          <model-viewer src="assets/skull-web.glb" alt="Captured horned skull, real-time model"
+            camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.6"
+            environment-image="neutral" exposure="1.1" camera-orbit="0deg 80deg auto"
+            poster="assets/spatial-skull.jpg" reveal="interaction" loading="lazy"></model-viewer>
+          <div class="lbl"><b>Horned skull</b>High-resolution scan with PBR textures, decimated for the browser. Drag to orbit, scroll to zoom.</div>
+        </div>
       </div>
-      <div class="cap">Object captures from a private collection, retopologized for real-time.
-      <a href="viewer.html" style="color:var(--accent);">View in 3D &rarr;</a></div>
     </div>
   </div>
 </div></div>
 
 <div class="catsec"><div class="wrap">
   <div class="sec-label">Foundations</div>
-  <div class="entry first" style="grid-template-columns:1fr;">
-    <div class="body" style="max-width:none;">
-      <p class="stack"><b>Generative &amp; ML:</b> diffusion (Flux, Stable Diffusion), image-to-video (Kling, Veo, Sora, Wan, Hunyuan, LTX), 3D generation (Hunyuan3D, Trellis, World Labs), audio (Whisper, Demucs, custom harmonic analysers), voice (ElevenLabs from alpha, cloning), persona pipelines (FaceFusion, LoRA training), style transfer, NeRF and Gaussian splatting, world models, photogrammetric twins, volumetric capture.</p>
-      <p class="stack"><b>Agentic systems:</b> from AutoGPT and LangChain to Claude with Model Context Protocol servers and skills; multi-agent orchestration with explicit role and tool boundaries, agent-based synthetic-data simulation, provenance ledgers, indemnity-aware model routing, evaluation harnesses with ground-truth gating.</p>
-      <p class="stack"><b>Pipelines &amp; infra:</b> database-driven production management (PHP/MySQL through to modern stacks), remote and cloud rendering (AWS from early days), stereo and 360° capture and delivery, TouchDesigner, Resolume (REST control), GLSL, PLY point clouds, MIDI, Kooima CAVE projection, projection mapping at venue scale.</p>
-      <p class="stack"><b>Stack:</b> Python, FastAPI, SQLAlchemy, Pydantic, Hono, Vite, React, TypeScript, PostgreSQL, Redis, Azure with hash-chained audit logging for regulated workloads.</p>
-      <p class="stack"><b>Art &amp; craft:</b> animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, photoreal CGI, typography and title design, fine-art print production, projection design, audio craft.</p>
+  <div class="sec-note">The tools and techniques underneath the projects above, grouped by what they do.</div>
+  <div class="found">
+    <div class="grp">
+      <h3>Generative &amp; ML</h3>
+      <p>Diffusion (Flux, Stable Diffusion), image-to-video (Kling, Veo, Sora, Wan, Hunyuan, LTX), 3D generation (Hunyuan3D, Trellis, World Labs), audio (Whisper, Demucs, custom harmonic analysers), voice (ElevenLabs from alpha, cloning), persona pipelines (FaceFusion, LoRA training), style transfer, NeRF and Gaussian splatting, world models, photogrammetric twins, volumetric capture.</p>
+    </div>
+    <div class="grp">
+      <h3>Agentic systems</h3>
+      <p>From AutoGPT and LangChain to Claude with Model Context Protocol servers and skills: multi-agent orchestration with explicit role and tool boundaries, agent-based synthetic-data simulation, provenance ledgers, indemnity-aware model routing, evaluation harnesses with ground-truth gating.</p>
+    </div>
+    <div class="grp">
+      <h3>Pipelines &amp; infra</h3>
+      <p>Database-driven production management (PHP/MySQL through to modern stacks), remote and cloud rendering (AWS from early days), stereo and 360° capture and delivery, TouchDesigner, Resolume (REST control), GLSL, PLY point clouds, MIDI, Kooima CAVE projection, projection mapping at venue scale.</p>
+    </div>
+    <div class="grp">
+      <h3>Stack</h3>
+      <p>Python, FastAPI, SQLAlchemy, Pydantic, Hono, Vite, React, TypeScript, PostgreSQL, Redis, Azure with hash-chained audit logging for regulated workloads.</p>
+    </div>
+    <div class="grp wide">
+      <h3>Art &amp; craft</h3>
+      <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, photoreal CGI, typography and title design, fine-art print production, projection design, audio craft.</p>
     </div>
   </div>
 </div></div>

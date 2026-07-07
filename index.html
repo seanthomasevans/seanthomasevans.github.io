@@ -40,6 +40,7 @@
   .card .ct, .card .cd, .card .cg { display: block; }
   .card .ct { font-weight: 700; font-size: 21px; letter-spacing: -0.01em; }
   .card .cd { margin-top: 8px; color: var(--muted); font-size: 14.5px; }
+  .card .cp { display: block; margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint); line-height: 1.6; }
   .card .cg { margin-top: 16px; font-size: 13px; color: var(--accent); }
   .card:hover .cg { text-decoration: underline; text-underline-offset: 3px; }
 
@@ -47,6 +48,9 @@
   .cat h3 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
   .cat ul { list-style: none; column-count: 2; column-gap: 40px; }
   .cat li { font-size: 15px; line-height: 1.9; break-inside: avoid; }
+  .cat li a { color: var(--text); transition: color 0.15s; }
+  .cat li a:hover { color: var(--accent); }
+  .cat li a:hover .yr { color: var(--accent); }
   .cat li .yr { color: var(--faint); }
 
   .contact a.row { display: flex; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); font-size: 17px; align-items: baseline; }
@@ -68,11 +72,11 @@
 <header>
   <div class="wrap">
     <h1>Sean Thomas Evans</h1>
-    <p class="lede">Creative technologist and producer. I build AI production systems for music, film, and
-    exhibition, after a career directing visual effects and producing immersive work.</p>
-    <p class="lede-2">It covers a lot of ground, and I have never had a tidy answer for what I do. The common
-    thread is that I build the systems and pipelines behind the work, across film, music, exhibition, and lately
-    AI.</p>
+    <p class="lede">Creative technologist and producer. Twenty-eight years directing and producing film,
+    immersive, and music work, and building the systems behind it. I have been putting AI in the pipeline since
+    2016.</p>
+    <p class="lede-2">Recent work includes Animation Director on The Tragically Hip: No Dress Rehearsal, the
+    visual companions for Daniel Lanois, and Conformer, a screenplay-to-shots production pipeline.</p>
   </div>
 </header>
 
@@ -84,16 +88,18 @@
         <span class="frame"><img src="assets/lanois-trains.jpg" alt="Frame from a Daniel Lanois visual companion"></span>
         <span class="cb">
           <span class="ct">Creative &amp; media</span>
-          <span class="cd">Film, music video, VFX, immersive, and generative work. 1997 to now.</span>
-          <span class="cg">View →</span>
+          <span class="cd">Film, music, VFX, and immersive, from broadcast VFX supervision to the current visual companions for Daniel Lanois.</span>
+          <span class="cp">The Tragically Hip: No Dress Rehearsal · TIFF 2024 · Venice · Cannes · SIGGRAPH</span>
+          <span class="cg">View creative work →</span>
         </span>
       </a>
       <a class="card" href="ai.html">
         <span class="frame"><img src="assets/conformer-narrative-projects.jpg" alt="Conformer production console"></span>
         <span class="cb">
           <span class="ct">Development</span>
-          <span class="cd">Production pipelines and systems, from broadcast to agentic AI. 2003 to now.</span>
-          <span class="cg">View →</span>
+          <span class="cd">Production pipelines and agentic AI, from database-driven shot management in 2003 to full agentic systems today.</span>
+          <span class="cp">Conformer · Sentra AML · AI Alpha</span>
+          <span class="cg">View development work →</span>
         </span>
       </a>
     </div>
@@ -106,34 +112,34 @@
     <div class="cat">
       <h3>Development &amp; systems</h3>
       <ul>
-        <li>Conformer <span class="yr">2024–</span></li>
-        <li>Sentra AML platform <span class="yr">2024–26</span></li>
-        <li>The Maker, Lanois archive engine <span class="yr">2024–</span></li>
-        <li>AI Alpha <span class="yr">2025–26</span></li>
-        <li>Local video pipeline <span class="yr">2026</span></li>
-        <li>BirdNET field tool <span class="yr">2026</span></li>
+        <li><a href="ai.html#conformer">Conformer <span class="yr">2024–</span></a></li>
+        <li><a href="ai.html#sentra">Sentra AML platform <span class="yr">2024–26</span></a></li>
+        <li><a href="creative.html#the-maker">The Maker, Lanois archive engine <span class="yr">2024–</span></a></li>
+        <li><a href="ai.html#ai-alpha">AI Alpha <span class="yr">2025–26</span></a></li>
+        <li><a href="ai.html#local-video-pipeline">Local video pipeline <span class="yr">2026</span></a></li>
+        <li><a href="ai.html#birdnet">BirdNET field tool <span class="yr">2026</span></a></li>
       </ul>
     </div>
     <div class="cat">
       <h3>Film, music &amp; VFX</h3>
       <ul>
-        <li>The Tragically Hip: No Dress Rehearsal <span class="yr">2022–24</span></li>
-        <li>Daniel Lanois: Belladonna Nocturne <span class="yr">2024–26</span></li>
-        <li>Alannah Myles restoration <span class="yr">2024–25</span></li>
-        <li>1188 Films <span class="yr">2009–21</span></li>
-        <li>Aftermath: Population Zero <span class="yr">2008</span></li>
-        <li>Return to Kandahar <span class="yr">Gemini Award</span></li>
+        <li><a href="creative.html#ndr">The Tragically Hip: No Dress Rehearsal <span class="yr">2022–24</span></a></li>
+        <li><a href="creative.html#belladonna">Daniel Lanois: Belladonna Nocturne <span class="yr">2024–26</span></a></li>
+        <li><a href="creative.html#alannah">Alannah Myles restoration <span class="yr">2024–25</span></a></li>
+        <li><a href="creative.html#films-1188">1188 Films <span class="yr">2009–21</span></a></li>
+        <li><a href="creative.html#broadcast">Aftermath: Population Zero <span class="yr">2008</span></a></li>
+        <li><a href="creative.html#broadcast">Return to Kandahar, Gemini Award</a></li>
       </ul>
     </div>
     <div class="cat">
       <h3>Immersive &amp; exhibition</h3>
       <ul>
-        <li>Athena, Design Exchange <span class="yr">2024–</span></li>
-        <li>Spots of Light <span class="yr">2023</span></li>
-        <li>The Holy City <span class="yr">2016–20</span></li>
-        <li>MYRIAD <span class="yr">2021</span></li>
-        <li>Sharkwater VR <span class="yr">2018</span></li>
-        <li>Body / Mind / Change <span class="yr">2013–14</span></li>
+        <li><a href="creative.html#athena">Athena, Design Exchange <span class="yr">2024–</span></a></li>
+        <li><a href="creative.html#spots-of-light">Spots of Light <span class="yr">2023</span></a></li>
+        <li><a href="creative.html#holy-city">The Holy City <span class="yr">2016–20</span></a></li>
+        <li><a href="creative.html#myriad">MYRIAD <span class="yr">2021</span></a></li>
+        <li><a href="creative.html#sharkwater">Sharkwater VR <span class="yr">2018</span></a></li>
+        <li><a href="creative.html#body-mind-change">Body / Mind / Change <span class="yr">2013–14</span></a></li>
       </ul>
     </div>
   </div>

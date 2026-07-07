@@ -46,7 +46,7 @@
   .meta dt { color: var(--faint); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; }
   .meta dt.top { margin-top: 0; }
   .meta dd { color: var(--text); }
-  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; }
+  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; scroll-margin-top: 84px; }
   .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.58; max-width: 66ch; }
   .body p b { color: var(--text); font-weight: 600; }
   .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
@@ -166,7 +166,7 @@
       <dt>Used on</dt><dd>Bruce McDonald&rsquo;s 1812; feature previs</dd>
     </dl>
     <div class="body">
-      <h2>Conformer</h2>
+      <h2 id="conformer">Conformer</h2>
       <p>A production pipeline that compiles a screenplay into coverage shotlists and routes them to
       image-to-video models. A custom Fountain and Final Draft parser turns a script into scene, beat, and shot
       structure; coverage formulas are implemented as code; prompts compile across Flux, Hunyuan, Kling, World
@@ -191,7 +191,7 @@
       <dt>Hardware</dt><dd>96 GB GPU; Modal cloud</dd>
     </dl>
     <div class="body">
-      <h2>Local video pipeline</h2>
+      <h2 id="local-video-pipeline">Local video pipeline</h2>
       <p>A fully local video-generation pipeline pairing high-quality keyframes with open-weight motion models
       (LTX, Wan, HunyuanVideo), finishing to true HDR ProRes masters through a 32-bit EXR chain. Its core is an
       <b>evaluation harness</b> that grades every clip on the principle that the system producing the work is
@@ -215,7 +215,7 @@
       <dt>Built with</dt><dd>Triyo (RegTech)</dd>
     </dl>
     <div class="body">
-      <h2>Sentra AML platform</h2>
+      <h2 id="sentra">Sentra AML platform</h2>
       <p>An anti-money-laundering platform: eight compliance agents for transaction monitoring, sanctions and PEP
       screening, due diligence, and network analysis, on Azure with FINTRAC schemas parsed across 884 properties
       and a hash-chained audit ledger. At its core is a <b>crowd-simulation-inspired synthetic-data engine</b>:
@@ -237,7 +237,7 @@
       <dt>Built with</dt><dd>Materiality</dd>
     </dl>
     <div class="body">
-      <h2>AI Alpha</h2>
+      <h2 id="ai-alpha">AI Alpha</h2>
       <p>An agentic equity-research engine: filings, transcripts, news, and macro data extracted into per-issuer
       and per-sector signals, feeding a mean-CVaR portfolio optimizer that proposes rebalances for a human
       portfolio manager to approve. The decks and an interactive operator console are live; the Python engine is
@@ -246,6 +246,21 @@
         <figure><img src="assets/aialpha-deck.jpg" alt="AI Alpha, live"></figure>
       </div>
       <div class="cap">AI Alpha · live on GitHub Pages</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2026</dd>
+      <dt>Type</dt><dd>Field tool, PWA</dd>
+      <dt>Role</dt><dd>Developer</dd>
+      <dt>Stack</dt><dd>FastAPI, Tailscale, Cornell BirdNET</dd>
+    </dl>
+    <div class="body">
+      <h2 id="birdnet">BirdNET field tool</h2>
+      <p>A phone-to-desktop bird-sound identifier. A progressive web app records from the phone and posts audio
+      and location to a FastAPI service running Cornell&rsquo;s BirdNET model, reached privately over Tailscale.
+      It returns the most likely species and enriches each detection with a written note and a reference image.</p>
     </div>
   </div>
 

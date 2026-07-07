@@ -37,7 +37,7 @@
   .meta dt { color: var(--faint); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; }
   .meta dt.top { margin-top: 0; }
   .meta dd { color: var(--text); }
-  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; }
+  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; scroll-margin-top: 84px; }
   .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 62ch; }
   .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
   .body .figs.one { grid-template-columns: 1fr; max-width: 720px; }
@@ -76,7 +76,7 @@
       <dt>Label</dt><dd>Warner, Arts Music</dd>
     </dl>
     <div class="body">
-      <h2>Belladonna Nocturne</h2>
+      <h2 id="belladonna">Belladonna Nocturne</h2>
       <p>Visual companions for Lanois&rsquo;s June 2026 album. Four pieces completed and shipped: Steel Mill,
       At the Foot of the Skyway Bridge, Warp Sustain, and Canadian National, the first two released as the
       album&rsquo;s lead singles. A custom pipeline generated, retimed, and matted archival and original
@@ -100,7 +100,7 @@
       <dt>Artist</dt><dd>Daniel Lanois</dd>
     </dl>
     <div class="body">
-      <h2>The Maker</h2>
+      <h2 id="the-maker">The Maker</h2>
       <p>An archive engine over Lanois&rsquo;s personal film and audio collection: thousands of files indexed,
       95 sessions transcribed, chord and harmony analysis across 221,000 events, stems separated, and thematic
       cuts assembled into DaVinci Resolve. It carries the title-design and slow-motion tooling behind the videos,
@@ -123,7 +123,7 @@
       <dt>Premiere</dt><dd>TIFF 2024</dd>
     </dl>
     <div class="body">
-      <h2>The Tragically Hip: No Dress Rehearsal</h2>
+      <h2 id="ndr">The Tragically Hip: No Dress Rehearsal</h2>
       <p>Animation Director on the four-part documentary. A proprietary pipeline turned thousands of archival
       photographs into 4K motion, chaining models for face restoration, depth synthesis, and temporal
       interpolation. World premiere at TIFF 2024; seven Canadian Screen Award nominations.</p>
@@ -141,7 +141,7 @@
       <dt>Artist</dt><dd>Alannah Myles</dd>
     </dl>
     <div class="body">
-      <h2>Alannah Myles restoration</h2>
+      <h2 id="alannah">Alannah Myles restoration</h2>
       <p>Five videos across a paid engagement. Standard-definition archival footage rebuilt to 4K with noise
       reduction and a 16:9 reformat that kept the 1990s look (&ldquo;What Am I Going to Do With You&rdquo;). On
       &ldquo;House of Love,&rdquo; a shot-by-shot face-and-mouth replacement pipeline built in-house with
@@ -165,7 +165,7 @@
       <dt>Venue</dt><dd>Design Exchange, Toronto</dd>
     </dl>
     <div class="body">
-      <h2>Athena</h2>
+      <h2 id="athena">Athena</h2>
       <p>A generative-content system for the Design Exchange&rsquo;s wrap-around trading floor: chat-driven
       image, video, and 3D at the exact pixel dimensions of the room&rsquo;s surfaces, DXV encoding, Resolume
       playback control, a PlayCanvas venue twin, and anamorphic perspective rendering. Built, demoed on the
@@ -186,7 +186,7 @@
       <dt>Selection</dt><dd>Venice VR, SIGGRAPH VR Theater</dd>
     </dl>
     <div class="body">
-      <h2>Spots of Light</h2>
+      <h2 id="spots-of-light">Spots of Light</h2>
       <p>A volumetric documentary on a soldier&rsquo;s journey from blindness to restored sight, an Israel and
       Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian Screen
       Award nominee.</p>
@@ -199,14 +199,17 @@
   <div class="entry">
     <dl class="meta">
       <dt class="top">Year</dt><dd>2016–2020</dd>
-      <dt>Medium</dt><dd>Photogrammetric VR</dd>
+      <dt>Medium</dt><dd>Photogrammetry, real-time VR</dd>
       <dt>Role</dt><dd>Executive Producer</dd>
+      <dt>Partner</dt><dd>Mantis Vision, Israel</dd>
       <dt>Selection</dt><dd>Cannes XR, Lumière Award</dd>
     </dl>
     <div class="body">
-      <h2>The Holy City</h2>
-      <p>A photogrammetric VR pilgrimage through Jerusalem&rsquo;s old city. Cannes XR 2019, a Lumière Award,
-      Forbes Top 50 in XR, and a New York Times feature.</p>
+      <h2 id="holy-city">The Holy City</h2>
+      <p>Frontier photogrammetry capture of Jerusalem&rsquo;s old city, optimized for real-time VR playback, built
+      with Mantis Vision in Israel. More than <b>300,000 photographs</b> and <b>175 LiDAR scans</b> reconstructed
+      the holiest sites as an open-world game engine, with <b>stereo 360° filming of each of the holiest days at
+      the holiest sites</b>. Cannes XR 2019, a Lumière Award, Forbes Top 50 in XR, and a New York Times feature.</p>
       <div class="figs one">
         <figure><img src="assets/holycity.jpg" alt="Frames from The Holy City: Dome of the Rock, the Church of the Holy Sepulchre, and interior mosaics"></figure>
       </div>
@@ -222,12 +225,40 @@
       <dt>Selection</dt><dd>Venice VR</dd>
     </dl>
     <div class="body">
-      <h2>MYRIAD. Where We Connect</h2>
+      <h2 id="myriad">MYRIAD. Where We Connect</h2>
       <p>Stereo 360° aerials of the northern bald ibis migration across the Alps, shot from drones and an
       ultralight, a Germany and Canada co-production. Venice VR 2021; Best Interactive, Byron Bay.</p>
       <div class="figs one">
         <figure><img src="assets/myriad-ibis.jpg" alt="Northern bald ibis in flight over a field, from the MYRIAD 360° documentary"></figure>
       </div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2018</dd>
+      <dt>Medium</dt><dd>Underwater stereo 360° VR</dd>
+      <dt>Role</dt><dd>Executive Producer, VR Supervisor</dd>
+      <dt>Premiere</dt><dd>TIFF 2018</dd>
+    </dl>
+    <div class="body">
+      <h2 id="sharkwater">Sharkwater VR</h2>
+      <p>An underwater stereoscopic 360° documentary shot on a custom thirteen-camera rig. Premiered at TIFF
+      2018.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2013–2014</dd>
+      <dt>Medium</dt><dd>Transmedia, interactive film, VR</dd>
+      <dt>Role</dt><dd>Executive Producer, Producer</dd>
+      <dt>With</dt><dd>David Cronenberg · TIFF, CFC</dd>
+    </dl>
+    <div class="body">
+      <h2 id="body-mind-change">Body / Mind / Change</h2>
+      <p>A transmedia experience built with David Cronenberg for TIFF and the Canadian Film Centre, spanning
+      interactive film, VR, and 3D printing.</p>
     </div>
   </div>
 </div></div>
@@ -242,7 +273,7 @@
       <dt>Role</dt><dd>Founder</dd>
     </dl>
     <div class="body">
-      <h2>1188 Films</h2>
+      <h2 id="films-1188">1188 Films</h2>
       <p>A decade of music-video and branded VFX for Puma, Holt Renfrew, Cardi B, and a long list of artists and
       broadcasters, with multiple MMVA wins including Best Post Production for Down With Webster&rsquo;s Big
       Wheels. Credits include roughly forty VFX shots on Drake&rsquo;s Started From the Bottom (BET Video of the
@@ -258,7 +289,7 @@
       <dt>Studios</dt><dd>Cream, Nelvana, NFB, Discovery</dd>
     </dl>
     <div class="body">
-      <h2>Broadcast &amp; documentary</h2>
+      <h2 id="broadcast">Broadcast &amp; documentary</h2>
       <p>VFX supervision and pipeline work across broadcast documentary and animation: Aftermath: Population Zero
       (NatGeo, History Canada), Digging Up the Trenches (History UK), Monster Warriors (Jetix, Disney), and
       Time Blazers. Gemini Award for Return to Kandahar (NFB).</p>

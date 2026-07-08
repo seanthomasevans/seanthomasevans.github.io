@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sean Thomas Evans</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <style>
   :root {
     --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
@@ -24,11 +25,11 @@
   nav .links a { color: var(--muted); }
   nav .links a:hover, nav .links a.here { color: var(--text); }
 
-  .hero { position: relative; width: 100%; height: clamp(360px, 60vh, 640px); overflow: hidden; border-bottom: 1px solid var(--line); }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
-  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,14,0.30), rgba(14,14,14,0) 32%, rgba(14,14,14,0.30) 62%, rgba(14,14,14,0.82)); }
-  .hero .hero-inner { position: absolute; left: 0; right: 0; bottom: 30px; z-index: 2; }
-  .hero h1 { font-weight: 700; font-size: clamp(38px, 6vw, 78px); letter-spacing: -0.03em; line-height: 1.0; color: #fff; }
+  .hero { position: relative; width: 100%; height: clamp(380px, 56vh, 600px); overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,14,0.55) 0%, rgba(14,14,14,0.08) 26%, rgba(14,14,14,0) 55%, rgba(14,14,14,0.35) 100%); }
+  .hero .hero-inner { position: absolute; left: 0; right: 0; top: 34px; z-index: 2; }
+  .hero h1 { font-weight: 700; font-size: clamp(36px, 5.4vw, 72px); letter-spacing: -0.02em; line-height: 1.02; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.55); }
 
   .intro { padding: 40px 0; border-bottom: 1px solid var(--line); }
   .lede { max-width: 62ch; font-size: clamp(18px, 1.9vw, 22px); line-height: 1.45; color: var(--text); }
@@ -36,6 +37,7 @@
 
   .feat { border: 1px solid var(--line); }
   .feat img { width: 100%; height: auto; display: block; }
+  .feat model-viewer { width: 100%; height: clamp(360px, 52vh, 560px); background: #141414; --poster-color: #141414; display: block; }
   .feat figcaption { padding: 13px 18px 15px; font-size: 12.5px; color: var(--faint); }
 
   section { padding: 44px 0; border-bottom: 1px solid var(--line); }
@@ -87,8 +89,8 @@
   <div class="wrap">
     <p class="lede">I design creative systems that carry both the art and the craft of a project, and get
     complicated ideas made on time and on budget.</p>
-    <p class="lede-2">The last ten years of that in AI, the fifteen before it in automated systems and production
-    databases. I have done it over and over.</p>
+    <p class="lede-2">They draw on machine learning, reinforcement learning, and generative models, built on
+    years of production pipelines and data architecture.</p>
   </div>
 </div>
 
@@ -122,8 +124,11 @@
   <div class="wrap">
     <div class="sec-label">Featured</div>
     <figure class="feat">
-      <img src="assets/typewriter-mosaic.jpg" alt="A skull rendered as a mosaic of typewriter keys">
-      <figcaption>Typewriter Keys, a skull built from a mosaic of keys. A personal piece, the art side of the same practice.</figcaption>
+      <model-viewer src="assets/skull-web.glb" alt="A horned skull, photogrammetrically captured and rebuilt for real-time"
+        camera-controls auto-rotate rotation-per-second="16deg" shadow-intensity="0.9"
+        environment-image="neutral" exposure="1.15" camera-orbit="0deg 82deg auto"
+        poster="assets/spatial-skull.jpg" reveal="auto" loading="lazy"></model-viewer>
+      <figcaption>A horned skull, photogrammetrically captured and rebuilt for real-time. Drag to explore.</figcaption>
     </figure>
   </div>
 </section>

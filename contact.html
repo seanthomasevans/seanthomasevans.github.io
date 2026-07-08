@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Sean Thomas Evans</title>
+<style>
+  :root {
+    --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
+    --line: #262624; --accent: #d8452f;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+  a { color: var(--text); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; width: 100%; }
+
+  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(14,14,14,0.94); backdrop-filter: blur(8px); z-index: 10; }
+  nav .bar { display: flex; align-items: center; height: 60px; }
+  nav .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  nav .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.02em; }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover, nav .links a.here { color: var(--text); }
+
+  header { padding: 72px 0 40px; }
+  h1 { font-weight: 700; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.03em; line-height: 1.02; }
+  .intro { margin-top: 20px; max-width: 52ch; font-size: 18px; line-height: 1.5; color: var(--muted); }
+
+  main { flex: 1 0 auto; }
+  .rows { border-top: 1px solid var(--line); margin-top: 8px; }
+  .row { display: flex; align-items: baseline; gap: 28px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .row .k { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); min-width: 120px; }
+  .row .v { font-size: clamp(18px, 2.2vw, 24px); color: var(--text); letter-spacing: -0.01em; }
+  .row .h { margin-left: auto; font-size: 13px; color: var(--accent); opacity: 0; transition: opacity 0.15s; }
+  .row:hover .v { text-decoration: underline; text-underline-offset: 4px; }
+  .row:hover .h { opacity: 1; }
+
+  footer { flex-shrink: 0; border-top: 1px solid var(--line); padding: 40px 0 64px; font-size: 12.5px; color: var(--faint); margin-top: 40px; }
+
+  @media (max-width: 640px) { .row { flex-wrap: wrap; gap: 6px 28px; } .row .h { display: none; } }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a href="index.html">Index</a><a href="creative.html">Creative</a><a href="dev.html">Dev</a><a class="here" href="contact.html">Contact</a></span>
+</div></div></nav>
+
+<main>
+<header><div class="wrap">
+  <h1>Contact</h1>
+  <p class="intro">For collaborations, commissions, or a conversation. Toronto, and wherever the work is.</p>
+</div></header>
+
+<div class="wrap">
+  <div class="rows">
+    <a class="row" href="mailto:sean@seanthomasevans.com">
+      <span class="k">Email</span><span class="v">sean@seanthomasevans.com</span><span class="h">Write &rarr;</span>
+    </a>
+    <a class="row" href="https://www.linkedin.com/in/seanthomasevans/" target="_blank" rel="noopener">
+      <span class="k">LinkedIn</span><span class="v">linkedin.com/in/seanthomasevans</span><span class="h">Open &rarr;</span>
+    </a>
+    <a class="row" href="https://github.com/seanthomasevans" target="_blank" rel="noopener">
+      <span class="k">GitHub</span><span class="v">github.com/seanthomasevans</span><span class="h">Open &rarr;</span>
+    </a>
+  </div>
+</div>
+</main>
+
+<footer><div class="wrap">Sean Thomas Evans, Toronto</div></footer>
+</body>
+</html>

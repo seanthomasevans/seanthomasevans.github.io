@@ -37,7 +37,7 @@
 
   .feat { border: 1px solid var(--line); }
   .feat img { width: 100%; height: auto; display: block; }
-  .feat model-viewer { width: 100%; height: clamp(360px, 52vh, 560px); background: #141414; --poster-color: #141414; display: block; }
+  .feat model-viewer { width: 100%; height: clamp(380px, 56vh, 600px); background: radial-gradient(ellipse 70% 90% at 50% 42%, #2b2724 0%, #17150f 45%, #0c0b09 100%); --poster-color: transparent; display: block; }
   .feat figcaption { padding: 13px 18px 15px; font-size: 12.5px; color: var(--faint); }
 
   section { padding: 44px 0; border-bottom: 1px solid var(--line); }
@@ -125,8 +125,9 @@
     <div class="sec-label">Featured</div>
     <figure class="feat">
       <model-viewer src="assets/skull-web.glb" alt="A horned skull, photogrammetrically captured and rebuilt for real-time"
-        camera-controls auto-rotate rotation-per-second="16deg" shadow-intensity="0.9"
-        environment-image="neutral" exposure="1.15" camera-orbit="0deg 82deg auto"
+        camera-controls auto-rotate rotation-per-second="14deg" shadow-intensity="1.1" shadow-softness="0.85"
+        environment-image="neutral" exposure="1.45" tone-mapping="aces" camera-orbit="12deg 80deg auto"
+        field-of-view="22deg" min-field-of-view="12deg" interaction-prompt="none"
         poster="assets/spatial-skull.jpg" reveal="auto" loading="lazy"></model-viewer>
       <figcaption>A horned skull, photogrammetrically captured and rebuilt for real-time. Drag to explore.</figcaption>
     </figure>

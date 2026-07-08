@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Development · Sean Thomas Evans</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>
+  :root {
+    --bg: #0e0e0e; --text: #ededeb; --muted: #8f8f8a; --faint: #5c5c58;
+    --line: #262624; --accent: #d8452f;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--text); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+
+  nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(14,14,14,0.94); backdrop-filter: blur(8px); z-index: 10; }
+  nav .bar { display: flex; align-items: center; height: 60px; }
+  nav .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  nav .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover, nav .links a.here { color: var(--text); }
+
+  header { padding: 80px 0 40px; }
+  h1 { font-weight: 700; font-size: clamp(34px, 4.5vw, 56px); letter-spacing: -0.03em; line-height: 1.02; }
+  .intro { margin-top: 22px; max-width: 64ch; font-size: 18px; line-height: 1.5; color: var(--muted); }
+
+  .catsec { border-top: 1px solid var(--line); padding: 56px 0 8px; }
+  .catsec .sec-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+  .catsec .sec-note { font-size: 14.5px; color: var(--muted); max-width: 64ch; margin-bottom: 8px; }
+
+  .found { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+  .found .grp { background: var(--bg); padding: 26px 28px; }
+  .found .grp.wide { grid-column: 1 / -1; }
+  .found .grp h3 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  .found .grp p { margin-top: 12px; font-size: 13.5px; color: var(--muted); line-height: 1.75; max-width: none; }
+  .found .grp a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--faint); }
+  .found .grp a:hover { text-decoration-color: var(--accent); }
+  @media (max-width: 760px) { .found { grid-template-columns: 1fr; } }
+
+  .entry { display: grid; grid-template-columns: 190px 1fr; gap: 40px; padding: 40px 0; border-top: 1px solid var(--line); }
+  .entry.first { border-top: none; }
+  .meta { font-size: 13px; line-height: 1.85; color: var(--muted); }
+  .meta dt { color: var(--faint); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 12px; }
+  .meta dt.top { margin-top: 0; }
+  .meta dd { color: var(--text); }
+  .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; scroll-margin-top: 84px; }
+  .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.58; max-width: 66ch; }
+  .body p b { color: var(--text); font-weight: 600; }
+  .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+  .body .figs.one { grid-template-columns: 1fr; max-width: 760px; }
+  .body figure { border: 1px solid var(--line); }
+  .body figure img { width: 100%; height: auto; }
+  .body .cap { margin-top: 8px; font-size: 12px; color: var(--faint); }
+  .body .live { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+  .body .live .obj { border: 1px solid var(--line); }
+  .body .live model-viewer { width: 100%; height: 340px; background: #141414; --poster-color: #141414; display: block; }
+  .body .live .lbl { padding: 10px 14px 12px; font-size: 12px; color: var(--faint); }
+  .body .live .lbl b { color: var(--muted); font-weight: 400; display: block; margin-bottom: 2px; }
+  .stack { margin-top: 8px; font-size: 13px; color: var(--faint); line-height: 1.7; }
+  .stack b { color: var(--muted); font-weight: 400; }
+
+  footer { border-top: 1px solid var(--line); padding: 48px 0 72px; font-size: 12.5px; color: var(--faint); }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 760px) { .entry { grid-template-columns: 1fr; gap: 18px; } .body .figs { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a href="index.html">Index</a><a href="creative.html">Creative</a><a class="here" href="dev.html">Dev</a><a href="mailto:sean@seanthomasevans.com">Contact</a></span>
+</div></div></nav>
+
+<header><div class="wrap">
+  <h1>Development</h1>
+  <p class="intro">Production pipelines and systems since 2003, from database-driven shot management for
+  broadcast animation to stereo and 360° immersive pipelines and, most recently, agentic AI. The recurring
+  job is the same: build the machinery that lets a small team move a large volume of work through review and
+  out the door.</p>
+</div></header>
+
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Production infrastructure</div>
+
+  <div class="entry first">
+    <dl class="meta">
+      <dt class="top">Years</dt><dd>2003–2015</dd>
+      <dt>Type</dt><dd>Production-management systems</dd>
+      <dt>Role</dt><dd>VFX Supervisor, Pipeline Architect</dd>
+      <dt>Scale</dt><dd>26 episodes, ~4,000 shots</dd>
+    </dl>
+    <div class="body">
+      <h2>Broadcast production pipelines</h2>
+      <p>The first database-driven production system I built was for <b>Time Blazers</b> in 2003, then rebuilt
+      for its second season. From there I re-architected it from the ground up as a <b>PHP and MySQL
+      production-management platform</b> for animators, directors, and shot review, and ran roughly
+      <b>4,000 visual-effects and CG shots across 26 episodes</b> through it. As renders outgrew the room, the
+      pipeline moved to remote rendering with outside vendors, and then to <b>AWS as soon as cloud rendering
+      came online.</b> Across film, visual effects, and broadcast deliverables through to the mid-2010s.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Years</dt><dd>2015–2021</dd>
+      <dt>Type</dt><dd>Stereo &amp; immersive pipelines</dd>
+      <dt>Role</dt><dd>VR Supervisor, Pipeline Architect</dd>
+      <dt>Output</dt><dd>30+ immersive pieces</dd>
+    </dl>
+    <div class="body">
+      <h2>Stereo, 360° and immersive pipelines</h2>
+      <p>Complete visual pipelines for <b>stereoscopic 3D and stereography, then stereo 360°</b>, built as the
+      formats themselves were being invented. As a <b>production studio for Samsung</b> and through Occupied VR,
+      I delivered <b>more than thirty immersive pieces</b> across both game engines and traditional linear
+      formats: capture, stitching, depth, and delivery, each format needing its own end-to-end chain.</p>
+    </div>
+  </div>
+</div></div>
+
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Generative &amp; agentic</div>
+
+  <div class="entry first">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2016</dd>
+      <dt>Type</dt><dd>Neural style transfer</dd>
+      <dt>Role</dt><dd>VFX Supervisor</dd>
+      <dt>Work</dt><dd>River Tiber, &ldquo;Acid Test&rdquo;</dd>
+    </dl>
+    <div class="body">
+      <h2>Temporal-coherence style transfer</h2>
+      <p>The first machine-learning work: solving <b>temporal coherence for neural style transfer</b> on the
+      music video &ldquo;Acid Test&rdquo; for River Tiber, keeping a painted look stable frame to frame instead
+      of boiling. The video won an MMVA. Style transfer in 2016 was barely usable for motion; getting it to hold
+      across a cut was the whole problem.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2023</dd>
+      <dt>Type</dt><dd>Generative voice, agent architecture</dd>
+      <dt>Role</dt><dd>Builder</dd>
+      <dt>Tools</dt><dd>ElevenLabs, LangChain, AutoGPT</dd>
+    </dl>
+    <div class="body">
+      <h2>Generative voice and early agents</h2>
+      <p>Early generative-voice work, as an ElevenLabs alpha user, wired into agent architectures with LangChain.
+      The same year, the WordPress-to-RAG build was assembled with <b>AutoGPT, one of the first agentic systems
+      and an early precursor to what agentic coding tools became</b>: fifteen years of a site extracted into a
+      working retrieval database with a generated voice and a conversational interface, agents doing the
+      extraction and structuring, a validation pass confirming the corpus survived intact.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2024–present</dd>
+      <dt>Type</dt><dd>Production CLI &amp; service</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Used on</dt><dd>Bruce McDonald&rsquo;s 1812; feature previs</dd>
+    </dl>
+    <div class="body">
+      <h2 id="conformer">Conformer</h2>
+      <p>A production pipeline that compiles a screenplay into coverage shotlists and routes them to
+      image-to-video models. A custom Fountain and Final Draft parser turns a script into scene, beat, and shot
+      structure; coverage formulas are implemented as code; prompts compile across Flux, Hunyuan, Kling, World
+      Labs, Veo, and Wan, with camera-motion mapping over seventeen motions and five models. Budget-gated
+      dispatch, <b>face-identity validation on every take</b>, a JSONL provenance ledger, and assembly straight
+      into DaVinci Resolve. Hardened on a feature at 774 shots and 2,558 takes, deployed on RTX PRO 6000
+      hardware. This is the broadcast shot-management idea, thirty years on, with generation in the loop.</p>
+      <div class="figs" style="grid-template-columns:1fr 1fr 1fr;">
+        <figure><img src="assets/conformer-narrative-projects.jpg" alt="Conformer project view: script, scenes, and shot canon for a narrative project"></figure>
+        <figure><img src="assets/conformer-agent-ui.jpg" alt="Conformer agent dissecting a screenplay into a shot punch list"></figure>
+        <figure><img src="assets/materiality-michael.jpg" alt="Per-character reference canon holding a face consistent across generated takes"></figure>
+      </div>
+      <div class="cap">The pipeline in use: a project carrying its script and shot canon, the agent that turns a screenplay into a shot punch list, and per-character reference canon that holds a face consistent across takes.</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2026</dd>
+      <dt>Type</dt><dd>Local generation + evaluation</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Hardware</dt><dd>96 GB GPU; Modal cloud</dd>
+    </dl>
+    <div class="body">
+      <h2 id="local-video-pipeline">Local video pipeline</h2>
+      <p>A fully local video-generation pipeline pairing high-quality keyframes with open-weight motion models
+      (LTX, Wan, HunyuanVideo), finishing to true HDR ProRes masters through a 32-bit EXR chain. Its core is an
+      <b>evaluation harness</b> that grades every clip on the principle that the system producing the work is
+      never its own judge: optical flow catches frozen or melted output, pitch variance catches monotone voice
+      clones, and clips are trimmed to their clean portion before a human pass. It also benchmarks its own
+      fidelity gap against closed providers, and deploys the same stack to cloud GPUs on demand. Character and
+      likeness work, with a five-level synthesis ladder and provenance ledger, runs here too.</p>
+      <div class="figs">
+        <figure><img src="assets/lvp-circus.jpg" alt="Local pipeline render that passes the evaluation gate"></figure>
+        <figure><img src="assets/lvp-pbr.jpg" alt="A finished frame decomposed into PBR material passes"></figure>
+      </div>
+      <div class="cap">A clean render that clears the evaluation gate, and a frame decomposed into PBR material passes</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2024–2026</dd>
+      <dt>Type</dt><dd>AML platform, synthetic data</dd>
+      <dt>Role</dt><dd>Lead architect</dd>
+      <dt>Built with</dt><dd>Triyo (RegTech)</dd>
+    </dl>
+    <div class="body">
+      <h2 id="sentra">Sentra AML platform</h2>
+      <p>An anti-money-laundering platform: eight compliance agents for transaction monitoring, sanctions and PEP
+      screening, due diligence, and network analysis, on Azure with FINTRAC schemas parsed across 884 properties
+      and a hash-chained audit ledger. At its core is a <b>crowd-simulation-inspired synthetic-data engine</b>:
+      ordinary members carry legitimate spending rules and criminals carry a few more, so fifteen laundering
+      patterns emerge inside a 1.2-million-transaction stream with automatic ground-truth labels. Because the
+      ground truth is known for every transaction, the behavioral detectors can be measured against it rather
+      than guessed at, and they score with high precision on that synthetic benchmark.</p>
+      <div class="figs one">
+        <figure><img src="assets/sentra-console.jpg" alt="Sentra AML compliance dashboard: flagged activity, risk distribution, detection patterns"></figure>
+      </div>
+      <div class="cap">The public demo (Sentra): compliance dashboard, flagged activity, risk scoring, detection patterns</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2025–2026</dd>
+      <dt>Type</dt><dd>Research engine, PM console</dd>
+      <dt>Role</dt><dd>Architect, developer</dd>
+      <dt>Built with</dt><dd>Materiality</dd>
+    </dl>
+    <div class="body">
+      <h2 id="ai-alpha">AI Alpha</h2>
+      <p>An agentic equity-research engine: filings, transcripts, news, and macro data extracted into per-issuer
+      and per-sector signals, feeding a mean-CVaR portfolio optimizer that proposes rebalances for a human
+      portfolio manager to approve. The decks and an interactive operator console are live; the Python engine is
+      a working, tested prototype.</p>
+      <div class="figs one">
+        <figure><img src="assets/aialpha-deck.jpg" alt="AI Alpha, live"></figure>
+      </div>
+      <div class="cap">AI Alpha · live on GitHub Pages</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Year</dt><dd>2026</dd>
+      <dt>Type</dt><dd>Field tool, PWA</dd>
+      <dt>Role</dt><dd>Developer</dd>
+      <dt>Stack</dt><dd>FastAPI, Tailscale, Cornell BirdNET</dd>
+    </dl>
+    <div class="body">
+      <h2 id="birdnet">BirdNET field tool</h2>
+      <p>A phone-to-desktop bird-sound identifier. A progressive web app records from the phone and posts audio
+      and location to a FastAPI service running Cornell&rsquo;s BirdNET model, reached privately over Tailscale.
+      It returns the most likely species, a written note, and a reference image. From the same location it also
+      resolves whose traditional territory you are standing on, through Native Land Digital, and gives the
+      bird&rsquo;s name in that nation&rsquo;s language with an English gloss and a phonetic pronunciation,
+      consolidating the Ojibwe People&rsquo;s Dictionary, Plains Cree, and Kanien&rsquo;kéha sources alongside
+      eBird and Wikipedia.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <dl class="meta">
+      <dt class="top">Span</dt><dd>2016–present</dd>
+      <dt>Type</dt><dd>Photogrammetry, world models</dd>
+      <dt>Role</dt><dd>Producer, developer</dd>
+    </dl>
+    <div class="body">
+      <h2>Spatial and world models</h2>
+      <p>A line running from photogrammetry to world models: a photogrammetric digital twin of Jerusalem&rsquo;s
+      old city, volumetric capture for documentary, NeRF and Gaussian-splatting reconstruction, and generative
+      3D through World Labs, Hunyuan3D, and Trellis inside the same dispatch layer as the video models.
+      Athena&rsquo;s venue twin places content against real room geometry. Recent object work includes
+      photogrammetric and scanned captures from the collection of Toronto collector Bert Schmitz, cleaned and
+      retopologized for real-time.</p>
+      <div class="live">
+        <div class="obj">
+          <model-viewer src="assets/samurai-web.glb" alt="Captured samurai armour, real-time model"
+            camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.9"
+            environment-image="neutral" exposure="1.15" camera-orbit="25deg 78deg auto"
+            poster="assets/spatial-samurai.jpg" reveal="auto" loading="eager"></model-viewer>
+          <div class="lbl"><b>Samurai armour</b>200k-triangle cleaned capture, diffuse and normal maps. Drag to orbit, scroll to zoom.</div>
+        </div>
+        <div class="obj">
+          <model-viewer src="assets/skull-web.glb" alt="Captured horned skull, real-time model"
+            camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.9"
+            environment-image="neutral" exposure="1.15" camera-orbit="0deg 80deg auto"
+            poster="assets/spatial-skull.jpg" reveal="auto" loading="eager"></model-viewer>
+          <div class="lbl"><b>Horned skull</b>High-resolution scan with PBR textures, decimated for the browser. Drag to orbit, scroll to zoom.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Foundations</div>
+  <div class="sec-note">The tools and techniques underneath the projects above, grouped by what they do.</div>
+  <div class="found">
+    <div class="grp">
+      <h3>Generative &amp; ML</h3>
+      <p>Diffusion (Flux, Stable Diffusion), image-to-video (Kling, Veo, Sora, Wan, Hunyuan, LTX), 3D generation (Hunyuan3D, Trellis, World Labs), audio (Whisper, Demucs, custom harmonic analysers), voice (ElevenLabs, cloning), persona pipelines (FaceFusion, LoRA training), style transfer, NeRF and Gaussian splatting, world models, photogrammetric twins, volumetric capture.</p>
+    </div>
+    <div class="grp">
+      <h3>Agentic systems</h3>
+      <p>From AutoGPT and LangChain to Claude with Model Context Protocol servers and skills: multi-agent orchestration with explicit role and tool boundaries, agent-based synthetic-data simulation, provenance ledgers, indemnity-aware model routing, evaluation harnesses with ground-truth gating.</p>
+    </div>
+    <div class="grp">
+      <h3>Pipelines &amp; infra</h3>
+      <p>Database-driven production management (PHP/MySQL through to modern stacks), stereo and 360° capture and delivery, TouchDesigner, Resolume (REST control), GLSL, PLY point clouds, MIDI, Kooima CAVE projection, projection mapping at venue scale.</p>
+    </div>
+    <div class="grp">
+      <h3>Compute &amp; render farms</h3>
+      <p>High-performance compute, storage, and network design, cooling, and systems management and monitoring. Large render farms with distributed-computing workflows and render management, and remote and cloud rendering (AWS from its early days).</p>
+    </div>
+    <div class="grp wide">
+      <h3>Stack</h3>
+      <p>Python, FastAPI, SQLAlchemy, Pydantic, Hono, Vite, React, TypeScript, PostgreSQL, Redis, Azure with hash-chained audit logging for regulated workloads.</p>
+    </div>
+  </div>
+</div></div>
+
+<div class="catsec"><div class="wrap">
+  <div class="sec-label">Art &amp; craft</div>
+  <div class="sec-note">The hands-on craft alongside the systems, from post-production finishing to sound, electronics, and physical fabrication.</div>
+  <div class="found">
+    <div class="grp">
+      <h3>Direction &amp; post</h3>
+      <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, and photoreal CGI.</p>
+    </div>
+    <div class="grp">
+      <h3>Design &amp; type</h3>
+      <p>Typography and title design, projection design, and fine-art print production. Digital art support with
+      <a href="https://www.n4nigelscott.com/" target="_blank" rel="noopener">Nigel Scott</a>: Photoshop and Procreate, scanning and media capture, and finishing and pipeline workflow.</p>
+    </div>
+    <div class="grp">
+      <h3>Sound design</h3>
+      <p>Sound design and audio craft, stem separation, harmonic analysis, and mix finishing.</p>
+    </div>
+    <div class="grp">
+      <h3>Music</h3>
+      <p>Guitar and pedal-steel performance rigs, freeze and sustain setups, and audio-plugin development, including a PT93 clone.</p>
+    </div>
+    <div class="grp">
+      <h3>Electronics</h3>
+      <p>Electronics and hardware design, audio studio equipment and performance interfaces, and digital model capture and implementation: RAVE, NAM, and impulse-response capture and management.</p>
+    </div>
+    <div class="grp">
+      <h3>Fabrication</h3>
+      <p>3D printing and physical fabrication. Paper-sculpture fabrication for artist
+      <a href="https://www.deandreverstudio.com/" target="_blank" rel="noopener">Dean Drever</a>, the eagle and
+      the bears: a large edition in card stock and a smaller, tighter-tolerance one on regular paper.</p>
+    </div>
+  </div>
+</div></div>
+
+<footer><div class="wrap">
+  Sean Thomas Evans, Toronto · <a href="mailto:sean@seanthomasevans.com">sean@seanthomasevans.com</a> ·
+  <a href="https://www.linkedin.com/in/seanthomasevans/">LinkedIn</a>
+</div></footer>
+</body>
+</html>

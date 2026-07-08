@@ -38,6 +38,8 @@
   .found .grp.wide { grid-column: 1 / -1; }
   .found .grp h3 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
   .found .grp p { margin-top: 12px; font-size: 13.5px; color: var(--muted); line-height: 1.75; max-width: none; }
+  .found .grp a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--faint); }
+  .found .grp a:hover { text-decoration-color: var(--accent); }
   @media (max-width: 760px) { .found { grid-template-columns: 1fr; } }
 
   .entry { display: grid; grid-template-columns: 190px 1fr; gap: 40px; padding: 40px 0; border-top: 1px solid var(--line); }
@@ -260,7 +262,11 @@
       <h2 id="birdnet">BirdNET field tool</h2>
       <p>A phone-to-desktop bird-sound identifier. A progressive web app records from the phone and posts audio
       and location to a FastAPI service running Cornell&rsquo;s BirdNET model, reached privately over Tailscale.
-      It returns the most likely species and enriches each detection with a written note and a reference image.</p>
+      It returns the most likely species, a written note, and a reference image. From the same location it also
+      resolves whose traditional territory you are standing on, through Native Land Digital, and gives the
+      bird&rsquo;s name in that nation&rsquo;s language with an English gloss and a phonetic pronunciation,
+      consolidating the Ojibwe People&rsquo;s Dictionary, Plains Cree, and Kanien&rsquo;kéha sources alongside
+      eBird and Wikipedia.</p>
     </div>
   </div>
 
@@ -323,19 +329,34 @@
 
 <div class="catsec"><div class="wrap">
   <div class="sec-label">Art &amp; craft</div>
-  <div class="sec-note">The hands-on craft alongside the systems, from post-production finishing to electronics and physical fabrication.</div>
+  <div class="sec-note">The hands-on craft alongside the systems, from post-production finishing to sound, electronics, and physical fabrication.</div>
   <div class="found">
     <div class="grp">
       <h3>Direction &amp; post</h3>
-      <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, photoreal CGI, and audio craft.</p>
+      <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, and photoreal CGI.</p>
     </div>
     <div class="grp">
       <h3>Design &amp; type</h3>
-      <p>Typography and title design, projection design, and fine-art print production.</p>
+      <p>Typography and title design, projection design, and fine-art print production. Digital art support with
+      <a href="https://www.n4nigelscott.com/" target="_blank" rel="noopener">Nigel Scott</a>: Photoshop and Procreate, scanning and media capture, and finishing and pipeline workflow.</p>
     </div>
-    <div class="grp wide">
-      <h3>Electronics &amp; fabrication</h3>
-      <p>Electronics and design, 3D printing, and physical fabrication. Fabrication and physical builds with Dean Driver, including the eagle and the bears; digital support for the art from Nigel Scott.</p>
+    <div class="grp">
+      <h3>Sound design</h3>
+      <p>Sound design and audio craft, stem separation, harmonic analysis, and mix finishing.</p>
+    </div>
+    <div class="grp">
+      <h3>Music</h3>
+      <p>Guitar and pedal-steel performance rigs, freeze and sustain setups, and audio-plugin development, including a PT93 clone.</p>
+    </div>
+    <div class="grp">
+      <h3>Electronics</h3>
+      <p>Electronics and hardware design, audio studio equipment and performance interfaces, and digital model capture and implementation: RAVE, NAM, and impulse-response capture and management.</p>
+    </div>
+    <div class="grp">
+      <h3>Fabrication</h3>
+      <p>3D printing and physical fabrication. Paper-sculpture fabrication for artist
+      <a href="https://www.deandreverstudio.com/" target="_blank" rel="noopener">Dean Drever</a>, the eagle and
+      the bears: a large edition in card stock and a smaller, tighter-tolerance one on regular paper.</p>
     </div>
   </div>
 </div></div>

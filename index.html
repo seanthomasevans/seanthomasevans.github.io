@@ -20,16 +20,14 @@
 
   nav { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(14,14,14,0.94); backdrop-filter: blur(8px); z-index: 10; }
   nav .bar { display: flex; align-items: center; height: 60px; }
-  nav .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  nav .brand { font-weight: 700; font-size: 18px; letter-spacing: -0.015em; }
   nav .links { margin-left: auto; display: flex; gap: 28px; font-size: 13px; letter-spacing: 0.02em; }
   nav .links a { color: var(--muted); }
   nav .links a:hover, nav .links a.here { color: var(--text); }
 
   .hero { position: relative; width: 100%; height: clamp(380px, 56vh, 600px); overflow: hidden; border-bottom: 1px solid var(--line); }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
-  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,14,0.55) 0%, rgba(14,14,14,0.08) 26%, rgba(14,14,14,0) 55%, rgba(14,14,14,0.35) 100%); }
-  .hero .hero-inner { position: absolute; left: 0; right: 0; top: 34px; z-index: 2; }
-  .hero h1 { font-weight: 700; font-size: clamp(36px, 5.4vw, 72px); letter-spacing: -0.02em; line-height: 1.02; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 1px 5px rgba(0,0,0,0.55); }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,14,0.12) 0%, rgba(14,14,14,0) 42%, rgba(14,14,14,0.38) 100%); }
 
   .intro { padding: 40px 0; border-bottom: 1px solid var(--line); }
   .lede { max-width: 62ch; font-size: clamp(18px, 1.9vw, 22px); line-height: 1.45; color: var(--text); }
@@ -37,7 +35,9 @@
 
   .feat { border: 1px solid var(--line); }
   .feat img { width: 100%; height: auto; display: block; }
-  .feat model-viewer { width: 100%; height: clamp(380px, 56vh, 600px); background: radial-gradient(ellipse 70% 90% at 50% 42%, #2b2724 0%, #17150f 45%, #0c0b09 100%); --poster-color: transparent; display: block; }
+  .feat .mv { position: relative; }
+  .feat model-viewer { width: 100%; height: clamp(380px, 56vh, 600px); background: radial-gradient(ellipse 64% 84% at 50% 40%, #1b2634 0%, #0d1420 48%, #070a10 100%); --poster-color: transparent; display: block; }
+  .feat .mv-tint { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 38%, rgba(120,165,225,0.14) 0%, rgba(28,52,95,0.34) 74%); mix-blend-mode: soft-light; }
   .feat figcaption { padding: 13px 18px 15px; font-size: 12.5px; color: var(--faint); }
 
   section { padding: 44px 0; border-bottom: 1px solid var(--line); }
@@ -82,7 +82,6 @@
 
 <header class="hero">
   <img src="assets/sean-ice.jpg" alt="Sean Thomas Evans alone on a frozen lake at dusk, hockey stick in hand">
-  <div class="wrap hero-inner"><h1>Sean Thomas Evans</h1></div>
 </header>
 
 <div class="intro">
@@ -124,11 +123,14 @@
   <div class="wrap">
     <div class="sec-label">Featured</div>
     <figure class="feat">
-      <model-viewer src="assets/skull-web.glb" alt="A horned skull, photogrammetrically captured and rebuilt for real-time"
-        camera-controls auto-rotate rotation-per-second="14deg" shadow-intensity="1.1" shadow-softness="0.85"
-        environment-image="neutral" exposure="1.45" tone-mapping="aces" camera-orbit="12deg 80deg auto"
-        field-of-view="22deg" min-field-of-view="12deg" interaction-prompt="none"
-        poster="assets/spatial-skull.jpg" reveal="auto" loading="lazy"></model-viewer>
+      <div class="mv">
+        <model-viewer src="assets/skull-web.glb" alt="A horned skull, photogrammetrically captured and rebuilt for real-time"
+          camera-controls auto-rotate rotation-per-second="13deg" shadow-intensity="1.2" shadow-softness="0.9"
+          environment-image="neutral" exposure="0.92" tone-mapping="aces" camera-orbit="14deg 78deg auto"
+          field-of-view="17deg" min-field-of-view="11deg" interaction-prompt="none"
+          poster="assets/spatial-skull.jpg" reveal="auto" loading="lazy"></model-viewer>
+        <span class="mv-tint"></span>
+      </div>
       <figcaption>A horned skull, photogrammetrically captured and rebuilt for real-time. Drag to explore.</figcaption>
     </figure>
   </div>

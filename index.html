@@ -24,10 +24,19 @@
   nav .links a { color: var(--muted); }
   nav .links a:hover, nav .links a.here { color: var(--text); }
 
-  header { padding: 56px 0 36px; border-bottom: 1px solid var(--line); }
-  h1 { font-weight: 700; font-size: clamp(40px, 5vw, 66px); letter-spacing: -0.03em; line-height: 1.0; }
-  .lede { margin-top: 22px; max-width: 62ch; font-size: clamp(18px, 1.9vw, 21px); line-height: 1.45; color: var(--text); }
-  .lede-2 { margin-top: 14px; max-width: 66ch; font-size: 15.5px; line-height: 1.55; color: var(--muted); }
+  .hero { position: relative; width: 100%; height: clamp(360px, 60vh, 640px); overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,14,0.30), rgba(14,14,14,0) 32%, rgba(14,14,14,0.30) 62%, rgba(14,14,14,0.82)); }
+  .hero .hero-inner { position: absolute; left: 0; right: 0; bottom: 30px; z-index: 2; }
+  .hero h1 { font-weight: 700; font-size: clamp(38px, 6vw, 78px); letter-spacing: -0.03em; line-height: 1.0; color: #fff; }
+
+  .intro { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .lede { max-width: 62ch; font-size: clamp(18px, 1.9vw, 22px); line-height: 1.45; color: var(--text); }
+  .lede-2 { margin-top: 16px; max-width: 66ch; font-size: 16px; line-height: 1.6; color: var(--muted); }
+
+  .feat { border: 1px solid var(--line); }
+  .feat img { width: 100%; height: auto; display: block; }
+  .feat figcaption { padding: 13px 18px 15px; font-size: 12.5px; color: var(--faint); }
 
   section { padding: 44px 0; border-bottom: 1px solid var(--line); }
   .sec-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; }
@@ -69,15 +78,19 @@
   <span class="links"><a class="here" href="index.html">Index</a><a href="creative.html">Creative</a><a href="dev.html">Dev</a><a href="#contact">Contact</a></span>
 </div></div></nav>
 
-<header>
-  <div class="wrap">
-    <h1>Sean Thomas Evans</h1>
-    <p class="lede">Creative technologist and producer. I produce and direct award-winning immersive work,
-    architect the creative and the pipeline, and build agentic systems.</p>
-    <p class="lede-2">I work across both the creative and the engineering, taking a project from concept through
-    the pipeline to finished, delivered work.</p>
-  </div>
+<header class="hero">
+  <img src="assets/sean-ice.jpg" alt="Sean Thomas Evans alone on a frozen lake at dusk, hockey stick in hand">
+  <div class="wrap hero-inner"><h1>Sean Thomas Evans</h1></div>
 </header>
+
+<div class="intro">
+  <div class="wrap">
+    <p class="lede">I design creative systems that carry both the art and the craft of a project, and get
+    complicated ideas made on time and on budget.</p>
+    <p class="lede-2">The last ten years of that in AI, the fifteen before it in automated systems and production
+    databases. I have done it over and over.</p>
+  </div>
+</div>
 
 <section>
   <div class="wrap">
@@ -102,6 +115,16 @@
         </span>
       </a>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">Featured</div>
+    <figure class="feat">
+      <img src="assets/typewriter-mosaic.jpg" alt="A skull rendered as a mosaic of typewriter keys">
+      <figcaption>Typewriter Keys, a skull built from a mosaic of keys. A personal piece, the art side of the same practice.</figcaption>
+    </figure>
   </div>
 </section>
 

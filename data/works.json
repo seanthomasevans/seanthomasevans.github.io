@@ -6,410 +6,1570 @@
     "schema": "id, title, year, category, disciplines[], role, summary, highlight, media[], link, related[{to, why}]"
   },
   "categories": {
-    "creative": { "label": "Film, music & VFX", "color": "#e0a24a" },
-    "immersive": { "label": "Immersive & exhibition", "color": "#45c4b0" },
-    "ai": { "label": "Generative AI", "color": "#e0563f" },
-    "systems": { "label": "Agentic systems & pipelines", "color": "#6d9fe0" },
-    "art": { "label": "Art & craft", "color": "#b58bd6" }
+    "creative": {
+      "label": "Film, music & VFX",
+      "color": "#e0a24a"
+    },
+    "immersive": {
+      "label": "Immersive & exhibition",
+      "color": "#45c4b0"
+    },
+    "ai": {
+      "label": "Generative AI",
+      "color": "#e0563f"
+    },
+    "systems": {
+      "label": "Agentic systems & pipelines",
+      "color": "#6d9fe0"
+    },
+    "art": {
+      "label": "Art & craft",
+      "color": "#b58bd6"
+    }
   },
   "works": [
     {
-      "id": "ndr", "title": "The Tragically Hip: No Dress Rehearsal", "year": "2022–2024", "yearSort": 2024,
-      "category": "creative", "disciplines": ["film", "animation", "generative-ai", "music"],
+      "id": "ndr",
+      "title": "The Tragically Hip: No Dress Rehearsal",
+      "year": "2022–2024",
+      "yearSort": 2024,
+      "category": "creative",
+      "disciplines": [
+        "film",
+        "animation",
+        "generative-ai",
+        "music"
+      ],
       "role": "Animation Director",
       "summary": "Animation Director on the four-part Amazon Prime documentary. A proprietary pipeline turned thousands of archival photographs into 4K motion, chaining models for face restoration, depth synthesis, and temporal interpolation.",
       "highlight": "TIFF 2024 World Premiere · 7 Canadian Screen Award nominations",
-      "media": ["assets/ndr-poster.jpg"], "link": "creative.html#ndr",
+      "media": [
+        "assets/ndr-poster.jpg"
+      ],
+      "link": "creative.html#ndr",
       "related": [
-        { "to": "style-transfer", "why": "Same temporal-coherence problem, first solved on Acid Test in 2016." },
-        { "to": "personas", "why": "The Johnny Fay persona work grew out of the same Tragically Hip production." },
-        { "to": "belladonna", "why": "Archival stills to motion, on a custom pipeline." },
-        { "to": "1188", "why": "Music-video craft behind the documentary's motion." }
-      ]
+        {
+          "to": "style-transfer",
+          "why": "Same temporal-coherence problem, first solved on Acid Test in 2016."
+        },
+        {
+          "to": "personas",
+          "why": "The Johnny Fay persona work grew out of the same Tragically Hip production."
+        },
+        {
+          "to": "belladonna",
+          "why": "Archival stills to motion, on a custom pipeline."
+        },
+        {
+          "to": "1188",
+          "why": "Music-video craft behind the documentary's motion."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Music & film · recent",
+        "order": 2,
+        "anchor": "ndr",
+        "title": "The Tragically Hip: No Dress Rehearsal",
+        "meta": [
+          [
+            "Year",
+            "2022–2024"
+          ],
+          [
+            "Medium",
+            "Documentary series, Amazon Prime"
+          ],
+          [
+            "Role",
+            "Animation Director"
+          ],
+          [
+            "Premiere",
+            "TIFF 2024"
+          ]
+        ],
+        "body": "<p>Animation Director on the four-part documentary. A proprietary pipeline turned thousands of archival\n      photographs into 4K motion, chaining models for face restoration, depth synthesis, and temporal\n      interpolation. World premiere at TIFF 2024; seven Canadian Screen Award nominations.</p>\n<div class=\"figs one\" style=\"max-width:360px;\">\n<figure><img alt=\"The Tragically Hip: No Dress Rehearsal, official poster\" src=\"assets/ndr-poster.jpg\"/></figure>\n</div>"
+      }
     },
     {
-      "id": "belladonna", "title": "Belladonna Nocturne · Daniel Lanois", "year": "2024–2026", "yearSort": 2025,
-      "category": "creative", "disciplines": ["music", "generative-ai", "film"],
+      "id": "belladonna",
+      "title": "Belladonna Nocturne · Daniel Lanois",
+      "year": "2024–2026",
+      "yearSort": 2025,
+      "category": "creative",
+      "disciplines": [
+        "music",
+        "generative-ai",
+        "film"
+      ],
       "role": "Producer, pipeline",
       "summary": "Producer of the visual companions for Lanois's 2026 album on Warner's Arts Music. Four pieces shipped: Steel Mill, At the Foot of the Skyway Bridge, Warp Sustain, and Canadian National. A custom pipeline generated, retimed (RIFE 10×), and matted (SAM 3 + MatAnyone) archival and original footage to ProRes 422 HQ masters at 24 fps.",
       "highlight": "Warner, Arts Music · 4 pieces shipped · lead singles",
-      "media": ["assets/bella-steel.jpg", "assets/lanois-skyway.jpg", "assets/bella-warp.jpg", "assets/lanois-field.jpg"], "link": "creative.html#belladonna",
+      "media": [
+        "assets/bella-steel.jpg",
+        "assets/lanois-skyway.jpg",
+        "assets/bella-warp.jpg",
+        "assets/lanois-field.jpg"
+      ],
+      "link": "creative.html#belladonna",
       "related": [
-        { "to": "the-maker", "why": "The archive engine over Lanois's collection feeds the visual companions." },
-        { "to": "typewriter", "why": "Titles are set from the photographic typewriter-key alphabet." },
-        { "to": "ndr", "why": "Both turn archival material into motion for a Canadian music legend." },
-        { "to": "local-video-pipeline", "why": "Open-weight motion models and the same finishing chain." }
-      ]
+        {
+          "to": "the-maker",
+          "why": "The archive engine over Lanois's collection feeds the visual companions."
+        },
+        {
+          "to": "typewriter",
+          "why": "Titles are set from the photographic typewriter-key alphabet."
+        },
+        {
+          "to": "ndr",
+          "why": "Both turn archival material into motion for a Canadian music legend."
+        },
+        {
+          "to": "local-video-pipeline",
+          "why": "Open-weight motion models and the same finishing chain."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Music & film · recent",
+        "order": 0,
+        "anchor": "belladonna",
+        "title": "Belladonna Nocturne",
+        "meta": [
+          [
+            "Year",
+            "2024–2026"
+          ],
+          [
+            "Medium",
+            "Visual companions, single & album"
+          ],
+          [
+            "Role",
+            "Producer, pipeline"
+          ],
+          [
+            "Artist",
+            "Daniel Lanois"
+          ],
+          [
+            "Label",
+            "Warner, Arts Music"
+          ]
+        ],
+        "body": "<p>Visual companions for Lanois’s June 2026 album. Four pieces completed and shipped: Steel Mill,\n      At the Foot of the Skyway Bridge, Warp Sustain, and Canadian National, the first two released as the\n      album’s lead singles. A custom pipeline generated, retimed, and matted archival and original\n      footage, then delivered each piece as a ProRes 422 HQ master at 24 fps with vertical cuts and Spotify\n      canvases from the same source.</p>\n<div class=\"figs\">\n<figure><img alt=\"Steel Mill: painterly Jamaican shack\" src=\"assets/bella-steel.jpg\"/></figure>\n<figure><img alt=\"At the Foot of the Skyway Bridge: autumn forest, painterly grade\" src=\"assets/lanois-skyway.jpg\"/></figure>\n<figure><img alt=\"Warp Sustain: tree and field in monochrome\" src=\"assets/bella-warp.jpg\"/></figure>\n<figure><img alt=\"Canadian National: saturated field\" src=\"assets/lanois-field.jpg\"/></figure>\n</div>\n<div class=\"cap\">Frames from the four finished pieces: Steel Mill, Skyway Bridge, Warp Sustain, Canadian National</div>"
+      }
     },
     {
-      "id": "the-maker", "title": "The Maker · Lanois Archive Engine", "year": "2024–present", "yearSort": 2025,
-      "category": "systems", "disciplines": ["audio", "agentic", "pipeline", "music", "research"],
+      "id": "the-maker",
+      "title": "The Maker · Lanois Archive Engine",
+      "year": "2024–present",
+      "yearSort": 2025,
+      "category": "systems",
+      "disciplines": [
+        "audio",
+        "agentic",
+        "pipeline",
+        "music",
+        "research"
+      ],
       "role": "Creative technologist",
       "summary": "An archive engine over Lanois's personal film and audio collection: 3,352 files indexed, 95 sessions Whisper-transcribed into ~19,000 segments, 2,392 quotes extracted, beat-synced chord and harmony analysis across 221,000+ events, Demucs stem separation, and thematic cuts assembled straight into DaVinci Resolve.",
       "highlight": "3,352 files · 221k+ chord events · Demucs stems",
-      "media": ["assets/print-red-wall.jpg", "assets/print-rainbow.jpg"], "link": "creative.html#the-maker",
+      "media": [
+        "assets/print-red-wall.jpg",
+        "assets/print-rainbow.jpg"
+      ],
+      "link": "creative.html#the-maker",
       "related": [
-        { "to": "belladonna", "why": "The engine's cuts and analysis feed the visual companions." },
-        { "to": "personas", "why": "Corpus ingestion and retrieval, shared with the persona work." },
-        { "to": "sentra-aml", "why": "Large-scale ingestion and retrieval, over an archive and over transactions." }
-      ]
+        {
+          "to": "belladonna",
+          "why": "The engine's cuts and analysis feed the visual companions."
+        },
+        {
+          "to": "personas",
+          "why": "Corpus ingestion and retrieval, shared with the persona work."
+        },
+        {
+          "to": "sentra-aml",
+          "why": "Large-scale ingestion and retrieval, over an archive and over transactions."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Music & film · recent",
+        "order": 1,
+        "anchor": "the-maker",
+        "title": "The Maker",
+        "meta": [
+          [
+            "Year",
+            "2024–present"
+          ],
+          [
+            "Medium",
+            "Archive engine, print production"
+          ],
+          [
+            "Role",
+            "Creative technologist"
+          ],
+          [
+            "Artist",
+            "Daniel Lanois"
+          ]
+        ],
+        "body": "<p>An archive engine over Lanois’s personal film and audio collection: thousands of files indexed,\n      95 sessions transcribed, chord and harmony analysis across 221,000 events, stems separated, and thematic\n      cuts assembled into DaVinci Resolve. It carries the title-design and slow-motion tooling behind the videos,\n      and the audio and performance rigs: a PT93 plugin clone, a freeze setup for guitar and pedal steel, a\n      NAM/RAVE/impulse-capture pipeline, and voice cloning. Fine-art prints for Beckett Fine Art came from the\n      same footage.</p>\n<div class=\"figs\">\n<figure><img alt=\"Red Wall Kingston, fine-art print master\" src=\"assets/print-red-wall.jpg\"/></figure>\n<figure><img alt=\"Rainbow Umbrella, fine-art print master\" src=\"assets/print-rainbow.jpg\"/></figure>\n</div>\n<div class=\"cap\">Fine-art print masters, Beckett Fine Art</div>"
+      }
     },
     {
-      "id": "alannah", "title": "Alannah Myles restoration", "year": "2024–2025", "yearSort": 2025,
-      "category": "ai", "disciplines": ["generative-ai", "music", "vfx"],
+      "id": "alannah",
+      "title": "Alannah Myles restoration",
+      "year": "2024–2025",
+      "yearSort": 2025,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "music",
+        "vfx"
+      ],
       "role": "Lead, AI restoration",
       "summary": "Five videos across a paid engagement. SD archival footage rebuilt to 4K, and on “House of Love” a shot-by-shot face-and-mouth replacement pipeline built in-house with FaceFusion, ComfyUI, Flux, and trained LoRAs for character consistency, after declining an outside vendor quote north of $8K per shot.",
       "highlight": "In-house pipeline vs. $8K+/shot vendor quote",
-      "media": ["assets/alannah.jpg"], "link": "creative.html#alannah",
+      "media": [
+        "assets/alannah.jpg"
+      ],
+      "link": "creative.html#alannah",
       "related": [
-        { "to": "personas", "why": "Face-and-mouth replacement and LoRA character consistency are the persona toolkit." },
-        { "to": "ndr", "why": "Restoring and re-animating archival performance footage." }
-      ]
+        {
+          "to": "personas",
+          "why": "Face-and-mouth replacement and LoRA character consistency are the persona toolkit."
+        },
+        {
+          "to": "ndr",
+          "why": "Restoring and re-animating archival performance footage."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Music & film · recent",
+        "order": 3,
+        "anchor": "alannah",
+        "title": "Alannah Myles restoration",
+        "meta": [
+          [
+            "Year",
+            "2024–2025"
+          ],
+          [
+            "Medium",
+            "Restoration, face replacement"
+          ],
+          [
+            "Role",
+            "Lead, AI restoration"
+          ],
+          [
+            "Artist",
+            "Alannah Myles"
+          ]
+        ],
+        "body": "<p>Five videos across a paid engagement. Standard-definition archival footage rebuilt to 4K with noise\n      reduction and a 16:9 reformat that kept the 1990s look (“What Am I Going to Do With You”). On\n      “House of Love,” a shot-by-shot face-and-mouth replacement pipeline built in-house with\n      FaceFusion, ComfyUI, Flux, and trained LoRAs for character consistency.</p>\n<div class=\"figs one\">\n<figure><img alt=\"Restored 4K frame of Alannah Myles from “What Am I Going to Do With You”\" src=\"assets/alannah.jpg\"/></figure>\n</div>\n<div class=\"cap\">A restored 4K frame from “What Am I Going to Do With You”</div>"
+      }
     },
     {
-      "id": "1188", "title": "1188 Films / WEARE1188", "year": "2009–2021", "yearSort": 2015,
-      "category": "creative", "disciplines": ["music", "vfx", "animation"],
+      "id": "1188",
+      "title": "1188 Films / WEARE1188",
+      "year": "2009–2021",
+      "yearSort": 2015,
+      "category": "creative",
+      "disciplines": [
+        "music",
+        "vfx",
+        "animation"
+      ],
       "role": "Founder",
       "summary": "A decade of music-video and branded VFX for Puma, Holt Renfrew, Cardi B, and a long list of artists and broadcasters. Multiple MMVA wins including Best Post for Down With Webster's Big Wheels; roughly forty VFX shots on Drake's Started From the Bottom.",
       "highlight": "MMVA wins · Drake, Started From the Bottom (BET Video of the Year)",
-      "media": [], "link": "creative.html#films-1188",
+      "media": [],
+      "link": "creative.html#films-1188",
       "related": [
-        { "to": "ndr", "why": "Music-video craft, later the documentary's motion." },
-        { "to": "broadcast", "why": "Same VFX-supervision discipline, moved from broadcast to music video." }
-      ]
+        {
+          "to": "ndr",
+          "why": "Music-video craft, later the documentary's motion."
+        },
+        {
+          "to": "broadcast",
+          "why": "Same VFX-supervision discipline, moved from broadcast to music video."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Direction & VFX · earlier",
+        "order": 10,
+        "anchor": "films-1188",
+        "title": "1188 Films",
+        "meta": [
+          [
+            "Years",
+            "2009–2021"
+          ],
+          [
+            "Medium",
+            "Music video, branded VFX"
+          ],
+          [
+            "Role",
+            "Founder"
+          ]
+        ],
+        "body": "<p>A decade of music-video and branded VFX for Puma, Holt Renfrew, Cardi B, and a long list of artists and\n      broadcasters, with multiple MMVA wins including Best Post Production for Down With Webster’s Big\n      Wheels. Credits include roughly forty VFX shots on Drake’s Started From the Bottom (BET Video of the\n      Year).</p>"
+      }
     },
     {
-      "id": "broadcast", "title": "Broadcast & documentary VFX", "year": "1997–2009", "yearSort": 2005,
-      "category": "creative", "disciplines": ["vfx", "animation", "film"],
+      "id": "broadcast",
+      "title": "Broadcast & documentary VFX",
+      "year": "1997–2009",
+      "yearSort": 2005,
+      "category": "creative",
+      "disciplines": [
+        "vfx",
+        "animation",
+        "film"
+      ],
       "role": "VFX Supervisor, Pipeline Architect",
       "summary": "VFX supervision and pipeline work across broadcast documentary and animation for Cream, Nelvana, NFB, and Discovery: Aftermath: Population Zero (NatGeo, History Canada), Digging Up the Trenches (History UK), Monster Warriors (Jetix, Disney), Time Blazers. Gemini Award for Return to Kandahar (NFB).",
       "highlight": "Gemini Award, Return to Kandahar · 26-episode series work",
-      "media": [], "link": "creative.html#broadcast",
+      "media": [],
+      "link": "creative.html#broadcast",
       "related": [
-        { "to": "broadcast-pipelines", "why": "The same era, seen from the systems side: the database-driven shot pipeline underneath the shows." },
-        { "to": "1188", "why": "VFX supervision carried from broadcast into the music-video studio." }
-      ]
+        {
+          "to": "broadcast-pipelines",
+          "why": "The same era, seen from the systems side: the database-driven shot pipeline underneath the shows."
+        },
+        {
+          "to": "1188",
+          "why": "VFX supervision carried from broadcast into the music-video studio."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Direction & VFX · earlier",
+        "order": 11,
+        "anchor": "broadcast",
+        "title": "Broadcast & documentary",
+        "meta": [
+          [
+            "Years",
+            "1997–2009"
+          ],
+          [
+            "Medium",
+            "Broadcast VFX, animation"
+          ],
+          [
+            "Role",
+            "VFX Supervisor, Pipeline Architect"
+          ],
+          [
+            "Studios",
+            "Cream, Nelvana, NFB, Discovery"
+          ]
+        ],
+        "body": "<p>VFX supervision and pipeline work across broadcast documentary and animation: Aftermath: Population Zero\n      (NatGeo, History Canada), Digging Up the Trenches (History UK), Monster Warriors (Jetix, Disney), and\n      Time Blazers. Gemini Award for Return to Kandahar (NFB).</p>"
+      }
     },
     {
-      "id": "broadcast-pipelines", "title": "Broadcast production pipelines", "year": "2003–2009", "yearSort": 2005,
-      "category": "systems", "disciplines": ["pipeline", "animation"],
+      "id": "broadcast-pipelines",
+      "title": "Broadcast production pipelines",
+      "year": "2003–2009",
+      "yearSort": 2005,
+      "category": "systems",
+      "disciplines": [
+        "pipeline",
+        "animation"
+      ],
       "role": "VFX Supervisor, Pipeline Architect",
       "summary": "The first database-driven production system, built for Time Blazers (2003), then re-architected as a PHP/MySQL production-management platform for animators, directors, and shot review, running ~4,000 VFX and CG shots across 26 episodes. Rendering moved to outside vendors, then to AWS as cloud rendering came online.",
       "highlight": "~4,000 shots · 26 episodes · early cloud rendering",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "conformer", "why": "Database-driven shot management, decades apart, now with generation." },
-        { "to": "broadcast", "why": "The systems layer under the broadcast VFX work." }
-      ]
+        {
+          "to": "conformer",
+          "why": "Database-driven shot management, decades apart, now with generation."
+        },
+        {
+          "to": "broadcast",
+          "why": "The systems layer under the broadcast VFX work."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Production infrastructure",
+        "order": 0,
+        "anchor": "broadcast-pipelines",
+        "title": "Broadcast production pipelines",
+        "meta": [
+          [
+            "Years",
+            "2003–2015"
+          ],
+          [
+            "Type",
+            "Production-management systems"
+          ],
+          [
+            "Role",
+            "VFX Supervisor, Pipeline Architect"
+          ],
+          [
+            "Scale",
+            "26 episodes, ~4,000 shots"
+          ]
+        ],
+        "body": "<p>The first database-driven production system I built was for <b>Time Blazers</b> in 2003, then rebuilt\n      for its second season. From there I re-architected it from the ground up as a <b>PHP and MySQL\n      production-management platform</b> for animators, directors, and shot review, and ran roughly\n      <b>4,000 visual-effects and CG shots across 26 episodes</b> through it. As renders outgrew the room, the\n      pipeline moved to remote rendering with outside vendors, and then to <b>AWS as soon as cloud rendering\n      came online.</b> Across film, visual effects, and broadcast deliverables through to the mid-2010s.</p>"
+      }
     },
     {
-      "id": "stereo-pipelines", "title": "Stereo, 360° and immersive pipelines", "year": "2015–2021", "yearSort": 2018,
-      "category": "systems", "disciplines": ["pipeline", "immersive", "volumetric"],
+      "id": "stereo-pipelines",
+      "title": "Stereo, 360° and immersive pipelines",
+      "year": "2015–2021",
+      "yearSort": 2018,
+      "category": "systems",
+      "disciplines": [
+        "pipeline",
+        "immersive",
+        "volumetric"
+      ],
       "role": "VR Supervisor, Pipeline Architect",
       "summary": "Complete visual pipelines for stereoscopic 3D, stereography, and stereo 360°, built as the formats were being invented. A production studio for Samsung and 30+ immersive pieces across game engines and traditional formats: capture, stitching, depth, and delivery.",
       "highlight": "30+ immersive pieces · production studio for Samsung",
-      "media": ["assets/immersive.jpg"], "link": "dev.html",
+      "media": [
+        "assets/immersive.jpg"
+      ],
+      "link": "dev.html",
       "related": [
-        { "to": "holy-city", "why": "The photogrammetry-and-delivery pipeline behind the Jerusalem twin." },
-        { "to": "sharkwater", "why": "Stereo 360° capture and delivery, underwater." },
-        { "to": "spatial-captures", "why": "Capture and real-time, carried into world models." }
-      ]
+        {
+          "to": "holy-city",
+          "why": "The photogrammetry-and-delivery pipeline behind the Jerusalem twin."
+        },
+        {
+          "to": "sharkwater",
+          "why": "Stereo 360° capture and delivery, underwater."
+        },
+        {
+          "to": "spatial-captures",
+          "why": "Capture and real-time, carried into world models."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Production infrastructure",
+        "order": 1,
+        "anchor": "stereo-pipelines",
+        "title": "Stereo, 360° and immersive pipelines",
+        "meta": [
+          [
+            "Years",
+            "2015–2021"
+          ],
+          [
+            "Type",
+            "Stereo & immersive pipelines"
+          ],
+          [
+            "Role",
+            "VR Supervisor, Pipeline Architect"
+          ],
+          [
+            "Output",
+            "30+ immersive pieces"
+          ]
+        ],
+        "body": "<p>Complete visual pipelines for <b>stereoscopic 3D and stereography, then stereo 360°</b>, built as the\n      formats themselves were being invented. As a <b>production studio for Samsung</b> and through Occupied VR,\n      I delivered <b>more than thirty immersive pieces</b> across both game engines and traditional linear\n      formats: capture, stitching, depth, and delivery, each format needing its own end-to-end chain.</p>"
+      }
     },
     {
-      "id": "style-transfer", "title": "Temporal-coherence style transfer · River Tiber “Acid Test”", "year": "2016", "yearSort": 2016,
-      "category": "ai", "disciplines": ["generative-ai", "music", "vfx"],
+      "id": "style-transfer",
+      "title": "Temporal-coherence style transfer · River Tiber “Acid Test”",
+      "year": "2016",
+      "yearSort": 2016,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "music",
+        "vfx"
+      ],
       "role": "VFX Supervisor",
       "summary": "The first machine-learning work: solving temporal coherence for neural style transfer on the music video, keeping a painted look stable frame to frame instead of boiling. The video won an MMVA.",
       "highlight": "MMVA winner · the start of the AI work, 2016",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "ndr", "why": "The same frame-to-frame stability problem, later solved on a documentary scale." },
-        { "to": "conformer", "why": "Holding a look and an identity steady across generated frames." },
-        { "to": "local-video-pipeline", "why": "Frozen-and-melted-motion detection began here." }
-      ]
+        {
+          "to": "ndr",
+          "why": "The same frame-to-frame stability problem, later solved on a documentary scale."
+        },
+        {
+          "to": "conformer",
+          "why": "Holding a look and an identity steady across generated frames."
+        },
+        {
+          "to": "local-video-pipeline",
+          "why": "Frozen-and-melted-motion detection began here."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 2,
+        "anchor": "style-transfer",
+        "title": "Temporal-coherence style transfer",
+        "meta": [
+          [
+            "Year",
+            "2016"
+          ],
+          [
+            "Type",
+            "Neural style transfer"
+          ],
+          [
+            "Role",
+            "VFX Supervisor"
+          ],
+          [
+            "Work",
+            "River Tiber, “Acid Test”"
+          ]
+        ],
+        "body": "<p>The first machine-learning work: solving <b>temporal coherence for neural style transfer</b> on the\n      music video “Acid Test” for River Tiber, keeping a painted look stable frame to frame instead\n      of boiling. The video won an MMVA. Style transfer in 2016 was barely usable for motion; getting it to hold\n      across a cut was the whole problem.</p>"
+      }
     },
     {
-      "id": "gen-voice", "title": "Generative voice and early agents", "year": "2023", "yearSort": 2023,
-      "category": "systems", "disciplines": ["agentic", "audio", "generative-ai"],
+      "id": "gen-voice",
+      "title": "Generative voice and early agents",
+      "year": "2023",
+      "yearSort": 2023,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "audio",
+        "generative-ai"
+      ],
       "role": "Builder",
       "summary": "Early generative-voice work, as an ElevenLabs alpha user, wired into agent architectures with LangChain. The same year, a WordPress-to-RAG build was assembled with AutoGPT, one of the first agentic systems and an early precursor to what agentic coding tools became.",
       "highlight": "AutoGPT-era agents · ElevenLabs alpha",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "personas", "why": "Voice cloning and conversational interfaces became the persona toolkit." },
-        { "to": "sentra-aml", "why": "Early multi-agent orchestration." },
-        { "to": "the-maker", "why": "Corpus extraction and retrieval, first on a WordPress site, later on an archive." }
-      ]
+        {
+          "to": "personas",
+          "why": "Voice cloning and conversational interfaces became the persona toolkit."
+        },
+        {
+          "to": "sentra-aml",
+          "why": "Early multi-agent orchestration."
+        },
+        {
+          "to": "the-maker",
+          "why": "Corpus extraction and retrieval, first on a WordPress site, later on an archive."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 3,
+        "anchor": "gen-voice",
+        "title": "Generative voice and early agents",
+        "meta": [
+          [
+            "Year",
+            "2023"
+          ],
+          [
+            "Type",
+            "Generative voice, agent architecture"
+          ],
+          [
+            "Role",
+            "Builder"
+          ],
+          [
+            "Tools",
+            "ElevenLabs, LangChain, AutoGPT"
+          ]
+        ],
+        "body": "<p>Early generative-voice work, as an ElevenLabs alpha user, wired into agent architectures with LangChain.\n      The same year, the WordPress-to-RAG build was assembled with <b>AutoGPT, one of the first agentic systems\n      and an early precursor to what agentic coding tools became</b>: fifteen years of a site extracted into a\n      working retrieval database with a generated voice and a conversational interface, agents doing the\n      extraction and structuring, a validation pass confirming the corpus survived intact.</p>"
+      }
     },
     {
-      "id": "conformer", "title": "Conformer · screenplay to shots", "year": "2024–present", "yearSort": 2025,
-      "category": "systems", "disciplines": ["agentic", "generative-ai", "pipeline", "film"],
+      "id": "conformer",
+      "title": "Conformer · screenplay to shots",
+      "year": "2024–present",
+      "yearSort": 2025,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "generative-ai",
+        "pipeline",
+        "film"
+      ],
       "role": "Architect, developer",
       "summary": "A production pipeline that compiles a screenplay into coverage shotlists and routes them to image-to-video models. Custom Fountain/Final Draft parser; coverage formulas as code; camera-motion mapping over 17 motions and 5 models; face-identity validation on every take; a JSONL provenance ledger; assembly into DaVinci Resolve. Hardened on a feature at 774 shots and 2,558 takes.",
       "highlight": "774 shots · 2,558 takes · Bruce McDonald's 1812",
-      "media": ["assets/conformer-narrative-projects.jpg", "assets/conformer-agent-ui.jpg", "assets/materiality-michael.jpg"], "link": "dev.html#conformer",
+      "media": [
+        "assets/conformer-narrative-projects.jpg",
+        "assets/conformer-agent-ui.jpg",
+        "assets/materiality-michael.jpg"
+      ],
+      "link": "dev.html#conformer",
       "related": [
-        { "to": "broadcast-pipelines", "why": "Database-driven shot management, decades apart." },
-        { "to": "dark-half", "why": "The same screenplay-to-shots idea, hardened for compliance and production." },
-        { "to": "ai-alpha", "why": "Both run on Materiality, a Conformer deployment." },
-        { "to": "style-transfer", "why": "Holding a face and a look steady across generated takes." },
-        { "to": "athena", "why": "Generative production, to a timeline and to room geometry." }
-      ]
+        {
+          "to": "broadcast-pipelines",
+          "why": "Database-driven shot management, decades apart."
+        },
+        {
+          "to": "dark-half",
+          "why": "The same screenplay-to-shots idea, hardened for compliance and production."
+        },
+        {
+          "to": "ai-alpha",
+          "why": "Both run on Materiality, a Conformer deployment."
+        },
+        {
+          "to": "style-transfer",
+          "why": "Holding a face and a look steady across generated takes."
+        },
+        {
+          "to": "athena",
+          "why": "Generative production, to a timeline and to room geometry."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 4,
+        "anchor": "conformer",
+        "title": "Conformer",
+        "meta": [
+          [
+            "Year",
+            "2024–present"
+          ],
+          [
+            "Type",
+            "Production CLI & service"
+          ],
+          [
+            "Role",
+            "Architect, developer"
+          ],
+          [
+            "Used on",
+            "Bruce McDonald’s 1812; feature previs"
+          ]
+        ],
+        "body": "<p>A production pipeline that compiles a screenplay into coverage shotlists and routes them to\n      image-to-video models. A custom Fountain and Final Draft parser turns a script into scene, beat, and shot\n      structure; coverage formulas are implemented as code; prompts compile across Flux, Hunyuan, Kling, World\n      Labs, Veo, and Wan, with camera-motion mapping over seventeen motions and five models. Budget-gated\n      dispatch, <b>face-identity validation on every take</b>, a JSONL provenance ledger, and assembly straight\n      into DaVinci Resolve. Hardened on a feature at 774 shots and 2,558 takes, deployed on RTX PRO 6000\n      hardware. This is the broadcast shot-management idea, thirty years on, with generation in the loop.</p>\n<div class=\"figs\" style=\"grid-template-columns:1fr 1fr 1fr;\">\n<figure><img alt=\"Conformer project view: script, scenes, and shot canon for a narrative project\" src=\"assets/conformer-narrative-projects.jpg\"/></figure>\n<figure><img alt=\"Conformer agent dissecting a screenplay into a shot punch list\" src=\"assets/conformer-agent-ui.jpg\"/></figure>\n<figure><img alt=\"Per-character reference canon holding a face consistent across generated takes\" src=\"assets/materiality-michael.jpg\"/></figure>\n</div>\n<div class=\"cap\">The pipeline in use: a project carrying its script and shot canon, the agent that turns a screenplay into a shot punch list, and per-character reference canon that holds a face consistent across takes.</div>"
+      }
     },
     {
-      "id": "dark-half", "title": "Dark Half · Cream Productions", "year": "2026", "yearSort": 2026,
-      "category": "systems", "disciplines": ["agentic", "generative-ai", "compliance", "film"],
+      "id": "dark-half",
+      "title": "Dark Half · Cream Productions",
+      "year": "2026",
+      "yearSort": 2026,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "generative-ai",
+        "compliance",
+        "film"
+      ],
       "role": "Pipeline architect",
       "summary": "Pipeline architect for Cream Productions' AI-VFX division. Screenplay to beats to shots to consistent characters, with a five-level Likeness & Synthesis Ladder and an indemnity matrix mapping per-model exposure across fal.ai, Runway, Kling, AWS Nova, Adobe, and Google. Provenance ledger for copyright defensibility. MVP shipped as a Vite/React/TypeScript demo.",
       "highlight": "5-level likeness ladder · per-model indemnity matrix",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "conformer", "why": "The screenplay-to-shots engine, hardened for a production house." },
-        { "to": "sentra-aml", "why": "Compliance ladders and provenance ledgers, in VFX and in finance." }
+        {
+          "to": "conformer",
+          "why": "The screenplay-to-shots engine, hardened for a production house."
+        },
+        {
+          "to": "sentra-aml",
+          "why": "Compliance ladders and provenance ledgers, in VFX and in finance."
+        }
       ]
     },
     {
-      "id": "sentra-aml", "title": "Sentra AML platform", "year": "2024–2026", "yearSort": 2025,
-      "category": "systems", "disciplines": ["agentic", "compliance", "pipeline", "research"],
+      "id": "sentra-aml",
+      "title": "Sentra AML platform",
+      "year": "2024–2026",
+      "yearSort": 2025,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "compliance",
+        "pipeline",
+        "research"
+      ],
       "role": "Architect, developer",
       "summary": "An anti-money-laundering platform, built with Triyo and shown publicly as Sentra: eight compliance agents on Azure, FINTRAC schemas parsed across 884 properties, a hash-chained audit ledger. At its core, a crowd-simulation-inspired synthetic-data engine where fifteen laundering typologies emerge inside a 1.2-million-transaction stream with automatic ground-truth labels, scoring behavioral detectors at high precision on that synthetic benchmark.",
       "highlight": "8 agents · 1.2M-transaction synthetic benchmark · WORM ledger",
-      "media": ["assets/sentra-console.jpg"], "link": "dev.html#sentra",
+      "media": [
+        "assets/sentra-console.jpg"
+      ],
+      "link": "dev.html#sentra",
       "related": [
-        { "to": "ai-alpha", "why": "Shared agent orchestration, synthetic data, and audit trail." },
-        { "to": "evaluation-harnesses", "why": "The labeled AML benchmark gates detector precision in CI." },
-        { "to": "dark-half", "why": "Compliance ladders and provenance ledgers, shared across domains." }
-      ]
+        {
+          "to": "ai-alpha",
+          "why": "Shared agent orchestration, synthetic data, and audit trail."
+        },
+        {
+          "to": "evaluation-harnesses",
+          "why": "The labeled AML benchmark gates detector precision in CI."
+        },
+        {
+          "to": "dark-half",
+          "why": "Compliance ladders and provenance ledgers, shared across domains."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 6,
+        "anchor": "sentra",
+        "title": "Sentra AML platform",
+        "meta": [
+          [
+            "Year",
+            "2024–2026"
+          ],
+          [
+            "Type",
+            "AML platform, synthetic data"
+          ],
+          [
+            "Role",
+            "Lead architect"
+          ],
+          [
+            "Built with",
+            "Triyo (RegTech)"
+          ]
+        ],
+        "body": "<p>An anti-money-laundering platform: eight compliance agents for transaction monitoring, sanctions and PEP\n      screening, due diligence, and network analysis, on Azure with FINTRAC schemas parsed across 884 properties\n      and a hash-chained audit ledger. At its core is a <b>crowd-simulation-inspired synthetic-data engine</b>:\n      ordinary members carry legitimate spending rules and criminals carry a few more, so fifteen laundering\n      patterns emerge inside a 1.2-million-transaction stream with automatic ground-truth labels. Because the\n      ground truth is known for every transaction, the behavioral detectors can be measured against it rather\n      than guessed at, and they score with high precision on that synthetic benchmark.</p>\n<div class=\"figs one\">\n<figure><img alt=\"Sentra AML compliance dashboard: flagged activity, risk distribution, detection patterns\" src=\"assets/sentra-console.jpg\"/></figure>\n</div>\n<div class=\"cap\">The public demo (Sentra): compliance dashboard, flagged activity, risk scoring, detection patterns</div>"
+      }
     },
     {
-      "id": "ai-alpha", "title": "AI Alpha", "year": "2025–2026", "yearSort": 2026,
-      "category": "systems", "disciplines": ["agentic", "research", "generative-ai"],
+      "id": "ai-alpha",
+      "title": "AI Alpha",
+      "year": "2025–2026",
+      "yearSort": 2026,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "research",
+        "generative-ai"
+      ],
       "role": "Architect, developer",
       "summary": "An agentic equity-research engine: filings, transcripts, news, and macro data extracted into per-issuer and per-sector signals, feeding a mean-CVaR portfolio optimizer that proposes rebalances for a human PM to approve. Decks and an interactive operator console are live; the Python engine is a working, tested prototype. Built with Materiality.",
       "highlight": "Mean-CVaR optimizer · human-in-the-loop PM console",
-      "media": ["assets/aialpha-console.jpg"], "link": "dev.html#ai-alpha",
+      "media": [
+        "assets/aialpha-console.jpg"
+      ],
+      "link": "dev.html#ai-alpha",
       "related": [
-        { "to": "sentra-aml", "why": "Same agentic research and audit trail, aimed at markets." },
-        { "to": "conformer", "why": "Both run on Materiality, a Conformer deployment." },
-        { "to": "evaluation-harnesses", "why": "Signals and detectors gated against ground truth." }
-      ]
+        {
+          "to": "sentra-aml",
+          "why": "Same agentic research and audit trail, aimed at markets."
+        },
+        {
+          "to": "conformer",
+          "why": "Both run on Materiality, a Conformer deployment."
+        },
+        {
+          "to": "evaluation-harnesses",
+          "why": "Signals and detectors gated against ground truth."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 7,
+        "anchor": "ai-alpha",
+        "title": "AI Alpha",
+        "meta": [
+          [
+            "Year",
+            "2025–2026"
+          ],
+          [
+            "Type",
+            "Research engine, PM console"
+          ],
+          [
+            "Role",
+            "Architect, developer"
+          ],
+          [
+            "Built with",
+            "Materiality"
+          ]
+        ],
+        "body": "<p>An agentic equity-research engine: filings, transcripts, news, and macro data extracted into per-issuer\n      and per-sector signals, feeding a mean-CVaR portfolio optimizer that proposes rebalances for a human\n      portfolio manager to approve. The decks and an interactive operator console are live; the Python engine is\n      a working, tested prototype.</p>\n<div class=\"figs one\">\n<figure><img alt=\"AI Alpha PM operator console: pending approvals, recommendations, portfolio state, and audit trail\" src=\"assets/aialpha-console.jpg\"/></figure>\n</div>\n<div class=\"cap\">The PM operator console: approvals, portfolio state, and an evidence trail in one interface</div>"
+      }
     },
     {
-      "id": "local-video-pipeline", "title": "Local video pipeline", "year": "2026", "yearSort": 2026,
-      "category": "ai", "disciplines": ["generative-ai", "pipeline", "research"],
+      "id": "local-video-pipeline",
+      "title": "Local video pipeline",
+      "year": "2026",
+      "yearSort": 2026,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "pipeline",
+        "research"
+      ],
       "role": "Architect, developer",
       "summary": "A self-contained local video-generation pipeline pairing high-quality keyframes with open-weight motion models (LTX, Wan, HunyuanVideo) on a 96 GB GPU, finishing to HDR ProRes masters through a 32-bit EXR chain, with an automated evaluation harness that grades every clip before a human pass and benchmarks its own fidelity gap against closed providers.",
       "highlight": "Open-weight models · HDR ProRes · self-grading eval gate",
-      "media": ["assets/lvp-circus.jpg", "assets/lvp-pbr.jpg"], "link": "dev.html#local-video-pipeline",
+      "media": [
+        "assets/lvp-circus.jpg",
+        "assets/lvp-pbr.jpg"
+      ],
+      "link": "dev.html#local-video-pipeline",
       "related": [
-        { "to": "evaluation-harnesses", "why": "The eval gate that grades every clip is a standing discipline." },
-        { "to": "conformer", "why": "Feeds the same generate-and-assemble workflow." },
-        { "to": "belladonna", "why": "Open-weight motion models and the same finishing chain." }
-      ]
+        {
+          "to": "evaluation-harnesses",
+          "why": "The eval gate that grades every clip is a standing discipline."
+        },
+        {
+          "to": "conformer",
+          "why": "Feeds the same generate-and-assemble workflow."
+        },
+        {
+          "to": "belladonna",
+          "why": "Open-weight motion models and the same finishing chain."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 5,
+        "anchor": "local-video-pipeline",
+        "title": "Local video pipeline",
+        "meta": [
+          [
+            "Year",
+            "2026"
+          ],
+          [
+            "Type",
+            "Local generation + evaluation"
+          ],
+          [
+            "Role",
+            "Architect, developer"
+          ],
+          [
+            "Hardware",
+            "96 GB GPU; Modal cloud"
+          ]
+        ],
+        "body": "<p>A fully local video-generation pipeline pairing high-quality keyframes with open-weight motion models\n      (LTX, Wan, HunyuanVideo), finishing to true HDR ProRes masters through a 32-bit EXR chain. Its core is an\n      <b>evaluation harness</b> that grades every clip on the principle that the system producing the work is\n      never its own judge: optical flow catches frozen or melted output, pitch variance catches monotone voice\n      clones, and clips are trimmed to their clean portion before a human pass. It also benchmarks its own\n      fidelity gap against closed providers, and deploys the same stack to cloud GPUs on demand. Character and\n      likeness work, with a five-level synthesis ladder and provenance ledger, runs here too.</p>\n<div class=\"figs\">\n<figure><img alt=\"Local pipeline render that passes the evaluation gate\" src=\"assets/lvp-circus.jpg\"/></figure>\n<figure><img alt=\"A finished frame decomposed into PBR material passes\" src=\"assets/lvp-pbr.jpg\"/></figure>\n</div>\n<div class=\"cap\">A clean render that clears the evaluation gate, and a frame decomposed into PBR material passes</div>"
+      }
     },
     {
-      "id": "evaluation-harnesses", "title": "Evaluation harnesses", "year": "2025–present", "yearSort": 2025,
-      "category": "systems", "disciplines": ["agentic", "research", "compliance"],
+      "id": "evaluation-harnesses",
+      "title": "Evaluation harnesses",
+      "year": "2025–present",
+      "yearSort": 2025,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "research",
+        "compliance"
+      ],
       "role": "Architect",
       "summary": "A standing discipline: the system that produced the work is never its own judge. Multi-model judges scoring copy, code, art, and audio in parallel; ground-truth harnesses for voice-clone monotone detection and generated-video QA (optical-flow detection of frozen or melted motion); a labeled AML benchmark gating detector precision and recall in CI.",
       "highlight": "Ground-truth gating across text, code, video, audio",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "sentra-aml", "why": "The labeled benchmark that gates the AML detectors." },
-        { "to": "local-video-pipeline", "why": "Optical-flow QA on generated motion." },
-        { "to": "ai-alpha", "why": "Signals gated against ground truth before a human decides." }
+        {
+          "to": "sentra-aml",
+          "why": "The labeled benchmark that gates the AML detectors."
+        },
+        {
+          "to": "local-video-pipeline",
+          "why": "Optical-flow QA on generated motion."
+        },
+        {
+          "to": "ai-alpha",
+          "why": "Signals gated against ground truth before a human decides."
+        }
       ]
     },
     {
-      "id": "personas", "title": "AI personas · Persona Forge", "year": "2024–present", "yearSort": 2025,
-      "category": "ai", "disciplines": ["generative-ai", "audio", "music", "research"],
+      "id": "personas",
+      "title": "AI personas · Persona Forge",
+      "year": "2024–present",
+      "yearSort": 2025,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "audio",
+        "music",
+        "research"
+      ],
       "role": "Architect",
       "summary": "Custom persona pipelines: prompt extraction from interview dialogue into generative visuals for Johnny Fay of The Tragically Hip (Mercury Sea); a Warner-authorized Jim Morrison immersive exhibition built on vector-database biographical retrieval, vocal stem isolation, and real-time face reconstruction. Persona Forge: corpus ingestion, retrieval, voice cloning, face reconstruction.",
       "highlight": "Warner-authorized Jim Morrison exhibition (2025)",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "gen-voice", "why": "Voice cloning and conversational interfaces are the foundation." },
-        { "to": "alannah", "why": "Face replacement and LoRA character consistency, shared toolkit." },
-        { "to": "ndr", "why": "The Johnny Fay persona work grew from the Hip production." },
-        { "to": "the-maker", "why": "Archival corpus ingestion and retrieval." }
+        {
+          "to": "gen-voice",
+          "why": "Voice cloning and conversational interfaces are the foundation."
+        },
+        {
+          "to": "alannah",
+          "why": "Face replacement and LoRA character consistency, shared toolkit."
+        },
+        {
+          "to": "ndr",
+          "why": "The Johnny Fay persona work grew from the Hip production."
+        },
+        {
+          "to": "the-maker",
+          "why": "Archival corpus ingestion and retrieval."
+        }
       ]
     },
     {
-      "id": "shout-fifa", "title": "Shout × FIFA 2026 pipeline", "year": "2024–2025", "yearSort": 2025,
-      "category": "ai", "disciplines": ["generative-ai", "pipeline"],
+      "id": "shout-fifa",
+      "title": "Shout × FIFA 2026 pipeline",
+      "year": "2024–2025",
+      "yearSort": 2025,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "pipeline"
+      ],
       "role": "Architect",
       "summary": "A tournament-scale AI content pipeline built and benchmarked for SC Johnson's Shout brand via Community agency: 48 teams, 104 matches, AI-assisted storyboard and content generation, costed at $26,000 against a $127,000 traditional estimate at parity output.",
       "highlight": "Built & benchmarked · $26K vs. $127K at parity",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "conformer", "why": "Tournament-scale generation off the same generate-and-assemble thinking." },
-        { "to": "kawartha", "why": "Brand content at volume with a costed pipeline." }
+        {
+          "to": "conformer",
+          "why": "Tournament-scale generation off the same generate-and-assemble thinking."
+        },
+        {
+          "to": "kawartha",
+          "why": "Brand content at volume with a costed pipeline."
+        }
       ]
     },
     {
-      "id": "kawartha", "title": "Kawartha Dairy × The Tragically Hip", "year": "2026", "yearSort": 2026,
-      "category": "creative", "disciplines": ["generative-ai", "music", "animation"],
+      "id": "kawartha",
+      "title": "Kawartha Dairy × The Tragically Hip",
+      "year": "2026",
+      "yearSort": 2026,
+      "category": "creative",
+      "disciplines": [
+        "generative-ai",
+        "music",
+        "animation"
+      ],
       "role": "Director, pipeline",
       "summary": "A 9:16 animated social spot for Kawartha Dairy's Tragically Hip ice-cream tie-in, built on a reusable Remotion spot harness (ElevenLabs voiceover, loudnorm mastering, dual-tier ProRes/H.264 delivery), iterated through twenty-plus client rounds with per-round versioned commits as the audit trail.",
       "highlight": "Reusable Remotion harness · 20+ versioned rounds",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "shout-fifa", "why": "Brand content on a reusable, costed pipeline." },
-        { "to": "ndr", "why": "Another Tragically Hip tie-in." }
+        {
+          "to": "shout-fifa",
+          "why": "Brand content on a reusable, costed pipeline."
+        },
+        {
+          "to": "ndr",
+          "why": "Another Tragically Hip tie-in."
+        }
       ]
     },
     {
-      "id": "birdnet", "title": "BirdNET field tool", "year": "2026", "yearSort": 2026,
-      "category": "systems", "disciplines": ["agentic", "pipeline", "research"],
+      "id": "birdnet",
+      "title": "BirdNET field tool",
+      "year": "2026",
+      "yearSort": 2026,
+      "category": "systems",
+      "disciplines": [
+        "agentic",
+        "pipeline",
+        "research"
+      ],
       "role": "Developer",
       "summary": "A phone-to-desktop bird-sound identifier. A PWA records from the phone and posts audio and location to a FastAPI service running Cornell's BirdNET model over Tailscale, then resolves whose traditional territory you're on via Native Land Digital and returns the bird's name in that nation's language with an English gloss and pronunciation, drawing on Ojibwe, Plains Cree, and Kanien'kéha sources.",
       "highlight": "Cornell BirdNET · Native Land Digital · Indigenous-language naming",
-      "media": [], "link": "dev.html#birdnet",
+      "media": [],
+      "link": "dev.html#birdnet",
       "related": [
-        { "to": "gen-voice", "why": "A small agentic field tool that consolidates several APIs." }
-      ]
+        {
+          "to": "gen-voice",
+          "why": "A small agentic field tool that consolidates several APIs."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 8,
+        "anchor": "birdnet",
+        "title": "BirdNET field tool",
+        "meta": [
+          [
+            "Year",
+            "2026"
+          ],
+          [
+            "Type",
+            "Field tool, PWA"
+          ],
+          [
+            "Role",
+            "Developer"
+          ],
+          [
+            "Stack",
+            "FastAPI, Tailscale, Cornell BirdNET"
+          ]
+        ],
+        "body": "<p>A phone-to-desktop bird-sound identifier. A progressive web app records from the phone and posts audio\n      and location to a FastAPI service running Cornell’s BirdNET model, reached privately over Tailscale.\n      It returns the most likely species, a written note, and a reference image. From the same location it also\n      resolves whose traditional territory you are standing on, through Native Land Digital, and gives the\n      bird’s name in that nation’s language with an English gloss and a phonetic pronunciation,\n      consolidating the Ojibwe People’s Dictionary, Plains Cree, and Kanien’kéha sources alongside\n      eBird and Wikipedia.</p>"
+      }
     },
     {
-      "id": "athena", "title": "Athena · Design Exchange Toronto", "year": "2024–present", "yearSort": 2025,
-      "category": "immersive", "disciplines": ["immersive", "generative-ai", "projection", "agentic"],
+      "id": "athena",
+      "title": "Athena · Design Exchange Toronto",
+      "year": "2024–present",
+      "yearSort": 2025,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "generative-ai",
+        "projection",
+        "agentic"
+      ],
       "role": "System designer, developer",
       "summary": "A conversational generation system for the Design Exchange's 6,500 sq ft trading floor (270° projection): chat-driven image, video, and 3D at the exact pixel dimensions of ~31 named surfaces, DXV encoding, Resolume REST playback, a PlayCanvas venue twin, and anamorphic Kooima projection geometry. Documented unit economics down to ~$0.08 per 3D object.",
       "highlight": "270° projection · venue twin · ~$0.08 per 3D object",
-      "media": ["assets/athena-silk.jpg", "assets/athena-surface-map.jpg"], "link": "creative.html#athena",
+      "media": [
+        "assets/athena-silk.jpg",
+        "assets/athena-surface-map.jpg"
+      ],
+      "link": "creative.html#athena",
       "related": [
-        { "to": "conformer", "why": "Generative production, to a timeline and to room geometry." },
-        { "to": "spatial-captures", "why": "World models and real-time geometry, in a gallery." },
-        { "to": "holy-city", "why": "Content against real spatial geometry." }
-      ]
+        {
+          "to": "conformer",
+          "why": "Generative production, to a timeline and to room geometry."
+        },
+        {
+          "to": "spatial-captures",
+          "why": "World models and real-time geometry, in a gallery."
+        },
+        {
+          "to": "holy-city",
+          "why": "Content against real spatial geometry."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 4,
+        "anchor": "athena",
+        "title": "Athena",
+        "meta": [
+          [
+            "Year",
+            "2024–present"
+          ],
+          [
+            "Medium",
+            "270° projection, generative content"
+          ],
+          [
+            "Role",
+            "System designer, developer"
+          ],
+          [
+            "Venue",
+            "Design Exchange, Toronto"
+          ]
+        ],
+        "body": "<p>A generative-content system for the Design Exchange’s wrap-around trading floor: chat-driven\n      image, video, and 3D at the exact pixel dimensions of the room’s surfaces, DXV encoding, Resolume\n      playback control, a PlayCanvas venue twin, and anamorphic perspective rendering. Built, demoed on the\n      floor, and delivered as a Phase 1 alpha.</p>\n<div class=\"figs\">\n<figure><img alt=\"Generative content produced by Athena for the trading-floor surfaces\" src=\"assets/athena-silk.jpg\"/></figure>\n<figure><img alt=\"Surface-dimension template of the Design Exchange trading floor\" src=\"assets/athena-surface-map.jpg\"/></figure>\n</div>\n<div class=\"cap\">Left: content generated by Athena. Right: the trading floor’s exact surface dimensions, the template every frame is rendered to.</div>"
+      }
     },
     {
-      "id": "spots-of-light", "title": "Spots of Light", "year": "2023–2024", "yearSort": 2023,
-      "category": "immersive", "disciplines": ["immersive", "volumetric", "film"],
+      "id": "spots-of-light",
+      "title": "Spots of Light",
+      "year": "2023–2024",
+      "yearSort": 2023,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "volumetric",
+        "film"
+      ],
       "role": "Producer, VR Director",
       "summary": "A volumetric documentary on a soldier's journey from blindness to restored sight, an Israel and Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian Screen Award nominee.",
       "highlight": "Venice VR · FIPADOC Best Immersive · SIGGRAPH VR Theater",
-      "media": ["assets/legacy-05.jpg"], "link": "creative.html#spots-of-light",
+      "media": [
+        "assets/legacy-05.jpg"
+      ],
+      "link": "creative.html#spots-of-light",
       "related": [
-        { "to": "holy-city", "why": "Immersive documentary from the same Occupied VR era." },
-        { "to": "myriad", "why": "Volumetric and 360° documentary co-productions." },
-        { "to": "last-gift", "why": "Volumetric documentary practice, continued." }
-      ]
+        {
+          "to": "holy-city",
+          "why": "Immersive documentary from the same Occupied VR era."
+        },
+        {
+          "to": "myriad",
+          "why": "Volumetric and 360° documentary co-productions."
+        },
+        {
+          "to": "last-gift",
+          "why": "Volumetric documentary practice, continued."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 5,
+        "anchor": "spots-of-light",
+        "title": "Spots of Light",
+        "meta": [
+          [
+            "Year",
+            "2023"
+          ],
+          [
+            "Medium",
+            "Volumetric VR documentary"
+          ],
+          [
+            "Role",
+            "Producer, VR Director"
+          ],
+          [
+            "Selection",
+            "Venice VR, SIGGRAPH VR Theater"
+          ]
+        ],
+        "body": "<p>A volumetric documentary on a soldier’s journey from blindness to restored sight, an Israel and\n      Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian Screen\n      Award nominee.</p>\n<div class=\"figs one\" style=\"max-width:340px;\">\n<figure><img alt=\"Spots of Light poster\" src=\"assets/legacy-05.jpg\"/></figure>\n</div>"
+      }
     },
     {
-      "id": "holy-city", "title": "The Holy City", "year": "2016–2020", "yearSort": 2019,
-      "category": "immersive", "disciplines": ["immersive", "volumetric", "pipeline"],
+      "id": "holy-city",
+      "title": "The Holy City",
+      "year": "2016–2020",
+      "yearSort": 2019,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "volumetric",
+        "pipeline"
+      ],
       "role": "Executive Producer",
       "summary": "A frontier photogrammetry capture of Jerusalem's old city, optimized for real-time VR playback, built with Mantis Vision. 300,000+ photographs and 175 LiDAR scans reconstructed the holiest sites as an open-world game engine, with stereo 360° filming of each of the holiest days at the holiest sites.",
       "highlight": "Cannes XR 2019 · Lumìere Award · Forbes Top 50 in XR · NYT",
-      "media": ["assets/holycity.jpg"], "link": "creative.html#holy-city",
+      "media": [
+        "assets/holycity.jpg"
+      ],
+      "link": "creative.html#holy-city",
       "related": [
-        { "to": "stereo-pipelines", "why": "The photogrammetry-and-delivery pipeline behind the twin." },
-        { "to": "spatial-captures", "why": "Large-scale photogrammetry into real-time." },
-        { "to": "athena", "why": "Content mapped against real spatial geometry." }
-      ]
+        {
+          "to": "stereo-pipelines",
+          "why": "The photogrammetry-and-delivery pipeline behind the twin."
+        },
+        {
+          "to": "spatial-captures",
+          "why": "Large-scale photogrammetry into real-time."
+        },
+        {
+          "to": "athena",
+          "why": "Content mapped against real spatial geometry."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 6,
+        "anchor": "holy-city",
+        "title": "The Holy City",
+        "meta": [
+          [
+            "Year",
+            "2016–2020"
+          ],
+          [
+            "Medium",
+            "Photogrammetry, real-time VR"
+          ],
+          [
+            "Role",
+            "Executive Producer"
+          ],
+          [
+            "Partner",
+            "Mantis Vision, Israel"
+          ],
+          [
+            "Selection",
+            "Cannes XR, Lumière Award"
+          ]
+        ],
+        "body": "<p>Frontier photogrammetry capture of Jerusalem’s old city, optimized for real-time VR playback, built\n      with Mantis Vision in Israel. More than <b>300,000 photographs</b> and <b>175 LiDAR scans</b> reconstructed\n      the holiest sites as an open-world game engine, with <b>stereo 360° filming of each of the holiest days at\n      the holiest sites</b>. Cannes XR 2019, a Lumière Award, Forbes Top 50 in XR, and a New York Times feature.</p>\n<div class=\"figs one\">\n<figure><img alt=\"Frames from The Holy City: Dome of the Rock, the Church of the Holy Sepulchre, and interior mosaics\" src=\"assets/holycity.jpg\"/></figure>\n</div>\n<div class=\"cap\">Photogrammetric reconstructions of the old city’s holy sites</div>"
+      }
     },
     {
-      "id": "myriad", "title": "MYRIAD: Where We Connect", "year": "2021", "yearSort": 2021,
-      "category": "immersive", "disciplines": ["immersive", "film"],
+      "id": "myriad",
+      "title": "MYRIAD: Where We Connect",
+      "year": "2021",
+      "yearSort": 2021,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "film"
+      ],
       "role": "Producer",
       "summary": "Stereo 360° aerials of the northern bald ibis migration across the Alps, shot from drones and an ultralight, a Germany and Canada co-production with the Interactive Media Foundation. Venice VR 2021; Best Interactive, Byron Bay.",
       "highlight": "Venice VR 2021 · Best Interactive, Byron Bay",
-      "media": ["assets/myriad-ibis.jpg"], "link": "creative.html#myriad",
+      "media": [
+        "assets/myriad-ibis.jpg"
+      ],
+      "link": "creative.html#myriad",
       "related": [
-        { "to": "spots-of-light", "why": "Immersive documentary co-productions from the same era." },
-        { "to": "sharkwater", "why": "Nature and wildlife in stereo 360°." }
-      ]
+        {
+          "to": "spots-of-light",
+          "why": "Immersive documentary co-productions from the same era."
+        },
+        {
+          "to": "sharkwater",
+          "why": "Nature and wildlife in stereo 360°."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 7,
+        "anchor": "myriad",
+        "title": "MYRIAD. Where We Connect",
+        "meta": [
+          [
+            "Year",
+            "2021"
+          ],
+          [
+            "Medium",
+            "Stereo 360° VR"
+          ],
+          [
+            "Role",
+            "Producer"
+          ],
+          [
+            "Selection",
+            "Venice VR"
+          ]
+        ],
+        "body": "<p>Stereo 360° aerials of the northern bald ibis migration across the Alps, shot from drones and an\n      ultralight, a Germany and Canada co-production. Venice VR 2021; Best Interactive, Byron Bay.</p>\n<div class=\"figs one\">\n<figure><img alt=\"Northern bald ibis in flight over a field, from the MYRIAD 360° documentary\" src=\"assets/myriad-ibis.jpg\"/></figure>\n</div>"
+      }
     },
     {
-      "id": "sharkwater", "title": "Sharkwater VR", "year": "2018", "yearSort": 2018,
-      "category": "immersive", "disciplines": ["immersive", "film", "pipeline"],
+      "id": "sharkwater",
+      "title": "Sharkwater VR",
+      "year": "2018",
+      "yearSort": 2018,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "film",
+        "pipeline"
+      ],
       "role": "Executive Producer, VR Supervisor",
       "summary": "An underwater stereoscopic 360° documentary shot on a custom thirteen-camera rig. Premiered at TIFF 2018.",
       "highlight": "TIFF 2018 · custom 13-camera underwater rig",
-      "media": ["assets/sharkwater-title.jpg", "assets/sharkwater-dive.jpg"], "link": "creative.html#sharkwater",
+      "media": [
+        "assets/sharkwater-title.jpg",
+        "assets/sharkwater-dive.jpg"
+      ],
+      "link": "creative.html#sharkwater",
       "related": [
-        { "to": "stereo-pipelines", "why": "Stereo 360° capture and delivery, engineered." },
-        { "to": "myriad", "why": "Wildlife in stereo 360°." }
-      ]
+        {
+          "to": "stereo-pipelines",
+          "why": "Stereo 360° capture and delivery, engineered."
+        },
+        {
+          "to": "myriad",
+          "why": "Wildlife in stereo 360°."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 8,
+        "anchor": "sharkwater",
+        "title": "Sharkwater VR",
+        "meta": [
+          [
+            "Year",
+            "2018"
+          ],
+          [
+            "Medium",
+            "Underwater stereo 360° VR"
+          ],
+          [
+            "Role",
+            "Executive Producer, VR Supervisor"
+          ],
+          [
+            "Premiere",
+            "TIFF 2018"
+          ]
+        ],
+        "body": "<p>An underwater stereoscopic 360° documentary shot on a custom thirteen-camera rig. Premiered at TIFF\n      2018.</p>\n<div class=\"figs\">\n<figure><img alt=\"Rob Stewart's Sharkwater, Swimming with Sharks VR experience title card\" src=\"assets/sharkwater-title.jpg\"/></figure>\n<figure><img alt=\"Underwater operator with the camera rig alongside an oceanic whitetip shark\" src=\"assets/sharkwater-dive.jpg\"/></figure>\n</div>"
+      }
     },
     {
-      "id": "body-mind-change", "title": "Body / Mind / Change", "year": "2013–2014", "yearSort": 2014,
-      "category": "immersive", "disciplines": ["immersive", "film", "fabrication"],
+      "id": "body-mind-change",
+      "title": "Body / Mind / Change",
+      "year": "2013–2014",
+      "yearSort": 2014,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "film",
+        "fabrication"
+      ],
       "role": "Executive Producer, Producer",
       "summary": "A transmedia experience built with David Cronenberg for TIFF and the Canadian Film Centre, spanning interactive film, VR, and 3D printing.",
       "highlight": "David Cronenberg · TIFF × Canadian Film Centre",
-      "media": ["assets/bmc-cronenberg.jpg", "assets/bmc-pod.jpg"], "link": "creative.html#body-mind-change",
+      "media": [
+        "assets/bmc-cronenberg.jpg",
+        "assets/bmc-pod.jpg"
+      ],
+      "link": "creative.html#body-mind-change",
       "related": [
-        { "to": "spatial-captures", "why": "3D printing and physical fabrication alongside the digital." }
-      ]
+        {
+          "to": "spatial-captures",
+          "why": "3D printing and physical fabrication alongside the digital."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Immersive & exhibition",
+        "order": 9,
+        "anchor": "body-mind-change",
+        "title": "Body / Mind / Change",
+        "meta": [
+          [
+            "Year",
+            "2013–2014"
+          ],
+          [
+            "Medium",
+            "Transmedia, interactive film, VR"
+          ],
+          [
+            "Role",
+            "Executive Producer, Producer"
+          ],
+          [
+            "With",
+            "David Cronenberg · TIFF, CFC"
+          ]
+        ],
+        "body": "<p>A transmedia experience built with David Cronenberg for TIFF and the Canadian Film Centre, spanning\n      interactive film, VR, and 3D printing.</p>\n<div class=\"figs\">\n<figure><img alt=\"David Cronenberg, featured in Body / Mind / Change\" src=\"assets/bmc-cronenberg.jpg\"/></figure>\n<figure><img alt=\"Stereo VR view from the Body / Mind / Change POD experience\" src=\"assets/bmc-pod.jpg\"/></figure>\n</div>"
+      }
     },
     {
-      "id": "cut-off", "title": "Cut-Off", "year": "2016", "yearSort": 2016,
-      "category": "immersive", "disciplines": ["immersive", "film"],
+      "id": "cut-off",
+      "title": "Cut-Off",
+      "year": "2016",
+      "yearSort": 2016,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "film"
+      ],
       "role": "Executive Producer",
       "summary": "A VICE and NFB VR documentary on the Shoal Lake 40 water crisis. Canadian Screen Award nominee.",
       "highlight": "VICE × NFB · Canadian Screen Award nominee",
-      "media": [], "link": "creative.html",
+      "media": [],
+      "link": "creative.html",
       "related": [
-        { "to": "spots-of-light", "why": "Immersive documentary with a social subject." }
+        {
+          "to": "spots-of-light",
+          "why": "Immersive documentary with a social subject."
+        }
       ]
     },
     {
-      "id": "last-gift", "title": "The Last Gift", "year": "2024–present", "yearSort": 2025,
-      "category": "immersive", "disciplines": ["immersive", "volumetric", "film"],
+      "id": "last-gift",
+      "title": "The Last Gift",
+      "year": "2024–present",
+      "yearSort": 2025,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "volumetric",
+        "film"
+      ],
       "role": "Immersive Producer, Co-Director",
       "summary": "A volumetric documentary in production.",
       "highlight": "In production",
-      "media": [], "link": "creative.html",
+      "media": [],
+      "link": "creative.html",
       "related": [
-        { "to": "spots-of-light", "why": "Volumetric documentary practice, continued." }
+        {
+          "to": "spots-of-light",
+          "why": "Volumetric documentary practice, continued."
+        }
       ]
     },
     {
-      "id": "spatial-harmony", "title": "Spatial Harmony · Giant Steps", "year": "2025–2026", "yearSort": 2026,
-      "category": "art", "disciplines": ["art", "immersive", "music"],
+      "id": "spatial-harmony",
+      "title": "Spatial Harmony · Giant Steps",
+      "year": "2025–2026",
+      "yearSort": 2026,
+      "category": "art",
+      "disciplines": [
+        "art",
+        "immersive",
+        "music"
+      ],
       "role": "Artist",
       "summary": "An art × technology piece, submitted to Venice Immersive.",
       "highlight": "Submitted to Venice Immersive",
-      "media": [], "link": "creative.html",
+      "media": [],
+      "link": "creative.html",
       "related": [
-        { "to": "athena", "why": "Art and generative systems in a spatial context." }
+        {
+          "to": "athena",
+          "why": "Art and generative systems in a spatial context."
+        }
       ]
     },
     {
-      "id": "spatial-captures", "title": "Spatial captures & world models", "year": "2016–present", "yearSort": 2024,
-      "category": "immersive", "disciplines": ["immersive", "volumetric", "generative-ai", "art"],
+      "id": "spatial-captures",
+      "title": "Spatial captures & world models",
+      "year": "2016–present",
+      "yearSort": 2024,
+      "category": "immersive",
+      "disciplines": [
+        "immersive",
+        "volumetric",
+        "generative-ai",
+        "art"
+      ],
       "role": "Producer, developer",
       "summary": "A line from photogrammetry to world models: a photogrammetric twin of Jerusalem, volumetric capture, NeRF and Gaussian-splatting reconstruction, generative 3D through World Labs, Hunyuan3D, and Trellis, and object captures from the collection of Toronto collector Bert Schmitz, cleaned and retopologized for real-time.",
       "highlight": "Photogrammetry to world models · real-time object captures",
-      "media": ["assets/spatial-skull.jpg", "assets/spatial-samurai.jpg"], "link": "dev.html",
+      "media": [
+        "assets/spatial-skull.jpg",
+        "assets/spatial-samurai.jpg"
+      ],
+      "link": "dev.html",
       "related": [
-        { "to": "holy-city", "why": "The large-scale photogrammetry, earlier." },
-        { "to": "athena", "why": "World models and real geometry, into a gallery." },
-        { "to": "stereo-pipelines", "why": "Capture-and-delivery engineering, into real-time." }
-      ]
+        {
+          "to": "holy-city",
+          "why": "The large-scale photogrammetry, earlier."
+        },
+        {
+          "to": "athena",
+          "why": "World models and real geometry, into a gallery."
+        },
+        {
+          "to": "stereo-pipelines",
+          "why": "Capture-and-delivery engineering, into real-time."
+        }
+      ],
+      "page": {
+        "on": "dev",
+        "section": "Generative & agentic",
+        "order": 9,
+        "anchor": "spatial-captures",
+        "title": "Spatial and world models",
+        "meta": [
+          [
+            "Span",
+            "2016–present"
+          ],
+          [
+            "Type",
+            "Photogrammetry, world models"
+          ],
+          [
+            "Role",
+            "Producer, developer"
+          ]
+        ],
+        "body": "<p>A line running from photogrammetry to world models: a photogrammetric digital twin of Jerusalem’s\n      old city, volumetric capture for documentary, NeRF and Gaussian-splatting reconstruction, and generative\n      3D through World Labs, Hunyuan3D, and Trellis inside the same dispatch layer as the video models.\n      Athena’s venue twin places content against real room geometry. Recent object work includes\n      photogrammetric and scanned captures from the collection of Toronto collector Bert Schmitz, cleaned and\n      retopologized for real-time.</p>\n<div class=\"live\">\n<div class=\"obj\">\n<model-viewer alt=\"Captured samurai armour, real-time model\" auto-rotate=\"\" camera-controls=\"\" camera-orbit=\"25deg 78deg auto\" environment-image=\"neutral\" exposure=\"1.15\" loading=\"eager\" poster=\"assets/spatial-samurai.jpg\" reveal=\"auto\" rotation-per-second=\"18deg\" shadow-intensity=\"0.9\" src=\"assets/samurai-web.glb\"></model-viewer>\n<div class=\"lbl\"><b>Samurai armour</b>200k-triangle cleaned capture, diffuse and normal maps. Drag to orbit, scroll to zoom.</div>\n</div>\n<div class=\"obj\">\n<model-viewer alt=\"Captured horned skull, real-time model\" auto-rotate=\"\" camera-controls=\"\" camera-orbit=\"0deg 80deg auto\" environment-image=\"neutral\" exposure=\"1.15\" loading=\"eager\" poster=\"assets/spatial-skull.jpg\" reveal=\"auto\" rotation-per-second=\"18deg\" shadow-intensity=\"0.9\" src=\"assets/skull-web.glb\"></model-viewer>\n<div class=\"lbl\"><b>Horned skull</b>High-resolution scan with PBR textures, decimated for the browser. Drag to orbit, scroll to zoom.</div>\n</div>\n</div>"
+      }
     },
     {
-      "id": "typewriter", "title": "Typewriter Keys", "year": "2024–2025", "yearSort": 2025,
-      "category": "art", "disciplines": ["art", "fabrication"],
+      "id": "typewriter",
+      "title": "Typewriter Keys",
+      "year": "2024–2025",
+      "yearSort": 2025,
+      "category": "art",
+      "disciplines": [
+        "art",
+        "fabrication"
+      ],
       "role": "Artist",
       "summary": "A photographic alphabet built from typewriter keys, used to set titles in the Lanois work, and a skull composed as a mosaic of the same keys. A personal piece, the art side of the same practice.",
       "highlight": "Photographic typewriter-key alphabet",
-      "media": ["assets/typewriter-mosaic.jpg"], "link": "index.html",
+      "media": [
+        "assets/typewriter-mosaic.jpg"
+      ],
+      "link": "index.html",
       "related": [
-        { "to": "belladonna", "why": "The alphabet sets the titles across the visual companions." }
+        {
+          "to": "belladonna",
+          "why": "The alphabet sets the titles across the visual companions."
+        }
       ]
     },
     {
-      "id": "daydream", "title": "Daydream AI Video Program · Cohort 3", "year": "2026", "yearSort": 2026,
-      "category": "ai", "disciplines": ["generative-ai", "research"],
+      "id": "daydream",
+      "title": "Daydream AI Video Program · Cohort 3",
+      "year": "2026",
+      "yearSort": 2026,
+      "category": "ai",
+      "disciplines": [
+        "generative-ai",
+        "research"
+      ],
       "role": "Developer",
       "summary": "Selected for Livepeer's interactive AI video developer program. Project: Oblique Scope Generation, with a direct working relationship with Daydream Scope product leadership.",
       "highlight": "Livepeer Daydream · Cohort 3",
-      "media": [], "link": "dev.html",
+      "media": [],
+      "link": "dev.html",
       "related": [
-        { "to": "local-video-pipeline", "why": "Interactive and real-time AI video generation." },
-        { "to": "conformer", "why": "Generative video tooling and product feedback." }
+        {
+          "to": "local-video-pipeline",
+          "why": "Interactive and real-time AI video generation."
+        },
+        {
+          "to": "conformer",
+          "why": "Generative video tooling and product feedback."
+        }
       ]
     }
   ]

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map · Sean Thomas Evans</title>
+<meta name="description" content="The work as a map: each piece an object, the connections across film, music, immersive, and AI made legible.">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  :root {
+    --bg:#0b0b0c; --panel:#111113; --text:#ededeb; --muted:#8f8f8a; --faint:#5c5c58;
+    --line:#262624; --accent:#d8452f;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { height:100%; }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); overflow:hidden; -webkit-font-smoothing:antialiased; }
+  a { color:var(--text); text-decoration:none; }
+
+  nav { position:fixed; top:0; left:0; right:0; height:60px; z-index:40; border-bottom:1px solid var(--line); background:rgba(11,11,12,0.82); backdrop-filter:blur(10px); }
+  nav .bar { display:flex; align-items:center; height:60px; max-width:100%; padding:0 28px; }
+  nav .brand { font-weight:700; font-size:18px; letter-spacing:-0.015em; }
+  nav .links { margin-left:auto; display:flex; gap:26px; font-size:13px; letter-spacing:0.02em; }
+  nav .links a { color:var(--muted); } nav .links a:hover, nav .links a.here { color:var(--text); }
+
+  #stage { position:fixed; inset:0; top:0; }
+  #graph { width:100%; height:100%; display:block; cursor:grab; }
+  #graph:active { cursor:grabbing; }
+
+  .titlecard { position:fixed; left:28px; top:78px; z-index:20; max-width:340px; pointer-events:none; }
+  .titlecard h1 { font-weight:700; font-size:22px; letter-spacing:-0.02em; }
+  .titlecard p { margin-top:8px; font-size:13px; line-height:1.55; color:var(--muted); }
+  .titlecard .hint { margin-top:10px; font-size:11.5px; color:var(--faint); }
+
+  .search { position:fixed; left:28px; top:186px; z-index:25; width:340px; pointer-events:auto; }
+  .search input { width:100%; background:rgba(20,20,22,0.9); border:1px solid var(--line); color:var(--text); font-family:var(--sans); font-size:13.5px; padding:11px 14px; outline:none; }
+  .search input:focus { border-color:#3a3a37; }
+  .search .status { margin-top:7px; font-size:11px; color:var(--faint); min-height:14px; letter-spacing:0.01em; }
+
+  .legend { position:fixed; left:28px; bottom:24px; z-index:20; display:flex; flex-direction:column; gap:7px; }
+  .legend .li { display:flex; align-items:center; gap:9px; font-size:12px; color:var(--muted); cursor:pointer; user-select:none; }
+  .legend .li .dot { width:10px; height:10px; border-radius:50%; flex:none; }
+  .legend .li.off { opacity:0.32; }
+  .legend .li:hover { color:var(--text); }
+
+  .drawer { position:fixed; top:60px; right:0; bottom:0; width:min(440px,90vw); background:var(--panel); border-left:1px solid var(--line); z-index:30; transform:translateX(100%); transition:transform 0.28s cubic-bezier(0.4,0,0.2,1); overflow-y:auto; }
+  .drawer.open { transform:translateX(0); }
+  .drawer .inner { padding:30px 30px 60px; }
+  .drawer .close { position:absolute; top:16px; right:18px; font-size:22px; color:var(--faint); cursor:pointer; line-height:1; }
+  .drawer .close:hover { color:var(--text); }
+  .drawer .chip { display:inline-block; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; padding:3px 9px; border-radius:2px; }
+  .drawer h2 { margin-top:16px; font-weight:700; font-size:26px; letter-spacing:-0.02em; line-height:1.08; }
+  .drawer .yr { margin-top:8px; font-size:13px; color:var(--muted); }
+  .drawer .tags { margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+  .drawer .tags span { font-size:11px; color:var(--faint); border:1px solid var(--line); padding:2px 8px; border-radius:2px; }
+  .drawer .sum { margin-top:18px; font-size:14.5px; line-height:1.6; color:var(--text); }
+  .drawer .hl { margin-top:12px; font-size:12.5px; color:var(--accent); }
+  .drawer .media { margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .drawer .media img { width:100%; height:100%; object-fit:cover; border:1px solid var(--line); aspect-ratio:4/3; }
+  .drawer .open-link { display:inline-block; margin-top:18px; font-size:13px; color:var(--accent); }
+  .drawer .open-link:hover { text-decoration:underline; text-underline-offset:3px; }
+  .drawer .rel-h { margin-top:26px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); }
+  .drawer .rel { margin-top:12px; display:flex; flex-direction:column; gap:12px; }
+  .drawer .rel a { display:block; border-left:2px solid var(--line); padding:2px 0 2px 12px; cursor:pointer; }
+  .drawer .rel a:hover { border-left-color:var(--accent); }
+  .drawer .rel a .rt { font-size:14px; font-weight:600; }
+  .drawer .rel a .rw { margin-top:3px; font-size:12px; color:var(--muted); line-height:1.5; }
+
+  .modehint { position:fixed; right:22px; bottom:20px; z-index:20; font-size:11px; color:var(--faint); text-align:right; }
+  @media (max-width:720px){ .titlecard,.search{ max-width:calc(100vw - 56px); width:calc(100vw - 56px);} .legend{display:none;} }
+</style>
+</head>
+<body>
+<nav><div class="bar">
+  <a class="brand" href="index.html">Sean Thomas Evans</a>
+  <span class="links"><a href="index.html">Index</a><a href="creative.html">Creative</a><a href="dev.html">Dev</a><a class="here" href="explore.html">Map</a><a href="contact.html">Contact</a></span>
+</div></nav>
+
+<div id="stage"><svg id="graph"></svg></div>
+
+<div class="titlecard">
+  <h1>The work, as a map</h1>
+  <p>Every piece is an object, not a folder. The lines are the real connections across film, music, immersive, and AI, the synergies a category list would hide.</p>
+  <p class="hint">Drag to explore · hover to trace a thread · click for detail</p>
+</div>
+
+<div class="search">
+  <input id="q" type="text" placeholder="Ask the work: “identity across frames”, “synthetic data”…" autocomplete="off">
+  <div class="status" id="qstatus"></div>
+</div>
+
+<div class="legend" id="legend"></div>
+<div class="modehint">A queryable store · <a href="data/works.json" style="color:var(--muted);text-decoration:underline;text-underline-offset:2px;">works.json</a></div>
+
+<div class="drawer" id="drawer"><div class="inner"><span class="close" id="close">&times;</span><div id="dbody"></div></div></div>
+
+<script type="module">
+const CDN_EMBED = 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2';
+const svg = d3.select('#graph');
+let W = window.innerWidth, H = window.innerHeight;
+const root = svg.attr('viewBox', [0,0,W,H]).append('g');
+
+const data = await (await fetch('data/works.json')).json();
+let embeds = null;
+try { embeds = await (await fetch('data/works-embeddings.json')).json(); } catch(e){ embeds = null; }
+let simEdges = [];
+try { simEdges = await (await fetch('data/works-sim.json')).json(); } catch(e){ simEdges = []; }
+const cats = data.categories;
+const works = data.works;
+const byId = Object.fromEntries(works.map(w=>[w.id,w]));
+
+// build undirected link set: curated (strong) + similarity (faint, from embeddings)
+const linkKey = (a,b)=>[a,b].sort().join('~');
+const linkMap = new Map();
+for (const w of works) for (const r of (w.related||[])) {
+  const k = linkKey(w.id, r.to);
+  if (!linkMap.has(k)) linkMap.set(k, {source:w.id, target:r.to, kind:'curated', why:r.why});
+}
+for (const s of simEdges) {
+  const k = linkKey(s.source, s.target);
+  if (!linkMap.has(k) && byId[s.source] && byId[s.target]) linkMap.set(k, {source:s.source, target:s.target, kind:'sim'});
+}
+// degree for sizing
+const degree = {}; works.forEach(w=>degree[w.id]=0);
+for (const l of linkMap.values()){ degree[l.source]++; degree[l.target]++; }
+
+const nodes = works.map(w=>({ ...w, deg:degree[w.id]||0 }));
+const links = [...linkMap.values()];
+const R = id => 7 + Math.sqrt(degree[id]||0)*3.1;
+
+// ---- forces
+const CX = () => Math.max(W*0.54, W/2), CY = () => H*0.52;
+const sim = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d=>d.id).distance(l=> 96 + (l.kind==='sim'?46:0)).strength(l=> l.kind==='curated'?0.45:0.12))
+  .force('charge', d3.forceManyBody().strength(-540))
+  .force('center', d3.forceCenter(CX(), CY()))
+  .force('collide', d3.forceCollide().radius(d=> R(d.id)+38).strength(0.92))
+  .force('x', d3.forceX(CX()).strength(0.035))
+  .force('y', d3.forceY(CY()).strength(0.05));
+
+const link = root.append('g').attr('stroke-linecap','round').selectAll('line').data(links).join('line')
+  .attr('stroke', d=> d.kind==='curated' ? '#3a3a37' : '#242422')
+  .attr('stroke-width', d=> d.kind==='curated' ? 1.1 : 0.7)
+  .attr('stroke-opacity', d=> d.kind==='curated' ? 0.55 : 0.3);
+
+const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class','node').style('cursor','pointer');
+node.append('circle')
+  .attr('r', d=> R(d.id))
+  .attr('fill', d=> cats[d.category].color)
+  .attr('stroke', 'rgba(0,0,0,0.35)').attr('stroke-width',1)
+  .style('filter','drop-shadow(0 0 7px rgba(0,0,0,0.5))');
+node.append('text')
+  .text(d=> d.title.length>34 ? d.title.slice(0,32)+'…' : d.title)
+  .attr('x', d=> R(d.id)+7).attr('y', 4)
+  .attr('font-size','11.5px').attr('fill','var(--muted)').attr('font-family','var(--sans)')
+  .style('pointer-events','none').attr('paint-order','stroke').attr('stroke','var(--bg)').attr('stroke-width','3px');
+
+// neighbor lookup
+const nbr = {}; nodes.forEach(n=>nbr[n.id]=new Set());
+links.forEach(l=>{ nbr[l.source.id||l.source].add(l.target.id||l.target); nbr[l.target.id||l.target].add(l.source.id||l.source); });
+
+function focus(id){
+  node.select('circle').attr('opacity', d=> !id || d.id===id || nbr[id].has(d.id) ? 1 : 0.16)
+    .attr('stroke', d=> d.id===id ? '#fff' : 'rgba(0,0,0,0.35)').attr('stroke-width', d=> d.id===id?2:1);
+  node.select('text').attr('fill', d=> !id ? 'var(--muted)' : (d.id===id||nbr[id].has(d.id)) ? 'var(--text)' : 'rgba(143,143,138,0.18)')
+    .attr('font-weight', d=> d.id===id?'700':'400');
+  link.attr('stroke-opacity', l=> !id ? (l.kind==='curated'?0.55:0.3) : ((l.source.id===id||l.target.id===id) ? 0.9 : 0.06))
+    .attr('stroke', l=> (id && (l.source.id===id||l.target.id===id)) ? cats[byId[id].category].color : (l.kind==='curated'?'#3a3a37':'#242422'));
+}
+node.on('mouseenter', (e,d)=> focus(d.id)).on('mouseleave', ()=> { if(!selected) focus(null); });
+
+let selected = null;
+node.on('click', (e,d)=>{ selected=d.id; focus(d.id); openDrawer(d); e.stopPropagation(); });
+d3.select('#graph').on('click', ()=>{ selected=null; focus(null); closeDrawer(); });
+
+node.call(d3.drag()
+  .on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(0.25).restart(); d.fx=d.x; d.fy=d.y; })
+  .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; })
+  .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+sim.on('tick', ()=>{
+  link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+  node.attr('transform', d=> `translate(${d.x},${d.y})`);
+});
+
+// zoom/pan
+svg.call(d3.zoom().scaleExtent([0.4,3.5]).on('zoom', e=> root.attr('transform', e.transform)));
+window.addEventListener('resize', ()=>{ W=innerWidth; H=innerHeight; svg.attr('viewBox',[0,0,W,H]); sim.force('center',d3.forceCenter(CX(),CY())).force('x',d3.forceX(CX()).strength(0.035)).force('y',d3.forceY(CY()).strength(0.05)); sim.alpha(0.3).restart(); });
+
+// ---- legend
+const legend = d3.select('#legend');
+const offCats = new Set();
+Object.entries(cats).forEach(([k,v])=>{
+  const li = legend.append('div').attr('class','li').on('click',()=>{
+    offCats.has(k)?offCats.delete(k):offCats.add(k); li.classed('off',offCats.has(k));
+    node.style('display', d=> offCats.has(d.category)?'none':null);
+    link.style('display', l=> (offCats.has((byId[l.source.id||l.source]).category)||offCats.has((byId[l.target.id||l.target]).category))?'none':null);
+  });
+  li.append('span').attr('class','dot').style('background',v.color);
+  li.append('span').text(v.label);
+});
+
+// ---- drawer
+const drawer = document.getElementById('drawer'), dbody = document.getElementById('dbody');
+document.getElementById('close').onclick = ()=>{ selected=null; focus(null); closeDrawer(); };
+function closeDrawer(){ drawer.classList.remove('open'); }
+function openDrawer(d){
+  const c = cats[d.category];
+  const media = (d.media||[]).map(m=>`<img src="${m}" alt="" loading="lazy">`).join('');
+  const rels = (d.related||[]).filter(r=>byId[r.to]).map(r=>`<a data-go="${r.to}"><span class="rt">${byId[r.to].title}</span><span class="rw">${r.why}</span></a>`).join('');
+  dbody.innerHTML = `
+    <span class="chip" style="background:${c.color};color:#111">${c.label}</span>
+    <h2>${d.title}</h2>
+    <div class="yr">${d.year} · ${d.role}</div>
+    <div class="tags">${(d.disciplines||[]).map(t=>`<span>${t}</span>`).join('')}</div>
+    <div class="sum">${d.summary}</div>
+    ${d.highlight?`<div class="hl">${d.highlight}</div>`:''}
+    ${media?`<div class="media">${media}</div>`:''}
+    ${d.link?`<a class="open-link" href="${d.link}">Open in context →</a>`:''}
+    ${rels?`<div class="rel-h">Connected work</div><div class="rel">${rels}</div>`:''}`;
+  dbody.querySelectorAll('[data-go]').forEach(a=> a.onclick=()=>{ const t=byId[a.dataset.go]; selected=t.id; focus(t.id); openDrawer(t); const n=nodes.find(x=>x.id===t.id); if(n){ const tr=d3.zoomIdentity.translate(W/2-n.x,H/2-n.y); svg.transition().duration(500).call(d3.zoom().transform, tr);} });
+  drawer.classList.add('open');
+}
+
+// ---- search: semantic (embeddings) with keyword fallback
+const q = document.getElementById('q'), qstatus = document.getElementById('qstatus');
+let extractor = null, loadingModel = false;
+function cos(a,b){ let s=0,na=0,nb=0; for(let i=0;i<a.length;i++){ s+=a[i]*b[i]; na+=a[i]*a[i]; nb+=b[i]*b[i]; } return s/(Math.sqrt(na)*Math.sqrt(nb)); }
+function keywordRank(term){
+  const t=term.toLowerCase();
+  return works.map(w=>({id:w.id, score:(w.title+' '+w.summary+' '+(w.disciplines||[]).join(' ')+' '+(w.highlight||'')).toLowerCase().includes(t)?1:0}));
+}
+function applyRank(ranked){
+  const top = ranked.filter(r=>r.score>0.0).sort((a,b)=>b.score-a.score);
+  const set = new Set(top.slice(0,8).map(r=>r.id));
+  const best = top[0];
+  node.select('circle').attr('opacity', d=> set.size? (set.has(d.id)?1:0.12):1)
+    .attr('stroke', d=> set.has(d.id)?'#fff':'rgba(0,0,0,0.35)').attr('stroke-width', d=> set.has(d.id)?2:1);
+  node.select('text').attr('fill', d=> !set.size?'var(--muted)':(set.has(d.id)?'var(--text)':'rgba(143,143,138,0.15)'));
+  link.attr('stroke-opacity', l=> set.size?0.05:(l.kind==='curated'?0.55:0.3));
+  if(best && embeds){ const n=nodes.find(x=>x.id===best.id); if(n){ svg.transition().duration(600).call(d3.zoom().transform, d3.zoomIdentity.translate(W/2-n.x,H/2-n.y)); } }
+}
+let timer=null, seq=0;
+q.addEventListener('input', ()=>{
+  clearTimeout(timer);
+  const term=q.value.trim(); const mine=++seq;
+  if(!term){ qstatus.textContent=''; focus(selected); return; }
+  applyRank(keywordRank(term));                                   // instant keyword pass
+  qstatus.textContent = embeds ? 'matching, semantic refine loading…' : 'keyword matches';
+  timer=setTimeout(async ()=>{
+    if(!embeds){ qstatus.textContent='keyword matches'; return; }
+    if(!extractor && !loadingModel){ loadingModel=true; try{ const {pipeline}=await import(CDN_EMBED); extractor=await pipeline('feature-extraction','Xenova/all-MiniLM-L6-v2'); }catch(err){ extractor=null; } loadingModel=false; }
+    if(mine!==seq) return;
+    if(extractor){
+      const out=await extractor(term,{pooling:'mean',normalize:true}); if(mine!==seq) return;
+      const qv=Array.from(out.data);
+      const ranked=works.map(w=>({id:w.id, score: embeds[w.id]?cos(qv,embeds[w.id]):0}));
+      const max=Math.max(...ranked.map(r=>r.score));
+      applyRank(ranked.map(r=>({id:r.id, score:r.score>0.28 && r.score>max*0.72?r.score:0})));
+      qstatus.textContent='semantic matches';
+    } else { qstatus.textContent='keyword matches'; }
+  }, 240);
+});
+
+// initial settle then gentle stop
+sim.alpha(0.9).restart();
+setTimeout(()=> sim.alphaTarget(0), 3500);
+</script>
+</body>
+</html>

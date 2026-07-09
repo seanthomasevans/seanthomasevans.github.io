@@ -8,23 +8,23 @@
   "categories": {
     "film": {
       "label": "Film & music video",
-      "color": "#c88a2e"
+      "color": "#d09b4e"
     },
     "genai": {
       "label": "Generative AI",
-      "color": "#2f9e86"
+      "color": "#46a487"
     },
     "agents": {
       "label": "Agents",
-      "color": "#3f66c4"
+      "color": "#5877c4"
     },
     "fineart": {
       "label": "Fine art",
-      "color": "#9a4bc0"
+      "color": "#a061c4"
     },
     "craft": {
       "label": "Craft",
-      "color": "#c0563a"
+      "color": "#cb6b47"
     }
   },
   "works": [

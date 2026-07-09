@@ -133,25 +133,29 @@ const sim = d3.forceSimulation(nodes)
   .force('x', d3.forceX(CX()).strength(0.035))
   .force('y', d3.forceY(CY()).strength(0.05));
 
-// ---- defs: points of light (small bright centred core + wide soft bloom), screen-blended, no filters
+// ---- defs (per-node gradients built below, once each node has its organic colour)
 const defs = svg.append('defs');
-Object.entries(cats).forEach(([k,v])=>{
-  // core: tiny intense white centre falling off fast to the tint, then to nothing (a point, not a shaded ball)
-  const star = defs.append('radialGradient').attr('id','star-'+k).attr('cx','50%').attr('cy','50%').attr('r','50%');
-  star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',1);
-  star.append('stop').attr('offset','16%').attr('stop-color','#ffffff').attr('stop-opacity',0.85);
-  star.append('stop').attr('offset','40%').attr('stop-color', v.color).attr('stop-opacity',0.5);
-  star.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
-  // bloom: wide, faint, soft halo of the tint
-  const gl = defs.append('radialGradient').attr('id','glow-'+k).attr('cx','50%').attr('cy','50%').attr('r','50%');
-  gl.append('stop').attr('offset','0%').attr('stop-color', v.color).attr('stop-opacity',0.32);
-  gl.append('stop').attr('offset','26%').attr('stop-color', v.color).attr('stop-opacity',0.12);
-  gl.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
-});
 
 // ---- depth: each node gets a z (near ~1.35 … far ~0.72) for parallax and scale
 let _sd=1337; const rnd = ()=>{ _sd=(_sd*9301+49297)%233280; return _sd/233280; };
-nodes.forEach(n => { n.z = 0.72 + rnd()*0.62; n.pa = rnd()*6.283; n.pb = rnd()*6.283; });
+nodes.forEach(n => {
+  n.z = 0.72 + rnd()*0.62; n.pa = rnd()*6.283; n.pb = rnd()*6.283;
+  // organic colour: category hue with a little natural drift, so no two stars are identical
+  const h = d3.hsl(cats[n.category].color);
+  h.h = (h.h + (rnd()-0.5)*20 + 360) % 360;
+  h.s = Math.max(0.14, Math.min(1, h.s*(0.8 + rnd()*0.36)));
+  h.l = Math.max(0.22, Math.min(0.78, h.l*(0.84 + rnd()*0.32)));
+  n.color = h.formatHex();
+  const star = defs.append('radialGradient').attr('id','star-'+n.id).attr('cx','50%').attr('cy','50%').attr('r','50%');
+  star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',1);
+  star.append('stop').attr('offset','15%').attr('stop-color','#ffffff').attr('stop-opacity',0.86);
+  star.append('stop').attr('offset','40%').attr('stop-color', n.color).attr('stop-opacity',0.5);
+  star.append('stop').attr('offset','100%').attr('stop-color', n.color).attr('stop-opacity',0);
+  const gl = defs.append('radialGradient').attr('id','glow-'+n.id).attr('cx','50%').attr('cy','50%').attr('r','50%');
+  gl.append('stop').attr('offset','0%').attr('stop-color', n.color).attr('stop-opacity',0.3);
+  gl.append('stop').attr('offset','26%').attr('stop-color', n.color).attr('stop-opacity',0.11);
+  gl.append('stop').attr('offset','100%').attr('stop-color', n.color).attr('stop-opacity',0);
+});
 const RZ = d => R(d.id) * d.z;
 
 // pre-settle the layout synchronously so it is simply THERE on load (no spastic settle)
@@ -182,9 +186,9 @@ const particle = root.append('g').attr('class','particles').selectAll('circle').
 const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class','node').style('cursor','pointer')
   .attr('transform', d=> `translate(${d.x},${d.y})`);
 node.sort((a,b)=> a.z - b.z);
-node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*3.3).attr('fill', d=> `url(#glow-${d.category})`)
+node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*3.3).attr('fill', d=> `url(#glow-${d.id})`)
   .attr('opacity', d=> 0.5 + d.z*0.28).style('pointer-events','none');
-node.append('circle').attr('class','core').attr('r', d=> RZ(d)*1.05).attr('fill', d=> `url(#star-${d.category})`);
+node.append('circle').attr('class','core').attr('r', d=> RZ(d)*1.05).attr('fill', d=> `url(#star-${d.id})`);
 node.append('text')
   .text(d=> d.title.length>34 ? d.title.slice(0,32)+'…' : d.title)
   .attr('x', d=> RZ(d)+9).attr('y', 4)

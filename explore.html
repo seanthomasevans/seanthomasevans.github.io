@@ -218,9 +218,9 @@ let t0=null;
 requestAnimationFrame(function frame(ts){
   if(t0===null) t0=ts; const t=(ts-t0)/1000;
   for(const n of nodes){
-    const amp = 4 + n.z*6;   // depth parallax
-    n.x = n.bx + amp*(0.6*Math.sin(t*0.082 + n.pa) + 0.4*Math.sin(t*0.049 + n.pb));
-    n.y = n.by + amp*(0.6*Math.cos(t*0.070 + n.pb) + 0.4*Math.cos(t*0.041 + n.pa));
+    const amp = 9 + n.z*14;   // depth parallax
+    n.x = n.bx + amp*(0.6*Math.sin(t*0.36 + n.pa) + 0.4*Math.sin(t*0.225 + n.pb));
+    n.y = n.by + amp*(0.6*Math.cos(t*0.31 + n.pb) + 0.4*Math.cos(t*0.185 + n.pa));
   }
   node.attr('transform', d=> `translate(${d.x},${d.y})`);
   link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);

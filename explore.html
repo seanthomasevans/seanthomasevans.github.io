@@ -26,6 +26,7 @@
   #stage { position:fixed; inset:0; top:0; background: radial-gradient(ellipse 90% 78% at 54% 47%, #0b0b0d 0%, #040405 58%, #010101 100%); }
   #graph { width:100%; height:100%; display:block; cursor:grab; }
   #graph:active { cursor:grabbing; }
+  .node .glow, .node .core, .particles circle { mix-blend-mode:screen; }
 
   .titlecard { position:fixed; left:28px; top:78px; z-index:20; max-width:340px; pointer-events:none; }
   .titlecard h1 { font-weight:700; font-size:22px; letter-spacing:-0.02em; }
@@ -100,8 +101,8 @@ try { embeds = await (await fetch('data/works-embeddings.json')).json(); } catch
 let simEdges = [];
 try { simEdges = await (await fetch('data/works-sim.json')).json(); } catch(e){ simEdges = []; }
 const cats = data.categories;
-// analogous cobalt-blue palette (cyan → azure → cobalt → indigo → violet)
-const PALETTE = { creative:'#cf9a3e', immersive:'#3fae93', ai:'#d1584a', systems:'#5a7ed2', art:'#9a63c6' };
+// luminous star tints (light, low-saturation, additive on black)
+const PALETTE = { creative:'#f0d199', immersive:'#93e0d3', ai:'#f0a189', systems:'#a6c0f2', art:'#cfa8ef' };
 Object.keys(cats).forEach(k => { if (PALETTE[k]) cats[k] = { ...cats[k], color: PALETTE[k] }; });
 const works = data.works;
 const byId = Object.fromEntries(works.map(w=>[w.id,w]));
@@ -135,17 +136,17 @@ const sim = d3.forceSimulation(nodes)
   .force('x', d3.forceX(CX()).strength(0.035))
   .force('y', d3.forceY(CY()).strength(0.05));
 
-// ---- defs: soft glow + orb gradients (pure gradients, no blur filters, so motion stays smooth)
+// ---- defs: translucent star orbs + soft glow (pure gradients, screen-blended, no filters)
 const defs = svg.append('defs');
 Object.entries(cats).forEach(([k,v])=>{
-  const c = d3.color(v.color);
-  const orb = defs.append('radialGradient').attr('id','orb-'+k).attr('cx','38%').attr('cy','33%').attr('r','76%');
-  orb.append('stop').attr('offset','0%').attr('stop-color', c.brighter(1.05)+'');
-  orb.append('stop').attr('offset','52%').attr('stop-color', v.color);
-  orb.append('stop').attr('offset','100%').attr('stop-color', c.darker(0.95)+'');
+  const star = defs.append('radialGradient').attr('id','star-'+k).attr('cx','44%').attr('cy','42%').attr('r','66%');
+  star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',0.95);
+  star.append('stop').attr('offset','26%').attr('stop-color', v.color).attr('stop-opacity',0.82);
+  star.append('stop').attr('offset','66%').attr('stop-color', v.color).attr('stop-opacity',0.24);
+  star.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
   const gl = defs.append('radialGradient').attr('id','glow-'+k).attr('cx','50%').attr('cy','50%').attr('r','50%');
-  gl.append('stop').attr('offset','0%').attr('stop-color', v.color).attr('stop-opacity',0.5);
-  gl.append('stop').attr('offset','42%').attr('stop-color', v.color).attr('stop-opacity',0.13);
+  gl.append('stop').attr('offset','0%').attr('stop-color', v.color).attr('stop-opacity',0.34);
+  gl.append('stop').attr('offset','40%').attr('stop-color', v.color).attr('stop-opacity',0.1);
   gl.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
 });
 
@@ -173,14 +174,18 @@ const link = root.append('g').attr('stroke-linecap','round').selectAll('line').d
   .attr('stroke-opacity', d=> d.kind==='curated' ? 0.42 : 0.2)
   .attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
 
-// ---- nodes (soft gradient orbs, scaled by depth, nearer on top)
+// ---- particles: light drifting along the connections (created under the nodes)
+const particleData = links.map((l,i)=>({ l, sp:0.11+(i%6)*0.012, ph:(i*0.41)%1, x:0, y:0, o:0 }));
+const particle = root.append('g').attr('class','particles').selectAll('circle').data(particleData).join('circle')
+  .attr('r', d=> d.l.kind==='curated'?1.4:1.0).attr('fill','#e7ecfa').attr('opacity',0).style('pointer-events','none');
+
+// ---- nodes (translucent star orbs, scaled by depth, nearer on top)
 const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class','node').style('cursor','pointer')
   .attr('transform', d=> `translate(${d.x},${d.y})`);
 node.sort((a,b)=> a.z - b.z);
-node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*2.7).attr('fill', d=> `url(#glow-${d.category})`)
-  .attr('opacity', d=> 0.45 + d.z*0.32).style('pointer-events','none');
-node.append('circle').attr('class','core').attr('r', d=> RZ(d)).attr('fill', d=> `url(#orb-${d.category})`)
-  .attr('stroke','rgba(255,255,255,0.10)').attr('stroke-width',0.6);
+node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*3).attr('fill', d=> `url(#glow-${d.category})`)
+  .attr('opacity', d=> 0.4 + d.z*0.3).style('pointer-events','none');
+node.append('circle').attr('class','core').attr('r', d=> RZ(d)*1.35).attr('fill', d=> `url(#star-${d.category})`);
 node.append('text')
   .text(d=> d.title.length>34 ? d.title.slice(0,32)+'…' : d.title)
   .attr('x', d=> RZ(d)+9).attr('y', 4)
@@ -224,6 +229,12 @@ requestAnimationFrame(function frame(ts){
   }
   node.attr('transform', d=> `translate(${d.x},${d.y})`);
   link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+  for(const p of particleData){
+    const frac = (t*p.sp + p.ph) % 1, s = p.l.source, g = p.l.target;
+    p.x = s.x + (g.x - s.x)*frac; p.y = s.y + (g.y - s.y)*frac;
+    p.o = (idle?1:0.16) * 0.5 * Math.sin(frac*Math.PI);
+  }
+  particle.attr('cx',d=>d.x).attr('cy',d=>d.y).attr('opacity',d=>d.o);
   requestAnimationFrame(frame);
 });
 

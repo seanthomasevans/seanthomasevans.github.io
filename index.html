@@ -162,41 +162,28 @@
 <section>
   <div class="wrap">
     <div class="sec-label">Selected work</div>
-    <div class="cat">
-      <h3>Development &amp; systems</h3>
-      <ul>
-        <li><a href="dev.html#conformer">Conformer <span class="yr">2024–</span></a></li>
-        <li><a href="dev.html#sentra">Sentra AML platform <span class="yr">2024–26</span></a></li>
-        <li><a href="creative.html#the-maker">The Maker, Lanois archive engine <span class="yr">2024–</span></a></li>
-        <li><a href="dev.html#ai-alpha">AI Alpha <span class="yr">2025–26</span></a></li>
-        <li><a href="dev.html#local-video-pipeline">Local video pipeline <span class="yr">2026</span></a></li>
-        <li><a href="dev.html#birdnet">BirdNET field tool <span class="yr">2026</span></a></li>
-      </ul>
-    </div>
-    <div class="cat">
-      <h3>Film, music &amp; VFX</h3>
-      <ul>
-        <li><a href="creative.html#ndr">The Tragically Hip: No Dress Rehearsal <span class="yr">2022–24</span></a></li>
-        <li><a href="creative.html#belladonna">Daniel Lanois: Belladonna Nocturne <span class="yr">2024–26</span></a></li>
-        <li><a href="creative.html#alannah">Alannah Myles restoration <span class="yr">2024–25</span></a></li>
-        <li><a href="creative.html#films-1188">1188 Films <span class="yr">2009–21</span></a></li>
-        <li><a href="creative.html#broadcast">Aftermath: Population Zero <span class="yr">2008</span></a></li>
-      </ul>
-    </div>
-    <div class="cat">
-      <h3>Immersive &amp; exhibition</h3>
-      <ul>
-        <li><a href="creative.html#athena">Athena, Design Exchange <span class="yr">2024–</span></a></li>
-        <li><a href="creative.html#spots-of-light">Spots of Light <span class="yr">2023</span></a></li>
-        <li><a href="creative.html#holy-city">The Holy City <span class="yr">2016–20</span></a></li>
-        <li><a href="creative.html#myriad">MYRIAD <span class="yr">2021</span></a></li>
-        <li><a href="creative.html#sharkwater">Sharkwater VR <span class="yr">2018</span></a></li>
-        <li><a href="creative.html#body-mind-change">Body / Mind / Change <span class="yr">2013–14</span></a></li>
-      </ul>
-    </div>
+    <div id="worklist"></div>
   </div>
 </section>
 
 <footer><div class="wrap">Sean Thomas Evans, Toronto · <a href="contact.html" style="color:var(--muted);">Contact</a></div></footer>
+<script>
+(async () => {
+  const { categories, works } = await (await fetch('data/works.json')).json();
+  const order = ['systems','ai','creative','immersive','art'];
+  const byCat = {}; works.forEach(w => (byCat[w.category] = byCat[w.category] || []).push(w));
+  const wl = document.getElementById('worklist');
+  order.filter(c => byCat[c]).forEach(c => {
+    const items = byCat[c].slice().sort((a,b) => (b.yearSort||0) - (a.yearSort||0));
+    const li = items.map(w => {
+      const href = (w.link && w.link.includes('#')) ? w.link : 'explore.html#' + w.id;
+      return `<li><a href="${href}">${w.title} <span class="yr">${w.year.replace(/–present/,'–')}</span></a></li>`;
+    }).join('');
+    const cat = document.createElement('div'); cat.className = 'cat';
+    cat.innerHTML = `<h3>${categories[c].label}</h3><ul>${li}</ul>`;
+    wl.appendChild(cat);
+  });
+})();
+</script>
 </body>
 </html>

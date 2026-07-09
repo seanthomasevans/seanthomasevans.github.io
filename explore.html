@@ -303,6 +303,17 @@ q.addEventListener('input', ()=>{
 // initial settle then gentle stop
 sim.alpha(0.9).restart();
 setTimeout(()=> sim.alphaTarget(0), 3500);
+
+// deep-link: explore.html#<id> selects and centres a work
+function openHash(){
+  const id = decodeURIComponent(location.hash.slice(1));
+  if(id && byId[id]){ selected=id; focus(id); openDrawer(byId[id]);
+    const n = nodes.find(x=>x.id===id);
+    if(n) svg.transition().duration(700).call(d3.zoom().transform, d3.zoomIdentity.translate(W/2-n.x, H/2-n.y));
+  }
+}
+window.addEventListener('hashchange', openHash);
+setTimeout(openHash, 1600);
 </script>
 </body>
 </html>

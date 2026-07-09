@@ -254,10 +254,9 @@ q.addEventListener('input', ()=>{
     if(extractor){
       const out=await extractor(term,{pooling:'mean',normalize:true}); if(mine!==seq) return;
       const qv=Array.from(out.data);
-      const ranked=works.map(w=>({id:w.id, score: embeds[w.id]?cos(qv,embeds[w.id]):0}));
-      const max=Math.max(...ranked.map(r=>r.score));
-      applyRank(ranked.map(r=>({id:r.id, score:r.score>0.28 && r.score>max*0.72?r.score:0})));
-      qstatus.textContent='semantic matches';
+      const ranked=works.map(w=>({id:w.id, score: embeds[w.id]?Math.max(0,cos(qv,embeds[w.id])):0}));
+      applyRank(ranked);   // applyRank keeps the top matches by similarity
+      qstatus.textContent='semantic matches, closest work highlighted';
     } else { qstatus.textContent='keyword matches'; }
   }, 240);
 });

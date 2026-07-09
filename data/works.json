@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Sean Thomas Evans, works",
-    "description": "A queryable store of the work, modelled as objects rather than a fixed taxonomy. Each work carries its disciplines and its connections to others, so the synergies across film, music, immersive, and AI are legible. Agent-friendly: fetch this file and reason over it.",
+    "description": "Sean Thomas Evans, works. Each entry lists its disciplines and its connections to other works.",
     "updated": "2026-07",
     "schema": "id, title, year, category, disciplines[], role, summary, highlight, media[], link, related[{to, why}]"
   },
@@ -21,10 +21,10 @@
       "highlight": "TIFF 2024 World Premiere · 7 Canadian Screen Award nominations",
       "media": ["assets/ndr-poster.jpg"], "link": "creative.html#ndr",
       "related": [
-        { "to": "style-transfer", "why": "The temporal-coherence problem solved on Acid Test in 2016 is the same one behind holding a face steady across restored, interpolated frames." },
+        { "to": "style-transfer", "why": "Same temporal-coherence problem, first solved on Acid Test in 2016." },
         { "to": "personas", "why": "The Johnny Fay persona work grew out of the same Tragically Hip production." },
-        { "to": "belladonna", "why": "Archival stills to motion, for a Canadian music legend, on a custom pipeline." },
-        { "to": "1188", "why": "A decade of music-video craft is the eye behind the documentary's motion." }
+        { "to": "belladonna", "why": "Archival stills to motion, on a custom pipeline." },
+        { "to": "1188", "why": "Music-video craft behind the documentary's motion." }
       ]
     },
     {
@@ -50,8 +50,8 @@
       "media": ["assets/print-red-wall.jpg", "assets/print-rainbow.jpg"], "link": "creative.html#the-maker",
       "related": [
         { "to": "belladonna", "why": "The engine's cuts and analysis feed the visual companions." },
-        { "to": "personas", "why": "Corpus ingestion and retrieval are the same moves behind the persona work." },
-        { "to": "sentra-aml", "why": "Large-scale ingestion, indexing, and retrieval, one over an archive and one over transactions." }
+        { "to": "personas", "why": "Corpus ingestion and retrieval, shared with the persona work." },
+        { "to": "sentra-aml", "why": "Large-scale ingestion and retrieval, over an archive and over transactions." }
       ]
     },
     {
@@ -74,7 +74,7 @@
       "highlight": "MMVA wins · Drake, Started From the Bottom (BET Video of the Year)",
       "media": [], "link": "creative.html#films-1188",
       "related": [
-        { "to": "ndr", "why": "The music-video craft that became the documentary's motion eye." },
+        { "to": "ndr", "why": "Music-video craft, later the documentary's motion." },
         { "to": "broadcast", "why": "Same VFX-supervision discipline, moved from broadcast to music video." }
       ]
     },
@@ -98,7 +98,7 @@
       "highlight": "~4,000 shots · 26 episodes · early cloud rendering",
       "media": [], "link": "dev.html",
       "related": [
-        { "to": "conformer", "why": "The database-driven shot-management idea, thirty years on, now with generation in the loop." },
+        { "to": "conformer", "why": "Database-driven shot management, decades apart, now with generation." },
         { "to": "broadcast", "why": "The systems layer under the broadcast VFX work." }
       ]
     },
@@ -112,7 +112,7 @@
       "related": [
         { "to": "holy-city", "why": "The photogrammetry-and-delivery pipeline behind the Jerusalem twin." },
         { "to": "sharkwater", "why": "Stereo 360° capture and delivery, underwater." },
-        { "to": "spatial-captures", "why": "The capture-and-real-time lineage that runs into today's world models." }
+        { "to": "spatial-captures", "why": "Capture and real-time, carried into world models." }
       ]
     },
     {
@@ -125,7 +125,7 @@
       "related": [
         { "to": "ndr", "why": "The same frame-to-frame stability problem, later solved on a documentary scale." },
         { "to": "conformer", "why": "Holding a look and an identity steady across generated frames." },
-        { "to": "local-video-pipeline", "why": "Frozen-and-melted-motion detection descends from this problem." }
+        { "to": "local-video-pipeline", "why": "Frozen-and-melted-motion detection began here." }
       ]
     },
     {
@@ -137,7 +137,7 @@
       "media": [], "link": "dev.html",
       "related": [
         { "to": "personas", "why": "Voice cloning and conversational interfaces became the persona toolkit." },
-        { "to": "sentra-aml", "why": "The multi-agent orchestration thread starts here." },
+        { "to": "sentra-aml", "why": "Early multi-agent orchestration." },
         { "to": "the-maker", "why": "Corpus extraction and retrieval, first on a WordPress site, later on an archive." }
       ]
     },
@@ -149,11 +149,11 @@
       "highlight": "774 shots · 2,558 takes · Bruce McDonald's 1812",
       "media": ["assets/conformer-narrative-projects.jpg", "assets/conformer-agent-ui.jpg", "assets/materiality-michael.jpg"], "link": "dev.html#conformer",
       "related": [
-        { "to": "broadcast-pipelines", "why": "The database-driven shot-management idea, thirty years on." },
+        { "to": "broadcast-pipelines", "why": "Database-driven shot management, decades apart." },
         { "to": "dark-half", "why": "The same screenplay-to-shots idea, hardened for compliance and production." },
         { "to": "ai-alpha", "why": "Both run on Materiality, a Conformer deployment." },
         { "to": "style-transfer", "why": "Holding a face and a look steady across generated takes." },
-        { "to": "athena", "why": "Generative shot production, one to a timeline, one to room geometry." }
+        { "to": "athena", "why": "Generative production, to a timeline and to room geometry." }
       ]
     },
     {
@@ -176,7 +176,7 @@
       "highlight": "8 agents · 1.2M-transaction synthetic benchmark · WORM ledger",
       "media": ["assets/sentra-console.jpg"], "link": "dev.html#sentra",
       "related": [
-        { "to": "ai-alpha", "why": "Agent orchestration, synthetic evidence, and an audit trail, applied to compliance and to markets." },
+        { "to": "ai-alpha", "why": "Shared agent orchestration, synthetic data, and audit trail." },
         { "to": "evaluation-harnesses", "why": "The labeled AML benchmark gates detector precision in CI." },
         { "to": "dark-half", "why": "Compliance ladders and provenance ledgers, shared across domains." }
       ]
@@ -189,7 +189,7 @@
       "highlight": "Mean-CVaR optimizer · human-in-the-loop PM console",
       "media": ["assets/aialpha-console.jpg"], "link": "dev.html#ai-alpha",
       "related": [
-        { "to": "sentra-aml", "why": "The same agentic-research-plus-audit spine, aimed at markets instead of compliance." },
+        { "to": "sentra-aml", "why": "Same agentic research and audit trail, aimed at markets." },
         { "to": "conformer", "why": "Both run on Materiality, a Conformer deployment." },
         { "to": "evaluation-harnesses", "why": "Signals and detectors gated against ground truth." }
       ]
@@ -277,7 +277,7 @@
       "highlight": "270° projection · venue twin · ~$0.08 per 3D object",
       "media": ["assets/athena-silk.jpg", "assets/athena-surface-map.jpg"], "link": "creative.html#athena",
       "related": [
-        { "to": "conformer", "why": "Generative production, one to a timeline, one to real room geometry." },
+        { "to": "conformer", "why": "Generative production, to a timeline and to room geometry." },
         { "to": "spatial-captures", "why": "World models and real-time geometry, in a gallery." },
         { "to": "holy-city", "why": "Content against real spatial geometry." }
       ]
@@ -304,7 +304,7 @@
       "media": ["assets/holycity.jpg"], "link": "creative.html#holy-city",
       "related": [
         { "to": "stereo-pipelines", "why": "The photogrammetry-and-delivery pipeline behind the twin." },
-        { "to": "spatial-captures", "why": "Large-scale photogrammetry into real-time, the lineage into world models." },
+        { "to": "spatial-captures", "why": "Large-scale photogrammetry into real-time." },
         { "to": "athena", "why": "Content mapped against real spatial geometry." }
       ]
     },
@@ -384,7 +384,7 @@
       "highlight": "Photogrammetry to world models · real-time object captures",
       "media": ["assets/spatial-skull.jpg", "assets/spatial-samurai.jpg"], "link": "dev.html",
       "related": [
-        { "to": "holy-city", "why": "The large-scale photogrammetry that started the lineage." },
+        { "to": "holy-city", "why": "The large-scale photogrammetry, earlier." },
         { "to": "athena", "why": "World models and real geometry, into a gallery." },
         { "to": "stereo-pipelines", "why": "Capture-and-delivery engineering, into real-time." }
       ]

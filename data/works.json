@@ -6,25 +6,25 @@
     "schema": "id, title, year, category, disciplines[], role, summary, highlight, media[], link, related[{to, why}]"
   },
   "categories": {
-    "creative": {
-      "label": "Film, music & VFX",
-      "color": "#e0a24a"
+    "film": {
+      "label": "Film & music video",
+      "color": "#c88a2e"
     },
-    "immersive": {
-      "label": "Immersive & exhibition",
-      "color": "#45c4b0"
-    },
-    "ai": {
+    "genai": {
       "label": "Generative AI",
-      "color": "#e0563f"
+      "color": "#2f9e86"
     },
-    "systems": {
-      "label": "Agentic systems & pipelines",
-      "color": "#6d9fe0"
+    "agents": {
+      "label": "Agents",
+      "color": "#3f66c4"
     },
-    "art": {
-      "label": "Art & craft",
-      "color": "#b58bd6"
+    "fineart": {
+      "label": "Fine art",
+      "color": "#9a4bc0"
+    },
+    "craft": {
+      "label": "Craft",
+      "color": "#c0563a"
     }
   },
   "works": [
@@ -33,7 +33,7 @@
       "title": "The Tragically Hip: No Dress Rehearsal",
       "year": "2022–2024",
       "yearSort": 2024,
-      "category": "creative",
+      "category": "film",
       "disciplines": [
         "film",
         "animation",
@@ -97,7 +97,7 @@
       "title": "Belladonna Nocturne · Daniel Lanois",
       "year": "2024–2026",
       "yearSort": 2025,
-      "category": "creative",
+      "category": "film",
       "disciplines": [
         "music",
         "generative-ai",
@@ -167,7 +167,7 @@
       "title": "The Maker · Lanois Archive Engine",
       "year": "2024–present",
       "yearSort": 2025,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "audio",
         "agentic",
@@ -229,7 +229,7 @@
       "title": "Alannah Myles restoration",
       "year": "2024–2025",
       "yearSort": 2025,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "music",
@@ -284,7 +284,7 @@
       "title": "1188 Films / WEARE1188",
       "year": "2009–2021",
       "yearSort": 2015,
-      "category": "creative",
+      "category": "film",
       "disciplines": [
         "music",
         "vfx",
@@ -333,7 +333,7 @@
       "title": "Broadcast & documentary VFX",
       "year": "1997–2009",
       "yearSort": 2005,
-      "category": "creative",
+      "category": "film",
       "disciplines": [
         "vfx",
         "animation",
@@ -386,7 +386,7 @@
       "title": "Broadcast production pipelines",
       "year": "2003–2009",
       "yearSort": 2005,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "pipeline",
         "animation"
@@ -438,7 +438,7 @@
       "title": "Stereo, 360° and immersive pipelines",
       "year": "2015–2021",
       "yearSort": 2018,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "pipeline",
         "immersive",
@@ -497,7 +497,7 @@
       "title": "Temporal-coherence style transfer · River Tiber “Acid Test”",
       "year": "2016",
       "yearSort": 2016,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "music",
@@ -554,7 +554,7 @@
       "title": "Generative voice and early agents",
       "year": "2023",
       "yearSort": 2023,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "audio",
@@ -611,7 +611,7 @@
       "title": "Conformer · screenplay to shots",
       "year": "2024–present",
       "yearSort": 2025,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "generative-ai",
@@ -681,7 +681,7 @@
       "title": "Dark Half · Cream Productions",
       "year": "2026",
       "yearSort": 2026,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "generative-ai",
@@ -709,7 +709,7 @@
       "title": "Sentra AML platform",
       "year": "2024–2026",
       "yearSort": 2025,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "compliance",
@@ -769,7 +769,7 @@
       "title": "AI Alpha",
       "year": "2025–2026",
       "yearSort": 2026,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "research",
@@ -828,7 +828,7 @@
       "title": "Local video pipeline",
       "year": "2026",
       "yearSort": 2026,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "pipeline",
@@ -888,7 +888,7 @@
       "title": "Evaluation harnesses",
       "year": "2025–present",
       "yearSort": 2025,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "research",
@@ -919,7 +919,7 @@
       "title": "AI personas · Persona Forge",
       "year": "2024–present",
       "yearSort": 2025,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "audio",
@@ -955,7 +955,7 @@
       "title": "Shout × FIFA 2026 pipeline",
       "year": "2024–2025",
       "yearSort": 2025,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "pipeline"
@@ -981,7 +981,7 @@
       "title": "Kawartha Dairy × The Tragically Hip",
       "year": "2026",
       "yearSort": 2026,
-      "category": "creative",
+      "category": "film",
       "disciplines": [
         "generative-ai",
         "music",
@@ -1008,7 +1008,7 @@
       "title": "BirdNET field tool",
       "year": "2026",
       "yearSort": 2026,
-      "category": "systems",
+      "category": "agents",
       "disciplines": [
         "agentic",
         "pipeline",
@@ -1057,7 +1057,7 @@
       "title": "Athena · Design Exchange Toronto",
       "year": "2024–present",
       "yearSort": 2025,
-      "category": "immersive",
+      "category": "genai",
       "disciplines": [
         "immersive",
         "generative-ai",
@@ -1118,7 +1118,7 @@
       "title": "Spots of Light",
       "year": "2023–2024",
       "yearSort": 2023,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "volumetric",
@@ -1177,7 +1177,7 @@
       "title": "The Holy City",
       "year": "2016–2020",
       "yearSort": 2019,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "volumetric",
@@ -1240,7 +1240,7 @@
       "title": "MYRIAD: Where We Connect",
       "year": "2021",
       "yearSort": 2021,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "film"
@@ -1294,7 +1294,7 @@
       "title": "Sharkwater VR",
       "year": "2018",
       "yearSort": 2018,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "film",
@@ -1350,7 +1350,7 @@
       "title": "Body / Mind / Change",
       "year": "2013–2014",
       "yearSort": 2014,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "film",
@@ -1402,7 +1402,7 @@
       "title": "Cut-Off",
       "year": "2016",
       "yearSort": 2016,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "film"
@@ -1424,7 +1424,7 @@
       "title": "The Last Gift",
       "year": "2024–present",
       "yearSort": 2025,
-      "category": "immersive",
+      "category": "film",
       "disciplines": [
         "immersive",
         "volumetric",
@@ -1447,7 +1447,7 @@
       "title": "Spatial Harmony · Giant Steps",
       "year": "2025–2026",
       "yearSort": 2026,
-      "category": "art",
+      "category": "fineart",
       "disciplines": [
         "art",
         "immersive",
@@ -1470,7 +1470,7 @@
       "title": "Spatial captures & world models",
       "year": "2016–present",
       "yearSort": 2024,
-      "category": "immersive",
+      "category": "craft",
       "disciplines": [
         "immersive",
         "volumetric",
@@ -1527,7 +1527,7 @@
       "title": "Typewriter Keys",
       "year": "2024–2025",
       "yearSort": 2025,
-      "category": "art",
+      "category": "craft",
       "disciplines": [
         "art",
         "fabrication"
@@ -1551,7 +1551,7 @@
       "title": "Daydream AI Video Program · Cohort 3",
       "year": "2026",
       "yearSort": 2026,
-      "category": "ai",
+      "category": "genai",
       "disciplines": [
         "generative-ai",
         "research"

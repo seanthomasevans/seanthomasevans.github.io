@@ -170,7 +170,7 @@
 <script>
 (async () => {
   const { categories, works } = await (await fetch('data/works.json')).json();
-  const order = ['systems','ai','creative','immersive','art'];
+  const order = ['film','genai','agents','fineart','craft'];
   const byCat = {}; works.forEach(w => (byCat[w.category] = byCat[w.category] || []).push(w));
   const wl = document.getElementById('worklist');
   order.filter(c => byCat[c]).forEach(c => {

@@ -100,10 +100,7 @@ let embeds = null;
 try { embeds = await (await fetch('data/works-embeddings.json')).json(); } catch(e){ embeds = null; }
 let simEdges = [];
 try { simEdges = await (await fetch('data/works-sim.json')).json(); } catch(e){ simEdges = []; }
-const cats = data.categories;
-// luminous star tints (light, low-saturation, additive on black)
-const PALETTE = { creative:'#f0d199', immersive:'#93e0d3', ai:'#f0a189', systems:'#a6c0f2', art:'#cfa8ef' };
-Object.keys(cats).forEach(k => { if (PALETTE[k]) cats[k] = { ...cats[k], color: PALETTE[k] }; });
+const cats = data.categories;   // colours + labels come from works.json
 const works = data.works;
 const byId = Object.fromEntries(works.map(w=>[w.id,w]));
 
@@ -136,17 +133,19 @@ const sim = d3.forceSimulation(nodes)
   .force('x', d3.forceX(CX()).strength(0.035))
   .force('y', d3.forceY(CY()).strength(0.05));
 
-// ---- defs: translucent star orbs + soft glow (pure gradients, screen-blended, no filters)
+// ---- defs: points of light (small bright centred core + wide soft bloom), screen-blended, no filters
 const defs = svg.append('defs');
 Object.entries(cats).forEach(([k,v])=>{
-  const star = defs.append('radialGradient').attr('id','star-'+k).attr('cx','44%').attr('cy','42%').attr('r','66%');
-  star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',0.95);
-  star.append('stop').attr('offset','26%').attr('stop-color', v.color).attr('stop-opacity',0.82);
-  star.append('stop').attr('offset','66%').attr('stop-color', v.color).attr('stop-opacity',0.24);
+  // core: tiny intense white centre falling off fast to the tint, then to nothing (a point, not a shaded ball)
+  const star = defs.append('radialGradient').attr('id','star-'+k).attr('cx','50%').attr('cy','50%').attr('r','50%');
+  star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',1);
+  star.append('stop').attr('offset','16%').attr('stop-color','#ffffff').attr('stop-opacity',0.85);
+  star.append('stop').attr('offset','40%').attr('stop-color', v.color).attr('stop-opacity',0.5);
   star.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
+  // bloom: wide, faint, soft halo of the tint
   const gl = defs.append('radialGradient').attr('id','glow-'+k).attr('cx','50%').attr('cy','50%').attr('r','50%');
-  gl.append('stop').attr('offset','0%').attr('stop-color', v.color).attr('stop-opacity',0.34);
-  gl.append('stop').attr('offset','40%').attr('stop-color', v.color).attr('stop-opacity',0.1);
+  gl.append('stop').attr('offset','0%').attr('stop-color', v.color).attr('stop-opacity',0.32);
+  gl.append('stop').attr('offset','26%').attr('stop-color', v.color).attr('stop-opacity',0.12);
   gl.append('stop').attr('offset','100%').attr('stop-color', v.color).attr('stop-opacity',0);
 });
 
@@ -183,9 +182,9 @@ const particle = root.append('g').attr('class','particles').selectAll('circle').
 const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class','node').style('cursor','pointer')
   .attr('transform', d=> `translate(${d.x},${d.y})`);
 node.sort((a,b)=> a.z - b.z);
-node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*3).attr('fill', d=> `url(#glow-${d.category})`)
-  .attr('opacity', d=> 0.4 + d.z*0.3).style('pointer-events','none');
-node.append('circle').attr('class','core').attr('r', d=> RZ(d)*1.35).attr('fill', d=> `url(#star-${d.category})`);
+node.append('circle').attr('class','glow').attr('r', d=> RZ(d)*3.3).attr('fill', d=> `url(#glow-${d.category})`)
+  .attr('opacity', d=> 0.5 + d.z*0.28).style('pointer-events','none');
+node.append('circle').attr('class','core').attr('r', d=> RZ(d)*1.05).attr('fill', d=> `url(#star-${d.category})`);
 node.append('text')
   .text(d=> d.title.length>34 ? d.title.slice(0,32)+'…' : d.title)
   .attr('x', d=> RZ(d)+9).attr('y', 4)

@@ -23,7 +23,7 @@
   nav .links { margin-left:auto; display:flex; gap:26px; font-size:13px; letter-spacing:0.02em; }
   nav .links a { color:var(--muted); } nav .links a:hover, nav .links a.here { color:var(--text); }
 
-  #stage { position:fixed; inset:0; top:0; background: radial-gradient(ellipse 95% 82% at 56% 46%, #0e1830 0%, #0a0f1c 44%, #06070c 100%); }
+  #stage { position:fixed; inset:0; top:0; background: radial-gradient(ellipse 90% 78% at 54% 47%, #0b0b0d 0%, #040405 58%, #010101 100%); }
   #graph { width:100%; height:100%; display:block; cursor:grab; }
   #graph:active { cursor:grabbing; }
 
@@ -101,7 +101,7 @@ let simEdges = [];
 try { simEdges = await (await fetch('data/works-sim.json')).json(); } catch(e){ simEdges = []; }
 const cats = data.categories;
 // analogous cobalt-blue palette (cyan → azure → cobalt → indigo → violet)
-const PALETTE = { creative:'#28b6c6', immersive:'#2f8ce8', ai:'#3a57da', systems:'#6a4fd8', art:'#9a54d2' };
+const PALETTE = { creative:'#cf9a3e', immersive:'#3fae93', ai:'#d1584a', systems:'#5a7ed2', art:'#9a63c6' };
 Object.keys(cats).forEach(k => { if (PALETTE[k]) cats[k] = { ...cats[k], color: PALETTE[k] }; });
 const works = data.works;
 const byId = Object.fromEntries(works.map(w=>[w.id,w]));
@@ -137,46 +137,48 @@ const sim = d3.forceSimulation(nodes)
 
 // ---- ethereal defs: glow filters + per-category orb gradients
 const defs = svg.append('defs');
-defs.append('filter').attr('id','softglow').attr('x','-140%').attr('y','-140%').attr('width','380%').attr('height','380%')
-  .append('feGaussianBlur').attr('stdDeviation',11);
-const bloom = defs.append('filter').attr('id','bloom').attr('x','-90%').attr('y','-90%').attr('width','280%').attr('height','280%');
-bloom.append('feGaussianBlur').attr('stdDeviation',2.6).attr('result','b');
+defs.append('filter').attr('id','softglow').attr('x','-120%').attr('y','-120%').attr('width','340%').attr('height','340%')
+  .append('feGaussianBlur').attr('stdDeviation',6.5);
+const bloom = defs.append('filter').attr('id','bloom').attr('x','-80%').attr('y','-80%').attr('width','260%').attr('height','260%');
+bloom.append('feGaussianBlur').attr('stdDeviation',1.4).attr('result','b');
 const bmg = bloom.append('feMerge'); bmg.append('feMergeNode').attr('in','b'); bmg.append('feMergeNode').attr('in','SourceGraphic');
-const lg = defs.append('filter').attr('id','linkglow').attr('x','-40%').attr('y','-40%').attr('width','180%').attr('height','180%');
-lg.append('feGaussianBlur').attr('stdDeviation',1.5).attr('result','b');
+const lg = defs.append('filter').attr('id','linkglow').attr('x','-30%').attr('y','-30%').attr('width','160%').attr('height','160%');
+lg.append('feGaussianBlur').attr('stdDeviation',0.9).attr('result','b');
 const lmg = lg.append('feMerge'); lmg.append('feMergeNode').attr('in','b'); lmg.append('feMergeNode').attr('in','SourceGraphic');
 Object.entries(cats).forEach(([k,v])=>{
-  const g = defs.append('radialGradient').attr('id','orb-'+k).attr('cx','40%').attr('cy','35%').attr('r','70%');
-  g.append('stop').attr('offset','0%').attr('stop-color', d3.color(v.color).brighter(1.3)+'');
-  g.append('stop').attr('offset','52%').attr('stop-color', v.color);
-  g.append('stop').attr('offset','100%').attr('stop-color', d3.color(v.color).darker(0.75)+'');
+  const g = defs.append('radialGradient').attr('id','orb-'+k).attr('cx','38%').attr('cy','34%').attr('r','72%');
+  g.append('stop').attr('offset','0%').attr('stop-color', d3.color(v.color).brighter(0.9)+'');
+  g.append('stop').attr('offset','50%').attr('stop-color', v.color);
+  g.append('stop').attr('offset','100%').attr('stop-color', d3.color(v.color).darker(0.9)+'');
 });
 
-// ---- background atmosphere (fixed, behind the zoomable graph)
-const bg = svg.insert('g',':first-child').attr('class','bg');
+// ---- depth: each node gets a z (near ~1.35 … far ~0.72) for parallax and scale
 let _sd=1337; const rnd = ()=>{ _sd=(_sd*9301+49297)%233280; return _sd/233280; };
-const nebula = Object.values(cats).map((v,i)=>({ color:v.color, x:(0.26+0.14*i)*W, y:(0.30+0.12*((i*2)%4))*H }));
-bg.selectAll('circle.neb').data(nebula).join('circle').attr('class','neb')
-  .attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',320).attr('fill',d=>d.color).attr('opacity',0.045).attr('filter','url(#softglow)');
-const starData = d3.range(130).map(()=>({ x:rnd()*W, y:rnd()*H, r:0.4+rnd()*1.6, o:0.05+rnd()*0.35, ph:rnd()*6.283 }));
+nodes.forEach(n => { n.z = 0.72 + rnd()*0.62; n.pa = rnd()*6.283; n.pb = rnd()*6.283; });
+const RZ = d => R(d.id) * d.z;
+
+// ---- background: sparse faint starfield on true black
+const bg = svg.insert('g',':first-child').attr('class','bg');
+const starData = d3.range(80).map(()=>({ x:rnd()*W, y:rnd()*H, r:0.35+rnd()*1.0, o:0.03+rnd()*0.15, ph:rnd()*6.283 }));
 const star = bg.selectAll('circle.star').data(starData).join('circle').attr('class','star')
-  .attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',d=>d.r).attr('fill','#cfd6e6').attr('opacity',d=>d.o);
+  .attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',d=>d.r).attr('fill','#c8ccd6').attr('opacity',d=>d.o);
 
-// ---- links (luminous)
+// ---- links (thin, subtle)
 const link = root.append('g').attr('filter','url(#linkglow)').attr('stroke-linecap','round').selectAll('line').data(links).join('line')
-  .attr('stroke', d=> d.kind==='curated' ? '#5c5c55' : '#333330')
-  .attr('stroke-width', d=> d.kind==='curated' ? 1.2 : 0.8)
-  .attr('stroke-opacity', d=> d.kind==='curated' ? 0.5 : 0.26);
+  .attr('stroke', d=> d.kind==='curated' ? '#4a4a46' : '#2b2b28')
+  .attr('stroke-width', d=> d.kind==='curated' ? 1 : 0.7)
+  .attr('stroke-opacity', d=> d.kind==='curated' ? 0.42 : 0.2);
 
-// ---- nodes (glowing orbs: soft halo + luminous core)
+// ---- nodes (refined orbs, scaled by depth, nearer on top)
 const node = root.append('g').selectAll('g').data(nodes).join('g').attr('class','node').style('cursor','pointer');
-node.append('circle').attr('class','halo').attr('r', d=> R(d.id)*2.6).attr('fill', d=> cats[d.category].color)
-  .attr('opacity',0.22).attr('filter','url(#softglow)').style('pointer-events','none');
-node.append('circle').attr('class','core').attr('r', d=> R(d.id)).attr('fill', d=> `url(#orb-${d.category})`)
-  .attr('stroke','rgba(255,255,255,0.16)').attr('stroke-width',0.8).attr('filter','url(#bloom)');
+node.sort((a,b)=> a.z - b.z);
+node.append('circle').attr('class','halo').attr('r', d=> RZ(d)*1.75).attr('fill', d=> cats[d.category].color)
+  .attr('opacity', d=> 0.07 + d.z*0.05).attr('filter','url(#softglow)').style('pointer-events','none');
+node.append('circle').attr('class','core').attr('r', d=> RZ(d)).attr('fill', d=> `url(#orb-${d.category})`)
+  .attr('stroke','rgba(255,255,255,0.11)').attr('stroke-width',0.7).attr('filter','url(#bloom)');
 node.append('text')
   .text(d=> d.title.length>34 ? d.title.slice(0,32)+'…' : d.title)
-  .attr('x', d=> R(d.id)+9).attr('y', 4)
+  .attr('x', d=> RZ(d)+9).attr('y', 4)
   .attr('font-size','11.5px').attr('fill','var(--muted)').attr('font-family','var(--sans)')
   .style('pointer-events','none').attr('paint-order','stroke').attr('stroke','#0b0b0c').attr('stroke-width','3px');
 
@@ -188,8 +190,8 @@ let idle = true;
 function focus(id){
   idle = !id;
   node.select('.core').attr('opacity', d=> !id || d.id===id || nbr[id].has(d.id) ? 1 : 0.12)
-    .attr('stroke', d=> d.id===id ? '#fff' : 'rgba(255,255,255,0.16)').attr('stroke-width', d=> d.id===id?1.8:0.8);
-  node.select('.halo').attr('opacity', d=> !id ? 0.22 : (d.id===id ? 0.55 : nbr[id].has(d.id) ? 0.3 : 0.04));
+    .attr('stroke', d=> d.id===id ? '#fff' : 'rgba(255,255,255,0.11)').attr('stroke-width', d=> d.id===id?1.6:0.7);
+  node.select('.halo').attr('opacity', d=> !id ? (0.07+d.z*0.05) : (d.id===id ? 0.5 : nbr[id].has(d.id) ? 0.26 : 0.03));
   node.select('text').attr('fill', d=> !id ? 'var(--muted)' : (d.id===id||nbr[id].has(d.id)) ? 'var(--text)' : 'rgba(143,143,138,0.15)')
     .attr('font-weight', d=> d.id===id?'700':'400');
   link.attr('stroke-opacity', l=> !id ? (l.kind==='curated'?0.5:0.26) : ((l.source.id===id||l.target.id===id) ? 0.95 : 0.05))
@@ -202,23 +204,34 @@ node.on('click', (e,d)=>{ selected=d.id; focus(d.id); openDrawer(d); e.stopPropa
 d3.select('#graph').on('click', ()=>{ selected=null; focus(null); closeDrawer(); });
 
 node.call(d3.drag()
-  .on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(0.25).restart(); d.fx=d.x; d.fy=d.y; })
-  .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; })
-  .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+  .on('start',(e,d)=>{ if(!baseSet && !e.active) sim.alphaTarget(0.25).restart(); d.fx=d.x; d.fy=d.y; })
+  .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; d.bx=e.x; d.by=e.y; })
+  .on('end',(e,d)=>{ if(!baseSet && !e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
 
+let baseSet = false;
 sim.on('tick', ()=>{
+  if (baseSet) return;
   link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
   node.attr('transform', d=> `translate(${d.x},${d.y})`);
 });
 
-// ---- gentle life: star twinkle + orb breathing (no position change, edges stay attached)
+// ---- slow fluid parallax drift (nearer nodes larger and drifting more), edges follow
 const halo = node.select('.halo'), core = node.select('.core');
 let t0=null;
 requestAnimationFrame(function frame(ts){
   if(t0===null) t0=ts; const t=(ts-t0)/1000;
-  star.attr('opacity', d=> d.o*(0.45+0.55*Math.sin(t*0.8 + d.ph)));
-  core.attr('r', d=> R(d.id)*(1 + 0.05*Math.sin(t*0.85 + (d.index||0)*0.5)));
-  halo.attr('r', d=> R(d.id)*2.6*(1 + 0.07*Math.sin(t*0.6 + (d.index||0)*0.5)));
+  star.attr('opacity', d=> d.o*(0.5 + 0.5*Math.sin(t*0.35 + d.ph)));
+  if(baseSet){
+    for(const n of nodes){
+      const amp = 5 + n.z*8;   // depth parallax
+      n.x = n.bx + amp*(0.62*Math.sin(t*0.105 + n.pa) + 0.38*Math.sin(t*0.061 + n.pb));
+      n.y = n.by + amp*(0.62*Math.cos(t*0.089 + n.pb) + 0.38*Math.cos(t*0.053 + n.pa));
+    }
+    node.attr('transform', d=> `translate(${d.x},${d.y})`);
+    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+  }
+  core.attr('r', d=> RZ(d)*(1 + 0.022*Math.sin(t*0.28 + (d.index||0)*0.5)));
+  halo.attr('r', d=> RZ(d)*1.75*(1 + 0.03*Math.sin(t*0.2 + (d.index||0)*0.5)));
   requestAnimationFrame(frame);
 });
 
@@ -275,8 +288,8 @@ function applyRank(ranked){
   const best = top[0];
   idle = !set.size;
   node.select('.core').attr('opacity', d=> set.size? (set.has(d.id)?1:0.1):1)
-    .attr('stroke', d=> set.has(d.id)?'#fff':'rgba(255,255,255,0.16)').attr('stroke-width', d=> set.has(d.id)?1.8:0.8);
-  node.select('.halo').attr('opacity', d=> !set.size?0.22:(set.has(d.id)?0.55:0.04));
+    .attr('stroke', d=> set.has(d.id)?'#fff':'rgba(255,255,255,0.11)').attr('stroke-width', d=> set.has(d.id)?1.6:0.7);
+  node.select('.halo').attr('opacity', d=> !set.size?(0.07+d.z*0.05):(set.has(d.id)?0.5:0.03));
   node.select('text').attr('fill', d=> !set.size?'var(--muted)':(set.has(d.id)?'var(--text)':'rgba(143,143,138,0.13)'));
   link.attr('stroke-opacity', l=> set.size?0.04:(l.kind==='curated'?0.5:0.26));
   if(best && embeds){ const n=nodes.find(x=>x.id===best.id); if(n){ svg.transition().duration(600).call(d3.zoom().transform, d3.zoomIdentity.translate(W/2-n.x,H/2-n.y)); } }
@@ -300,9 +313,9 @@ q.addEventListener('input', ()=>{
   }, 240);
 });
 
-// initial settle then gentle stop
+// initial settle, then hand off to the fluid drift
 sim.alpha(0.9).restart();
-setTimeout(()=> sim.alphaTarget(0), 3500);
+setTimeout(()=>{ sim.alphaTarget(0); nodes.forEach(n=>{ n.bx=n.x; n.by=n.y; }); baseSet=true; }, 3800);
 
 // deep-link: explore.html#<id> selects and centres a work
 function openHash(){

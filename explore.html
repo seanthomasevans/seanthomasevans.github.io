@@ -142,9 +142,9 @@ nodes.forEach(n => {
   n.z = 0.72 + rnd()*0.62; n.pa = rnd()*6.283; n.pb = rnd()*6.283;
   // organic colour: category hue with a little natural drift, so no two stars are identical
   const h = d3.hsl(cats[n.category].color);
-  h.h = (h.h + (rnd()-0.5)*20 + 360) % 360;
-  h.s = Math.max(0.14, Math.min(1, h.s*(0.8 + rnd()*0.36)));
-  h.l = Math.max(0.22, Math.min(0.78, h.l*(0.84 + rnd()*0.32)));
+  h.h = (h.h + (rnd()-0.5)*8 + 360) % 360;                 // tight hue drift, stays on-category
+  h.s = Math.max(0.2, Math.min(1, h.s*(0.85 + rnd()*0.26)));
+  h.l = Math.max(0.28, Math.min(0.74, h.l*(0.9 + rnd()*0.22)));
   n.color = h.formatHex();
   const star = defs.append('radialGradient').attr('id','star-'+n.id).attr('cx','50%').attr('cy','50%').attr('r','50%');
   star.append('stop').attr('offset','0%').attr('stop-color','#ffffff').attr('stop-opacity',1);
@@ -213,7 +213,7 @@ function focus(id){
 node.on('mouseenter', (e,d)=> focus(d.id)).on('mouseleave', ()=> { if(!selected) focus(null); });
 
 let selected = null;
-node.on('click', (e,d)=>{ selected=d.id; focus(d.id); openDrawer(d); e.stopPropagation(); });
+node.on('click', (e,d)=>{ selected=d.id; focus(d.id); openDrawer(d); centerOn(d); e.stopPropagation(); });
 d3.select('#graph').on('click', ()=>{ selected=null; focus(null); closeDrawer(); });
 
 // drag just repositions a node's drift centre (layout is pre-settled, sim is idle)
@@ -242,7 +242,15 @@ requestAnimationFrame(function frame(ts){
 });
 
 // zoom/pan
-svg.call(d3.zoom().scaleExtent([0.4,3.5]).on('zoom', e=> root.attr('transform', e.transform)));
+const zoom = d3.zoom().scaleExtent([0.4,3.5]).on('zoom', e=> root.attr('transform', e.transform));
+svg.call(zoom);
+// bring a node into the visible area (the drawer covers the right side)
+function centerOn(n){
+  if(!n) return;
+  const dw = Math.min(440, W*0.9);
+  const cx = (W - dw)/2, cy = (H + 60)/2, k = 1.2;
+  svg.transition().duration(650).call(zoom.transform, d3.zoomIdentity.translate(cx - n.x*k, cy - n.y*k).scale(k));
+}
 window.addEventListener('resize', ()=>{ W=innerWidth; H=innerHeight; svg.attr('viewBox',[0,0,W,H]); });
 
 // ---- legend
@@ -276,7 +284,7 @@ function openDrawer(d){
     ${media?`<div class="media">${media}</div>`:''}
     ${d.link?`<a class="open-link" href="${d.link}">Open in context →</a>`:''}
     ${rels?`<div class="rel-h">Connected work</div><div class="rel">${rels}</div>`:''}`;
-  dbody.querySelectorAll('[data-go]').forEach(a=> a.onclick=()=>{ const t=byId[a.dataset.go]; selected=t.id; focus(t.id); openDrawer(t); const n=nodes.find(x=>x.id===t.id); if(n){ const tr=d3.zoomIdentity.translate(W/2-n.x,H/2-n.y); svg.transition().duration(500).call(d3.zoom().transform, tr);} });
+  dbody.querySelectorAll('[data-go]').forEach(a=> a.onclick=()=>{ const t=byId[a.dataset.go]; selected=t.id; focus(t.id); openDrawer(t); centerOn(nodes.find(x=>x.id===t.id)); });
   drawer.classList.add('open');
 }
 
@@ -298,7 +306,7 @@ function applyRank(ranked){
   node.select('.glow').attr('opacity', d=> !set.size?(0.45+d.z*0.32):(set.has(d.id)?0.9:0.05));
   node.select('text').attr('fill', d=> !set.size?'var(--muted)':(set.has(d.id)?'var(--text)':'rgba(143,143,138,0.13)'));
   link.attr('stroke-opacity', l=> set.size?0.04:(l.kind==='curated'?0.5:0.26));
-  if(best && embeds){ const n=nodes.find(x=>x.id===best.id); if(n){ svg.transition().duration(600).call(d3.zoom().transform, d3.zoomIdentity.translate(W/2-n.x,H/2-n.y)); } }
+  if(best && embeds){ const n=nodes.find(x=>x.id===best.id); if(n){ svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity.translate(W/2-n.x,H/2-n.y)); } }
 }
 let timer=null, seq=0;
 q.addEventListener('input', ()=>{
@@ -322,10 +330,7 @@ q.addEventListener('input', ()=>{
 // deep-link: explore.html#<id> selects and centres a work
 function openHash(){
   const id = decodeURIComponent(location.hash.slice(1));
-  if(id && byId[id]){ selected=id; focus(id); openDrawer(byId[id]);
-    const n = nodes.find(x=>x.id===id);
-    if(n) svg.transition().duration(700).call(d3.zoom().transform, d3.zoomIdentity.translate(W/2-n.x, H/2-n.y));
-  }
+  if(id && byId[id]){ selected=id; focus(id); openDrawer(byId[id]); centerOn(nodes.find(x=>x.id===id)); }
 }
 window.addEventListener('hashchange', openHash);
 setTimeout(openHash, 250);

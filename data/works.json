@@ -546,7 +546,7 @@
             "River Tiber, “Acid Test”"
           ]
         ],
-        "body": "<p>The first machine-learning work: solving <b>temporal coherence for neural style transfer</b> on the\n      music video “Acid Test” for River Tiber, keeping a painted look stable frame to frame instead\n      of boiling. The video won an MMVA. Style transfer in 2016 was barely usable for motion; getting it to hold\n      across a cut was the whole problem.</p>"
+        "body": "<p>The first machine-learning work: solving <b>temporal coherence for neural style transfer</b> on the\n      music video “Acid Test” for River Tiber, keeping a painted look stable frame to frame instead\n      of boiling. The video won an MMVA.</p>"
       }
     },
     {

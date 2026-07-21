@@ -49,9 +49,10 @@
   .body h2 { font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; scroll-margin-top: 84px; }
   .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 62ch; }
   .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
-  .body .figs.one { grid-template-columns: 1fr; max-width: 720px; }
+  .body .figs.one { grid-template-columns: 1fr; }
   .body figure { border: 1px solid var(--line); }
-  .body figure img { width: 100%; height: auto; }
+  .body figure img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; }
+  .body .figs.one figure img { aspect-ratio: 2/1; }
   .body .cap { margin-top: 8px; font-size: 12px; color: var(--faint); }
 
   footer { border-top: 1px solid var(--line); padding: 48px 0 72px; font-size: 12.5px; color: var(--faint); }
@@ -79,7 +80,7 @@
   from broadcast VFX supervision to the current visual companions for Daniel Lanois.</p>
 </div></header>
 
-<div id="work-entries" data-page="creative" data-sections='["Music &amp; film · recent","Immersive &amp; exhibition","Direction &amp; VFX · earlier"]'></div>
+<div id="work-entries" data-page="creative" data-sections='["Music &amp; film · recent","Immersive &amp; exhibition","Art &amp; fabrication","Direction &amp; VFX · earlier"]'></div>
 
 <div class="catsec"><div class="wrap">
   <div class="sec-label">Art &amp; craft</div>

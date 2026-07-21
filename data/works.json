@@ -1571,6 +1571,176 @@
           "why": "Generative video tooling and product feedback."
         }
       ]
+    },
+    {
+      "id": "drever-eagle",
+      "title": "Eagle v1 · Dean Drever",
+      "year": "2017",
+      "yearSort": 2017,
+      "category": "craft",
+      "disciplines": [
+        "art",
+        "fabrication",
+        "3d",
+        "photogrammetry",
+        "vr"
+      ],
+      "role": "Digital sculpture, previs & fabrication pipeline",
+      "summary": "Dean Drever's Eagle v1 at 1 The Esplanade, Toronto: ZBrush sculpture developed from Drever's sketches, photogrammetry of the site, and a sun study mapping shadow fall by time of day across the year, with the full material treatment previewed in real-time VR so Drever could set how the eagle comes out of the wall. The finished sculpture is 11,600 stacked sheets of paper.",
+      "highlight": "11,600 stacked sheets of paper · Toronto Urban Design Award nominee",
+      "media": [
+        "assets/drever-eagle-1.jpg",
+        "assets/drever-eagle-2.jpg"
+      ],
+      "link": "creative.html#drever-eagle",
+      "related": [
+        {
+          "to": "spatial-captures",
+          "why": "The same photogrammetry and real-time capture toolkit."
+        },
+        {
+          "to": "drever-lovebears",
+          "why": "The Drever fabrication practice, in copper."
+        },
+        {
+          "to": "typewriter",
+          "why": "The paper-and-patience side of the same practice."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Art & fabrication",
+        "order": 1,
+        "anchor": "drever-eagle",
+        "title": "Eagle v1 · Dean Drever",
+        "meta": [
+          [
+            "Year",
+            "2017"
+          ],
+          [
+            "Artist",
+            "Dean Drever"
+          ],
+          [
+            "Location",
+            "1 The Esplanade, Toronto"
+          ],
+          [
+            "Role",
+            "Digital sculpture, previs, fabrication pipeline"
+          ]
+        ],
+        "body": "<p>For Dean Drever’s <b>Eagle v1</b> at 1 The Esplanade in Toronto: ZBrush sculpture developed from Drever’s sketches, photogrammetry of the site, and a sun survey mapping where shadows fall by time of day across the year. The full material treatment was previewed in <b>real-time virtual reality</b>, so Drever could set exactly how the eagle comes out of the wall.</p><p>The finished sculpture is <b>11,600 stacked sheets of paper</b>. A stainless-steel version was engineered but has not yet been produced. Commissioned through Toronto’s Percent for Public Art program; nominated for a Toronto Urban Design Award in 2019.</p><div class=\"figs\"><figure><img src=\"assets/drever-eagle-1.jpg\" alt=\"Eagle v1 by Dean Drever at 1 The Esplanade, Toronto\" loading=\"lazy\"></figure><figure><img src=\"assets/drever-eagle-2.jpg\" alt=\"Eagle v1, detail\" loading=\"lazy\"></figure></div>"
+      }
+    },
+    {
+      "id": "drever-lovebears",
+      "title": "Love Bears · Dean Drever",
+      "year": "2019",
+      "yearSort": 2019,
+      "category": "craft",
+      "disciplines": [
+        "art",
+        "fabrication",
+        "3d",
+        "photogrammetry"
+      ],
+      "role": "Digital sculpture & 3D pipeline",
+      "summary": "Dean Drever's Love Bears, a male and female pair in copper. Photogrammetry of Drever's wax sculpt and of Dean's and Chelsea's faces, ZBrush work mapping the face scans onto the body captures, scan cleanup, lost-wax printing of the maquettes, and preparation for the large-scale art objects.",
+      "highlight": "Faces mapped onto the bears by photogrammetry",
+      "media": [
+        "assets/drever-lovebears.jpg"
+      ],
+      "link": "creative.html#drever-lovebears",
+      "related": [
+        {
+          "to": "drever-eagle",
+          "why": "The Drever practice: digital sculpture into physical objects."
+        },
+        {
+          "to": "spatial-captures",
+          "why": "Photogrammetry as a sculptural tool."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Art & fabrication",
+        "order": 2,
+        "anchor": "drever-lovebears",
+        "title": "Love Bears · Dean Drever",
+        "meta": [
+          [
+            "Year",
+            "2019"
+          ],
+          [
+            "Artist",
+            "Dean Drever"
+          ],
+          [
+            "Material",
+            "Copper"
+          ],
+          [
+            "Role",
+            "Digital sculpture, 3D pipeline"
+          ]
+        ],
+        "body": "<p>Dean Drever’s <b>Love Bears</b>, a male and female pair in copper. The pipeline ran <b>photogrammetry of Drever’s wax sculpt</b> and of Dean’s and Chelsea’s faces, ZBrush work mapping the face scans onto the body captures, cleanup of the scans, <b>lost-wax printing of the maquettes</b>, and preparation for the large-scale art objects.</p><div class=\"figs one\"><figure><img src=\"assets/drever-lovebears.jpg\" alt=\"Love Bears by Dean Drever, copper pair\" loading=\"lazy\"></figure></div>"
+      }
+    },
+    {
+      "id": "drever-pth",
+      "title": "Pass the Hat · Dean Drever",
+      "year": "2014",
+      "yearSort": 2014,
+      "category": "craft",
+      "disciplines": [
+        "art",
+        "fabrication",
+        "cad"
+      ],
+      "role": "Fabrication pipeline",
+      "summary": "A custom pipeline for generating the object for Dean Drever's Pass the Hat: automated cut-sheet generation driven by a purpose-built SolidWorks extension. Shown with MKG127 at Villa Toronto.",
+      "highlight": "A SolidWorks extension built for one sculpture",
+      "media": [
+        "assets/drever-pth-1.jpg",
+        "assets/drever-pth-2.jpg"
+      ],
+      "link": "creative.html#drever-pth",
+      "related": [
+        {
+          "to": "drever-eagle",
+          "why": "The Drever practice: generated geometry into physical fabrication."
+        }
+      ],
+      "page": {
+        "on": "creative",
+        "section": "Art & fabrication",
+        "order": 3,
+        "anchor": "drever-pth",
+        "title": "Pass the Hat · Dean Drever",
+        "meta": [
+          [
+            "Year",
+            "2014"
+          ],
+          [
+            "Artist",
+            "Dean Drever"
+          ],
+          [
+            "Shown",
+            "Villa Toronto · MKG127"
+          ],
+          [
+            "Role",
+            "Fabrication pipeline"
+          ]
+        ],
+        "body": "<p>A custom pipeline for generating the object for Dean Drever’s <b>Pass the Hat</b>: automated <b>cut-sheet generation</b> driven by a purpose-built <b>SolidWorks extension</b>. Shown with MKG127 at Villa Toronto.</p><div class=\"figs\"><figure><img src=\"assets/drever-pth-1.jpg\" alt=\"Pass the Hat by Dean Drever, installation view\" loading=\"lazy\"></figure><figure><img src=\"assets/drever-pth-2.jpg\" alt=\"Pass the Hat by Dean Drever\" loading=\"lazy\"></figure></div>"
+      }
     }
   ]
 }

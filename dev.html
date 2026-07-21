@@ -52,9 +52,10 @@
   .body p { margin-top: 14px; color: var(--muted); font-size: 16px; line-height: 1.58; max-width: 66ch; }
   .body p b { color: var(--text); font-weight: 600; }
   .body .figs { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
-  .body .figs.one { grid-template-columns: 1fr; max-width: 760px; }
+  .body .figs.one { grid-template-columns: 1fr; }
   .body figure { border: 1px solid var(--line); }
-  .body figure img { width: 100%; height: auto; }
+  .body figure img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; }
+  .body .figs.one figure img { aspect-ratio: 2/1; }
   .body .cap { margin-top: 8px; font-size: 12px; color: var(--faint); }
   .body .live { margin-top: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
   .body .live .obj { border: 1px solid var(--line); }
@@ -119,40 +120,6 @@
     <div class="grp">
       <h3>Stack</h3>
       <p>Python, FastAPI, SQLAlchemy, Pydantic, Hono, Vite, React, TypeScript, PostgreSQL, Redis, Azure with hash-chained audit logging for regulated workloads.</p>
-    </div>
-  </div>
-</div></div>
-
-<div class="catsec"><div class="wrap">
-  <div class="sec-label">Art &amp; craft</div>
-  <div class="sec-note">The hands-on craft alongside the systems, from post-production finishing to sound, electronics, and physical fabrication.</div>
-  <div class="found">
-    <div class="grp">
-      <h3>Direction &amp; post</h3>
-      <p>Animation direction, editorial and colour (Premiere, DaVinci Resolve), compositing and matte painting, and photoreal CGI.</p>
-    </div>
-    <div class="grp">
-      <h3>Design &amp; type</h3>
-      <p>Typography and title design, projection design, and fine-art print production. Digital art support with
-      <a href="https://www.n4nigelscott.com/" target="_blank" rel="noopener">Nigel Scott</a>: Photoshop and Procreate, scanning and media capture, and finishing and pipeline workflow.</p>
-    </div>
-    <div class="grp">
-      <h3>Sound design</h3>
-      <p>Sound design and audio craft, stem separation, harmonic analysis, and mix finishing.</p>
-    </div>
-    <div class="grp">
-      <h3>Music</h3>
-      <p>Performance rigs for guitar and other instruments, synthesizer design and implementation, freeze and sustain setups, and audio-plugin development, including a PT93 clone.</p>
-    </div>
-    <div class="grp">
-      <h3>Electronics</h3>
-      <p>Electronics and hardware design, audio studio equipment and performance interfaces, and digital model capture and implementation: RAVE, NAM, and impulse-response capture and management.</p>
-    </div>
-    <div class="grp">
-      <h3>Fabrication</h3>
-      <p>3D printing and physical fabrication. Paper-sculpture fabrication for artist
-      <a href="https://www.deandreverstudio.com/" target="_blank" rel="noopener">Dean Drever</a>, the eagle and
-      the bears: a large edition in card stock and a smaller, tighter-tolerance one on regular paper.</p>
     </div>
   </div>
 </div></div>

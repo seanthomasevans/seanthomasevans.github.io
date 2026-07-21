@@ -89,7 +89,7 @@
             "TIFF 2024"
           ]
         ],
-        "body": "<p>Animation Director on the four-part documentary. A proprietary pipeline turned thousands of archival\n      photographs into 4K motion, chaining models for face restoration, depth synthesis, and temporal\n      interpolation. World premiere at TIFF 2024; seven Canadian Screen Award nominations.</p>\n<div class=\"figs one\" style=\"max-width:360px;\">\n<figure><img alt=\"The Tragically Hip: No Dress Rehearsal, official poster\" src=\"assets/ndr-poster.jpg\"/></figure>\n</div>"
+        "body": "<p>Animation Director on the four-part documentary. A proprietary pipeline turned thousands of archival\n      photographs into 4K motion, chaining models for face restoration, depth synthesis, and temporal\n      interpolation. World premiere at TIFF 2024; seven Canadian Screen Award nominations.</p>\n<div class=\"figs poster\">\n<figure><img alt=\"The Tragically Hip: No Dress Rehearsal, official poster\" src=\"assets/ndr-poster.jpg\"/></figure>\n</div>"
       }
     },
     {
@@ -1169,7 +1169,7 @@
             "Venice VR, SIGGRAPH VR Theater"
           ]
         ],
-        "body": "<p>A volumetric documentary on a soldier’s journey from blindness to restored sight, an Israel and\n      Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian Screen\n      Award nominee.</p>\n<div class=\"figs one\" style=\"max-width:340px;\">\n<figure><img alt=\"Spots of Light poster\" src=\"assets/legacy-05.jpg\"/></figure>\n</div>"
+        "body": "<p>A volumetric documentary on a soldier’s journey from blindness to restored sight, an Israel and\n      Canada co-production. Venice VR 2023, FIPADOC Best Immersive, SIGGRAPH VR Theater 2024, Canadian Screen\n      Award nominee.</p>\n<div class=\"figs poster\">\n<figure><img alt=\"Spots of Light poster\" src=\"assets/legacy-05.jpg\"/></figure>\n</div>"
       }
     },
     {
